@@ -9,7 +9,7 @@ export default function Home() {
 
   if (authenticated === true) {
     const UserId = localStorage.getItem('UserID');
-    console.log(UserId);
+    console.debug(UserId);
   }
 
   useEffect(() => {
