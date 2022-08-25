@@ -2,44 +2,46 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  background: #E7A66B;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  img{
+    position: relative;
+    top: 150px;
+  }
+
 `;
 
 export const Content = styled.div`
   width: 100%;
   max-width: 500px;
+  background: #DF8D53;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 16px;
-  border: 2px solid #fbbd51;
-  border-radius: 8px;
-  padding: 16px;
+  padding: 40px 0;
 
   h1{
+    color: #FFFFDE;
+    font-size: 26px;
     margin-bottom: 16px;
   }
 
-  input{
-    margin-top: 16px;
-    width: 50%;
-    height: 32px;
-  }
-
-  button{
-    margin-top: 24px;
-    height: 40px;
-    border: none;
-    padding: 0 16px;
-    font-size: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  span{
+    color: #FFFFDE;
     font-weight: bold;
-    border-radius: 4px;
-    background: #fbbd51;
+    font-size: 14px;
   }
+`;
+
+export const ButtonArea = styled.div`
+  display: flex;
 `;
