@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const UserId = localStorage.getItem('UserID');
-      const url = `http://localhost:3001/users/animals/${UserId}`;
+      const url = `https://api-petverso.herokuapp.com/users/animals/${UserId}`;
 
       try {
         const response = await fetch(url);
