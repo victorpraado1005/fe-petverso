@@ -44,4 +44,5 @@ export const Content = styled.div`
 
 export const ButtonArea = styled.div`
   display: flex;
+  margin-top: 24px;
 `;

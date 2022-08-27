@@ -44,19 +44,25 @@ export default function Login() {
       return;
     }
 
-    if (!email) {
+    if (!email && !password) {
+      setError({ field: 'email', message: 'Preencher campo de e-mail' });
+      setError({ field: 'senha', message: 'Preencher campo de senha' });
       return;
     }
 
+    if (!email) {
+      return setError({ field: 'email', message: 'Preencher campo de e-mail' });
+    }
+
     if (!password) {
-      return;
+      return setError({ field: 'senha', message: 'Preencher campo de senha' });
     }
 
     await login(email, password);
 
     const user = localStorage.getItem('UserID');
     if (!user) {
-      console.log('E-mail ou senha estão incorretos');
+      document.getElementById('senha').style.display = 'block';
     }
   }
 
@@ -65,6 +71,17 @@ export default function Login() {
       <img src={Logo} alt="" />
       <Content>
         <h1>Login</h1>
+        <p
+          id="senha"
+          style={{
+            display: 'none',
+            color: 'red',
+            marginBottom: '10px',
+            fontWeight: 'bold',
+          }}
+        >
+          E-mail ou senha incorretos
+        </p>
         <FormGroup error={getErrorMessageByFieldName('email')}>
           <span>E-mail:</span>
           <Input

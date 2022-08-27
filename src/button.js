@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default styled.button`
-    margin-top: 24px;
     width: 105px;
     height: 32px;
     border: none;

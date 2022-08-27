@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: #F6F5FC;
+    background: #FFFFDE;
     font-size: 16px;
     margin: auto;
   }
