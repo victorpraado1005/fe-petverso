@@ -3,8 +3,9 @@ import { useContext } from 'react';
 import { Context } from '../../Context/AuthContext';
 
 import Header from '../../Components/Header';
-import Animal from '../../Components/Animal';
 import WelcomeSection from '../../Components/WelcomeSection';
+import Animal from '../../Components/Animal';
+import Footer from '../../Components/Footer';
 
 export default function Home() {
   const { authenticated } = useContext(Context);
@@ -19,6 +20,7 @@ export default function Home() {
       <Header />
       <WelcomeSection />
       <Animal />
+      <Footer />
     </>
   );
 }

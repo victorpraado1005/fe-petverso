@@ -11,7 +11,7 @@ export const Container = styled.main`
 
   img{
     position: relative;
-    top: 150px;
+    top: 100px;
   }
 
 `;
