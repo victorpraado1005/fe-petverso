@@ -4,6 +4,7 @@ export const Container = styled.footer`
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  top: 92%;
   width: 100%;
   max-width: 500px;
   height: 55px;

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { Container, GridArea, Card } from './style';
 
 import Button from '../../button';
@@ -51,7 +53,11 @@ export default function Animal() {
               </span>
             </div>
             <div className="button-details">
-              <Button type="button">Detalhes</Button>
+              <Button type="button">
+                <Link to={`/editAnimal/${animal.id}`}>
+                  Detalhes
+                </Link>
+              </Button>
             </div>
           </Card>
         ))}

@@ -58,4 +58,10 @@ export const Card = styled.div`
       text-align: center;
     }
 
+    a{
+      text-decoration: none;
+      cursor: pointer;
+      color: #EFBF82;
+    }
+
 `;
