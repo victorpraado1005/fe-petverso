@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Container, GridArea, Card } from './style';
+import {
+  Container, TitleContainer, GridArea, Card,
+} from './style';
 
 import Button from '../../button';
 
@@ -28,7 +30,14 @@ export default function Animal() {
 
   return (
     <Container>
-      <h1>Meus Animais:</h1>
+      <TitleContainer>
+        <h1>Meus Animais:</h1>
+        <Button>
+          <Link to="/addAnimal">
+            + Adicionar
+          </Link>
+        </Button>
+      </TitleContainer>
       <GridArea>
         {animals.map((animal) => (
           <Card key={animal.id}>

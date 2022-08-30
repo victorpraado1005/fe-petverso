@@ -15,12 +15,35 @@ export const Container = styled.div`
     }
 `;
 
+export const TitleContainer = styled.div`
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0px 60px;
+
+    a {
+      text-decoration: none;
+      color: #FFFFDE;
+      font-size: 14px;
+    }
+
+    button{
+      background: #DF8D53;
+      height: 35px;
+      width: 130px;
+    }
+`;
+
 export const GridArea = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   place-items: center;
-  gap: 20px;
+  /* gap: 20px; */
+  row-gap: 40px;
 `;
 
 export const Card = styled.div`

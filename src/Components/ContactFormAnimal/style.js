@@ -6,14 +6,23 @@ export const Card = styled.div`
   margin: 0 auto;
   background: #DF8D53;
   padding: 16px;
-  margin-top: 40px;
+  margin-top: 25px;
   border-radius: 12px;
+
+  img{
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 10px;
+    left: 0px;
+  }
 
   h1{
     color: #FFFFDE;
-    margin-bottom: 24px;
     text-align: center;
+    margin-bottom: 20px;
   }
+
 `;
 
 export const FormArea = styled.div`
