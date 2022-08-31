@@ -7,6 +7,7 @@ import {
 } from './style';
 
 import Button from '../../button';
+import AnimalsService from '../../services/AnimalsService';
 
 export default function Animal() {
   const UserID = localStorage.getItem('UserID');
@@ -14,14 +15,10 @@ export default function Animal() {
 
   useEffect(() => {
     (async () => {
-      const url = `https://api-petverso.herokuapp.com/users/animals/${UserID}`;
-
       try {
-        const response = await fetch(url);
-        if (response.status === 200) {
-          const data = await response.json();
-          setAnimals(data);
-        }
+        const AnimalsList = await AnimalsService.listAnimals(UserID);
+
+        setAnimals(AnimalsList);
       } catch (error) {
         console.log(error.message);
       }
