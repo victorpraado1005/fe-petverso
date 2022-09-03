@@ -10,7 +10,7 @@ class AnimalsService {
   }
 
   async createAnimal(animal) {
-    return this.httpClient.post('/users/animals', animal);
+    return this.httpClient.post('/animals', animal);
   }
 }
 

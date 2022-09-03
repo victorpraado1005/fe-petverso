@@ -16,27 +16,15 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {
-    errors, setError, removeError, getErrorMessageByFieldName,
+    errors, setError, getErrorMessageByFieldName,
   } = useErrors();
 
   function handleNameChange(event) {
     setEmail(event.target.value);
-
-    if (!event.target.value) {
-      setError({ field: 'email', message: 'Preencher campo de e-mail' });
-    } else {
-      removeError('senha');
-    }
   }
 
   function handlePasswordChange(event) {
     setPassword(event.target.value);
-
-    if (!event.target.value) {
-      setError({ field: 'senha', message: 'Preencher campo de senha' });
-    } else {
-      removeError('name');
-    }
   }
 
   async function handleLogin() {

@@ -15,7 +15,7 @@ import Select from '../../select';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
-export default function ContactFormAnimal({ titleLabel, buttonLabel }) {
+export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit }) {
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [breed, setBreed] = useState('');
@@ -74,7 +74,7 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel }) {
       return;
     }
 
-    console.log({
+    onSubmit({
       name, breed, species, nickName, weigth, lenght, gender,
     });
   }
@@ -157,4 +157,5 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel }) {
 ContactFormAnimal.propTypes = {
   titleLabel: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
