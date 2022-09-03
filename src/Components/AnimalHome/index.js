@@ -9,7 +9,7 @@ import {
 import Button from '../../button';
 import AnimalsService from '../../services/AnimalsService';
 
-export default function Animal() {
+export default function AnimalHome() {
   const UserID = localStorage.getItem('UserID');
   const [animals, setAnimals] = useState([]);
 

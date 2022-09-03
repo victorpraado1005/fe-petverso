@@ -71,6 +71,14 @@ export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
     onSubmit({
       name, breed, species, nickName, weigth, lenght, gender,
     });
+
+    setName('');
+    setBreed('');
+    setSpecies('');
+    setGender('');
+    setNickName('');
+    setWeight('');
+    setLenght('');
   }
 
   return (

@@ -4,7 +4,7 @@ import { Context } from '../../Context/AuthContext';
 
 import Header from '../../Components/Header';
 import WelcomeSection from '../../Components/WelcomeSection';
-import Animal from '../../Components/Animal';
+import AnimalHome from '../../Components/AnimalHome';
 import Footer from '../../Components/Footer';
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Header />
       <WelcomeSection />
-      <Animal />
+      <AnimalHome />
       <Footer />
     </>
   );
