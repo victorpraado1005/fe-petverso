@@ -16,7 +16,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {
-    errors, setError, getErrorMessageByFieldName,
+    setError, getErrorMessageByFieldName,
   } = useErrors();
 
   function handleNameChange(event) {
@@ -28,10 +28,6 @@ export default function Login() {
   }
 
   async function handleLogin() {
-    if (errors.length > 0) {
-      return;
-    }
-
     if (!email && !password) {
       setError({ field: 'email', message: 'Preencher campo de e-mail' });
       setError({ field: 'senha', message: 'Preencher campo de senha' });

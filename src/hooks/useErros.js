@@ -22,11 +22,15 @@ export default function useErrors() {
     ));
   }
 
+  function removeAllErrors() {
+    return errors.splice(0, errors.length);
+  }
+
   function getErrorMessageByFieldName(fieldName) {
     return errors.find((error) => error.field === fieldName)?.message;
   }
 
   return {
-    errors, setError, removeError, getErrorMessageByFieldName,
+    errors, setError, removeError, removeAllErrors, getErrorMessageByFieldName,
   };
 }

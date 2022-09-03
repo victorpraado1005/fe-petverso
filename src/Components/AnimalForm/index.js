@@ -15,7 +15,7 @@ import Select from '../../select';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
-export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit }) {
+export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [breed, setBreed] = useState('');
@@ -24,27 +24,15 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit })
   const [weigth, setWeight] = useState('');
   const [lenght, setLenght] = useState('');
   const {
-    errors, setError, removeError, getErrorMessageByFieldName,
+    setError, removeAllErrors, getErrorMessageByFieldName,
   } = useErrors();
 
   function handleNameChange(event) {
     setName(event.target.value);
-
-    if (!event.target.value) {
-      setError({ field: 'nome', message: 'Preencher campo de nome' });
-    } else {
-      removeError('breed');
-    }
   }
 
   function handleBreedChange(event) {
     setBreed(event.target.value);
-
-    if (!event.target.value) {
-      setError({ field: 'breed', message: 'Preencher campo de raça' });
-    } else {
-      removeError('breed');
-    }
   }
 
   function handleNickNameChange(event) {
@@ -62,16 +50,22 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit })
   function handleSubmit(event) {
     event.preventDefault();
 
+    removeAllErrors();
+
+    if (!name) {
+      return setError({ field: 'name', message: 'Preencher campo de nome' });
+    }
+
     if (!species) {
-      return console.log('Preencher campo de especie');
+      return setError({ field: 'species', message: 'Preencher campo de espécie' });
+    }
+
+    if (!breed) {
+      return setError({ field: 'breed', message: 'Preencher campo de raça' });
     }
 
     if (!gender) {
-      return console.log('Preencher campo de genero');
-    }
-
-    if (errors.length > 0) {
-      return;
+      return setError({ field: 'gender', message: 'Preencher campo de genero' });
     }
 
     onSubmit({
@@ -89,23 +83,24 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit })
         <FormArea>
           <FormGroup error={getErrorMessageByFieldName('name')}>
             <Input
-              error
+              error={getErrorMessageByFieldName('name')}
               value={name}
               placeholder="Nome"
               onChange={handleNameChange}
             />
           </FormGroup>
-          <FormGroup>
+          <FormGroup error={getErrorMessageByFieldName('species')}>
             <Select
+              error={getErrorMessageByFieldName('species')}
               value={species}
               onChange={(event) => setSpecies(event.target.value)}
             >
               <option value="">Espécie</option>
               <option value="Cachorro">Cachorro</option>
-              <option value="Gato">Gatpo</option>
+              <option value="Gato">Gato</option>
             </Select>
           </FormGroup>
-          <FormGroup>
+          <FormGroup error={getErrorMessageByFieldName('breed')}>
             <Input
               error={getErrorMessageByFieldName('breed')}
               value={breed}
@@ -113,8 +108,9 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit })
               onChange={handleBreedChange}
             />
           </FormGroup>
-          <FormGroup>
+          <FormGroup error={getErrorMessageByFieldName('gender')}>
             <Select
+              error={getErrorMessageByFieldName('gender')}
               value={gender}
               onChange={(event) => setGender(event.target.value)}
             >
@@ -154,7 +150,7 @@ export default function ContactFormAnimal({ titleLabel, buttonLabel, onSubmit })
   );
 }
 
-ContactFormAnimal.propTypes = {
+AnimalForm.propTypes = {
   titleLabel: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,

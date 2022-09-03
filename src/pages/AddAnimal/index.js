@@ -3,7 +3,7 @@ import { Container } from './style';
 import AnimalService from '../../services/AnimalsService';
 
 import Header from '../../Components/Header';
-import ContactFormAnimal from '../../Components/ContactFormAnimal';
+import ContactFormAnimal from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer';
 
 export default function AddAnimal() {
