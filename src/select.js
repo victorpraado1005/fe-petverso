@@ -4,7 +4,7 @@ export default styled.select`
   margin-top: 8px;
   width: 100%;
   height: 32px;
-  background: #FFFFDE;
+  background: ${({ theme }) => theme.colors.background};
   border: none;
   color: gray;
   border-radius: 6px;

@@ -9,7 +9,7 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #DF8D53;
+  background-color: ${({ theme }) => theme.colors.primary.dark};
   padding: 0px 10px;
 
 

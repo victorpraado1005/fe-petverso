@@ -9,7 +9,7 @@ export const Container = styled.footer`
   max-width: 500px;
   height: 55px;
   margin: 0 auto;
-  background: #DF8D53;
+  background: ${({ theme }) => theme.colors.primary.dark};
   border-radius: 28px;
   display: flex;
   justify-content: space-evenly;
@@ -18,12 +18,12 @@ export const Container = styled.footer`
   a{
     font-size: 12px;
     text-decoration: none;
-    color: #FFFFDE;
+    color: ${({ theme }) => theme.colors.background};
     cursor: pointer;
   }
 `;
 
 export const LineWhite = styled.div`
-  border: 1px solid #EFBF82;
+  border: 1px solid ${({ theme }) => theme.colors.primary.light};
   height: 35px;
 `;

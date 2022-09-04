@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     h1{
       text-align: center;
-      color: #DF8D53;
+      color: ${({ theme }) => theme.colors.primary.dark};
       margin-top: 16px;
       margin-bottom: 32px;
       font-size: 24px;
@@ -26,12 +26,12 @@ export const TitleContainer = styled.div`
 
     a {
       text-decoration: none;
-      color: #FFFFDE;
+      color: ${({ theme }) => theme.colors.background};
       font-size: 14px;
     }
 
     button{
-      background: #DF8D53;
+      background: ${({ theme }) => theme.colors.primary.dark};
       height: 35px;
       width: 130px;
     }
@@ -51,12 +51,12 @@ export const Card = styled.div`
   height: 180px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   padding: 16px;
-  border: 5px solid #EFBF82;
+  border: 5px solid ${({ theme }) => theme.colors.primary.light};
   border-radius: 18px;
 
     .animal-name{
       text-align: center;
-      color: #DF8D53;
+      color: ${({ theme }) => theme.colors.primary.dark};
       font-size: 28px;
       font-weight: bold;
       margin-bottom: 16px;
@@ -76,7 +76,7 @@ export const Card = styled.div`
 
       span{
        font-size: 16px;
-       color: #DF8D53;
+       color: ${({ theme }) => theme.colors.primary.dark};
        margin-bottom: 5px;
       }
     }
@@ -91,7 +91,7 @@ export const Card = styled.div`
     }
 
     button{
-      background-color: #DF8D53;
+      background-color: ${({ theme }) => theme.colors.primary.dark};
       width: 90px;
       height: 30px;
     }
@@ -99,7 +99,7 @@ export const Card = styled.div`
     a{
       text-decoration: none;
       cursor: pointer;
-      color: #FFFFDE;
+      color: ${({ theme }) => theme.colors.background};
       font-size: 10px;
     }
 

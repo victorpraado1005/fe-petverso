@@ -10,8 +10,8 @@ export default styled.button`
     font-weight: bold;
     line-height: 15px;
     border-radius: 4px;
-    background: #FFFFDE;
-    color: #DF8D53;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.primary.dark};
 
     & + &{
     margin-left: 10px;

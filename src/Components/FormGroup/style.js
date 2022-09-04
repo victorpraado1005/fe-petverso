@@ -6,7 +6,7 @@ export const Container = styled.div`
   }
 
   small{
-    color: #F63131;
+    color: ${({ theme }) => theme.colors.danger.dark};
     font-weight: bold;
     font-size: 12px;
     display: block;

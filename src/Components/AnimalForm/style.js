@@ -4,7 +4,7 @@ export const Card = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background: #DF8D53;
+  background: ${({ theme }) => theme.colors.primary.main};
   padding: 16px;
   margin-top: 25px;
   border-radius: 12px;
@@ -18,7 +18,7 @@ export const Card = styled.div`
   }
 
   h1{
-    color: #FFFFDE;
+    color: ${({ theme }) => theme.colors.background};
     text-align: center;
     margin-bottom: 20px;
   }
@@ -31,7 +31,7 @@ export const FormArea = styled.div`
   max-width: 400px;
 
   span{
-    color: #FFFFDE;
+    color: ${({ theme }) => theme.colors.background};
     font-weight: bold;
     font-size: 18px;
   }

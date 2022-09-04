@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.main`
   width: 100vw;
   height: 100vh;
-  background: #E7A66B;
+  background: ${({ theme }) => theme.colors.primary.light};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@ export const Container = styled.main`
 export const Content = styled.div`
   width: 100%;
   max-width: 500px;
-  background: #DF8D53;
+  background: ${({ theme }) => theme.colors.primary.dark};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   margin: auto;
@@ -30,13 +30,13 @@ export const Content = styled.div`
   padding: 40px 0;
 
   h1{
-    color: #FFFFDE;
+    color: ${({ theme }) => theme.colors.background};
     font-size: 26px;
     margin-bottom: 16px;
   }
 
   span{
-    color: #FFFFDE;
+    color: ${({ theme }) => theme.colors.background};
     font-weight: bold;
     font-size: 14px;
   }
