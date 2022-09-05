@@ -7,26 +7,32 @@ import {
 } from './style';
 
 import Button from '../../button';
+import Loader from '../Loader';
 import AnimalsService from '../../services/AnimalsService';
 
 export default function AnimalHome() {
   const UserID = localStorage.getItem('UserID');
   const [animals, setAnimals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       try {
         const AnimalsList = await AnimalsService.listAnimals(UserID);
 
         setAnimals(AnimalsList);
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, []);
 
   return (
     <Container>
+      <Loader isLoading={isLoading} />
       <TitleContainer>
         <h1>Meus Animais:</h1>
         <Button>
