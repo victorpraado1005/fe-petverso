@@ -25,6 +25,7 @@
       "react/jsx-props-no-spreading": "off",
       "import/prefer-default-export": "off",
       "react/jsx-no-bind": "off",
-      "class-methods-use-this": "off"
+      "class-methods-use-this": "off",
+      "linebreak-style": "off"
     }
 }
