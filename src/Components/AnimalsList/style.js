@@ -44,6 +44,10 @@ export const GridArea = styled.div`
   place-items: center;
   /* gap: 20px; */
   row-gap: 40px;
+
+  button {
+    color: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 export const Card = styled.div`

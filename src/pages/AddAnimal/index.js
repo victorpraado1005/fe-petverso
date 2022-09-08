@@ -4,6 +4,8 @@ import { Container } from './style';
 
 import AnimalsService from '../../services/AnimalsService';
 
+import history from '../../history';
+
 import Header from '../../Components/Header';
 import ContactFormAnimal from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer';
@@ -27,6 +29,8 @@ export default function AddAnimal() {
       await AnimalsService.createAnimal(animal);
 
       animalFormsRef.current.resetFields();
+
+      history.push('/home');
     } catch {
       alert('Ocorreu um erro ao cadastrar o animal');
     }

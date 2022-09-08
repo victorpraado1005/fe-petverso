@@ -50,7 +50,10 @@ export default function EditAnimal() {
       };
 
       const animalData = await AnimalsService.updateAnimal(id, animal);
+
       setAnimalName(animalData.name);
+
+      history.push('/animals');
     } catch {
       alert('Ocorreu um erro ao atualizar o animal');
     }

@@ -9,13 +9,15 @@ import {
 import Loader from '../Loader';
 
 import Button from '../../button';
+import Modal from '../Modal';
 import AnimalsService from '../../services/AnimalsService';
 
 export default function Animal() {
   const UserID = localStorage.getItem('UserID');
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [animalBeingDeleted, setAnimalBeingDeleted] = useState(null);
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -31,9 +33,45 @@ export default function Animal() {
     })();
   }, []);
 
+  function handleDeleteAnimal(animal) {
+    setAnimalBeingDeleted(animal);
+    setIsDeleteModalVisible(true);
+  }
+
+  function handleCloseDeleteModal() {
+    setIsDeleteModalVisible(false);
+    setAnimalBeingDeleted(null);
+  }
+
+  async function handleConfirmDeleteAnimal() {
+    try {
+      await AnimalsService.deleteAnimal(animalBeingDeleted.id);
+
+      setAnimals((prevState) => prevState.filter(
+        (animal) => animal.id !== animalBeingDeleted.id,
+      ));
+
+      handleCloseDeleteModal();
+    } catch {
+      alert('Não foi possível excluir esse animal.');
+    }
+  }
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        visible={isDeleteModalVisible}
+        title={`Tem certeza que deseja remover o animal "${animalBeingDeleted?.name}"?`}
+        confirmLabel="Deletar"
+        onCancel={handleCloseDeleteModal}
+        onConfirm={handleConfirmDeleteAnimal}
+      >
+        <p>Esta ação não poderá ser desfeita!</p>
+      </Modal>
+
       <TitleContainer>
         <h1>Meus Animais:</h1>
         <Button>
@@ -83,10 +121,11 @@ export default function Animal() {
                     Editar
                   </Link>
                 </Button>
-                <Button type="button">
-                  <Link to={`/editAnimal/${animal.id}`}>
-                    Remover
-                  </Link>
+                <Button
+                  type="button"
+                  onClick={() => handleDeleteAnimal(animal)}
+                >
+                  Remover
                 </Button>
               </div>
             </div>

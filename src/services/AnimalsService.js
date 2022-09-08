@@ -20,6 +20,10 @@ class AnimalsService {
   updateAnimal(id, animal) {
     return this.httpClient.put(`/animals/${id}`, animal);
   }
+
+  deleteAnimal(id) {
+    return this.httpClient.delete(`/animals/${id}`);
+  }
 }
 
 export default new AnimalsService();

@@ -60,6 +60,23 @@ class HttpClient {
 
     throw new Error('Erro na API!');
   }
+
+  async delete(path) {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+
+    const response = await fetch(`${this.baseURL}${path}`, {
+      method: 'DELETE',
+      headers,
+    });
+
+    if (response.ok) {
+      return response;
+    }
+
+    throw new Error('Erro na API!');
+  }
 }
 
 export default HttpClient;
