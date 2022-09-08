@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useState, forwardRef, useImperativeHandle,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -15,17 +17,41 @@ import Select from '../../select';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
-export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
+const AnimalForm = forwardRef(({
+  titleLabel, buttonLabel, onSubmit,
+}, ref) => {
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [breed, setBreed] = useState('');
   const [gender, setGender] = useState('');
   const [nickName, setNickName] = useState('');
-  const [weigth, setWeight] = useState('');
+  const [weight, setWeight] = useState('');
   const [lenght, setLenght] = useState('');
+
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
   } = useErrors();
+
+  useImperativeHandle(ref, () => ({
+    setFieldsValues: (animal) => {
+      setName(animal.name ?? '');
+      setSpecies(animal.species ?? '');
+      setBreed(animal.breed ?? '');
+      setGender(animal.gender ?? '');
+      setNickName(animal.nickname ?? '');
+      setWeight(animal.weight_animal ?? '');
+      setLenght(animal.lenght_animal ?? '');
+    },
+    resetFields: () => {
+      setName('');
+      setSpecies('');
+      setBreed('');
+      setGender('');
+      setNickName('');
+      setWeight('');
+      setLenght('');
+    },
+  }), []);
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -69,16 +95,8 @@ export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
     }
 
     onSubmit({
-      name, breed, species, nickName, weigth, lenght, gender,
+      name, breed, species, nickName, weight, lenght, gender,
     });
-
-    setName('');
-    setBreed('');
-    setSpecies('');
-    setGender('');
-    setNickName('');
-    setWeight('');
-    setLenght('');
   }
 
   return (
@@ -137,7 +155,7 @@ export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
           <FormGroup>
             <Input
               placeholder="Peso"
-              value={weigth}
+              value={weight}
               onChange={handleWeightChange}
             />
           </FormGroup>
@@ -156,10 +174,12 @@ export default function AnimalForm({ titleLabel, buttonLabel, onSubmit }) {
       </form>
     </Card>
   );
-}
+});
 
 AnimalForm.propTypes = {
   titleLabel: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
+
+export default AnimalForm;

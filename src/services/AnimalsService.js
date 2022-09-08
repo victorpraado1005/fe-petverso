@@ -5,12 +5,20 @@ class AnimalsService {
     this.httpClient = new HttpClient('https://api-petverso.herokuapp.com');
   }
 
-  async listAnimals(UserID) {
+  listAnimals(UserID) {
     return this.httpClient.get(`/users/animals/${UserID}`);
   }
 
-  async createAnimal(animal) {
+  getAnimalById(id) {
+    return this.httpClient.get(`/animals/${id}`);
+  }
+
+  createAnimal(animal) {
     return this.httpClient.post('/animals', animal);
+  }
+
+  updateAnimal(id, animal) {
+    return this.httpClient.put(`/animals/${id}`, animal);
   }
 }
 

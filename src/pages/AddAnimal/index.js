@@ -1,12 +1,15 @@
+import { useRef } from 'react';
+
 import { Container } from './style';
 
-import AnimalService from '../../services/AnimalsService';
+import AnimalsService from '../../services/AnimalsService';
 
 import Header from '../../Components/Header';
 import ContactFormAnimal from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer';
 
 export default function AddAnimal() {
+  const animalFormsRef = useRef(null);
   async function handleSubmit(formData) {
     const userId = localStorage.getItem('UserID');
 
@@ -16,14 +19,14 @@ export default function AddAnimal() {
         breed: formData.breed,
         gender: formData.gender,
         weight_animal: formData.weight,
-        length_animal: formData.lenght,
+        lenght_animal: formData.lenght,
         species: formData.species,
-        nickname: formData.nickname,
+        nickname: formData.nickName,
         users_id: userId,
       };
-      const response = await AnimalService.createAnimal(animal);
+      await AnimalsService.createAnimal(animal);
 
-      console.log(response);
+      animalFormsRef.current.resetFields();
     } catch {
       alert('Ocorreu um erro ao cadastrar o animal');
     }
@@ -33,6 +36,7 @@ export default function AddAnimal() {
     <Container>
       <Header />
       <ContactFormAnimal
+        ref={animalFormsRef}
         titleLabel="Criar Animal"
         buttonLabel="Criar Animal"
         onSubmit={handleSubmit}
