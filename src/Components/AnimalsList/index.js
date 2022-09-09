@@ -8,6 +8,8 @@ import {
 
 import Loader from '../Loader';
 
+import history from '../../history';
+
 import Button from '../../button';
 import Modal from '../Modal';
 import AnimalsService from '../../services/AnimalsService';
@@ -55,6 +57,18 @@ export default function Animal() {
     } catch {
       alert('Não foi possível excluir esse animal.');
     }
+  }
+
+  function handleVacinas() {
+    history.push('/vacinas');
+  }
+
+  function handleMedicamentos() {
+    history.push('/medicamentos');
+  }
+
+  function handleEditAnimal(id) {
+    history.push(`/editAnimal/${id}`);
   }
 
   return (
@@ -106,20 +120,14 @@ export default function Animal() {
               </div>
 
               <div className="button-details">
-                <Button type="button">
-                  <Link to={`/editAnimal/${animal.id}`}>
-                    Vacinas
-                  </Link>
+                <Button type="button" onClick={handleVacinas}>
+                  Vacinas
                 </Button>
-                <Button type="button">
-                  <Link to={`/editAnimal/${animal.id}`}>
-                    Medicamentos
-                  </Link>
+                <Button type="button" onClick={handleMedicamentos}>
+                  Medicamentos
                 </Button>
-                <Button type="button" className="btn-edit">
-                  <Link to={`/editAnimal/${animal.id}`}>
-                    Editar
-                  </Link>
+                <Button type="button" className="btn-edit" onClick={() => handleEditAnimal(animal.id)}>
+                  Editar
                 </Button>
                 <Button
                   type="button"

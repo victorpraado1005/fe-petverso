@@ -42,7 +42,7 @@ export const GridArea = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   place-items: center;
-  /* gap: 20px; */
+  gap: 20px;
   row-gap: 40px;
 
   button {
@@ -90,7 +90,7 @@ export const Card = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      row-gap: 10px;
+      gap: 10px;
       place-items: start;
     }
 
