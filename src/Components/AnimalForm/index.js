@@ -9,6 +9,8 @@ import {
 } from './style';
 import useErrors from '../../hooks/useErros';
 
+import formatData from '../../utils/formatData';
+
 import FormGroup from '../FormGroup/index';
 
 import Input from '../../input';
@@ -21,6 +23,7 @@ const AnimalForm = forwardRef(({
   titleLabel, buttonLabel, onSubmit,
 }, ref) => {
   const [name, setName] = useState('');
+  const [date, setDate] = useState('');
   const [species, setSpecies] = useState('');
   const [breed, setBreed] = useState('');
   const [gender, setGender] = useState('');
@@ -55,6 +58,10 @@ const AnimalForm = forwardRef(({
 
   function handleNameChange(event) {
     setName(event.target.value);
+  }
+
+  function handleDateChange(event) {
+    setDate(formatData(event.target.value));
   }
 
   function handleBreedChange(event) {
@@ -113,6 +120,15 @@ const AnimalForm = forwardRef(({
               value={name}
               placeholder="Nome"
               onChange={handleNameChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              error={getErrorMessageByFieldName('name')}
+              value={date}
+              placeholder="Data de aplicação (DD/MM/AAAA)"
+              onChange={handleDateChange}
+              maxLength="10"
             />
           </FormGroup>
           <FormGroup error={getErrorMessageByFieldName('species')}>

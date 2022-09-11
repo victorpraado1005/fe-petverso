@@ -2,7 +2,7 @@ import HttpClient from './utils/HttpClient';
 
 class VaccineService {
   constructor() {
-    this.httpClient = new HttpClient(process.env.API_URL);
+    this.httpClient = new HttpClient('https://api-petverso.herokuapp.com');
   }
 
   // metodo para buscar o medicamento relacionado ao animal
