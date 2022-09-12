@@ -10,11 +10,13 @@ import FormGroup from '../../Components/FormGroup';
 import Input from '../../input';
 import Button from '../../button';
 import Logo from '../../assets/images/logo_petverso.svg';
+import Loader from '../../Components/Loader';
 
 export default function Login() {
   const { login } = useContext(Context);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const {
     setError, getErrorMessageByFieldName,
   } = useErrors();
@@ -28,69 +30,74 @@ export default function Login() {
   }
 
   async function handleLogin() {
-    if (!email && !password) {
-      setError({ field: 'email', message: 'Preencher campo de e-mail' });
-      setError({ field: 'senha', message: 'Preencher campo de senha' });
-      return;
-    }
+    try {
+      setIsLoading(true);
+      if (!email && !password) {
+        setError({ field: 'email', message: 'Preencher campo de e-mail' });
+        setError({ field: 'senha', message: 'Preencher campo de senha' });
+        return;
+      }
 
-    if (!email) {
-      return setError({ field: 'email', message: 'Preencher campo de e-mail' });
-    }
+      if (!email) {
+        return setError({ field: 'email', message: 'Preencher campo de e-mail' });
+      }
 
-    if (!password) {
-      return setError({ field: 'senha', message: 'Preencher campo de senha' });
-    }
+      if (!password) {
+        return setError({ field: 'senha', message: 'Preencher campo de senha' });
+      }
 
-    await login(email, password);
-
-    const user = localStorage.getItem('UserID');
-    if (!user) {
+      await login(email, password);
+    } catch {
       document.getElementById('senha').style.display = 'block';
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
-    <Container>
-      <img src={Logo} alt="" />
-      <Content>
-        <h1>Login</h1>
-        <p
-          id="senha"
-          style={{
-            display: 'none',
-            color: 'red',
-            marginBottom: '10px',
-            fontWeight: 'bold',
-          }}
-        >
-          E-mail ou senha incorretos
-        </p>
-        <FormGroup error={getErrorMessageByFieldName('email')}>
-          <span>E-mail:</span>
-          <Input
-            error={getErrorMessageByFieldName('email')}
-            value={email}
-            type="email"
-            placeholder="E-mail"
-            onChange={handleNameChange}
-          />
-        </FormGroup>
-        <FormGroup error={getErrorMessageByFieldName('senha')}>
-          <span>Senha:</span>
-          <Input
-            error={getErrorMessageByFieldName('senha')}
-            value={password}
-            type="password"
-            placeholder="Senha"
-            onChange={handlePasswordChange}
-          />
-        </FormGroup>
-        <ButtonArea>
-          <Button type="submit">Criar Conta</Button>
-          <Button type="submit" onClick={handleLogin}>Acessar</Button>
-        </ButtonArea>
-      </Content>
-    </Container>
+    <>
+      <Loader isLoading={isLoading} />
+      <Container>
+        <img src={Logo} alt="" />
+        <Content>
+          <h1>Login</h1>
+          <p
+            id="senha"
+            style={{
+              display: 'none',
+              color: 'red',
+              marginBottom: '10px',
+              fontWeight: 'bold',
+            }}
+          >
+            E-mail ou senha incorretos
+          </p>
+          <FormGroup error={getErrorMessageByFieldName('email')}>
+            <span>E-mail:</span>
+            <Input
+              error={getErrorMessageByFieldName('email')}
+              value={email}
+              type="email"
+              placeholder="E-mail"
+              onChange={handleNameChange}
+            />
+          </FormGroup>
+          <FormGroup error={getErrorMessageByFieldName('senha')}>
+            <span>Senha:</span>
+            <Input
+              error={getErrorMessageByFieldName('senha')}
+              value={password}
+              type="password"
+              placeholder="Senha"
+              onChange={handlePasswordChange}
+            />
+          </FormGroup>
+          <ButtonArea>
+            <Button type="submit">Criar Conta</Button>
+            <Button type="submit" onClick={handleLogin}>Acessar</Button>
+          </ButtonArea>
+        </Content>
+      </Container>
+    </>
   );
 }

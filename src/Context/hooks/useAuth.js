@@ -29,20 +29,18 @@ export default function useAuth() {
       body: JSON.stringify(infoLogin),
     };
 
-    try {
-      const response = await fetch(url, options);
-      if (response.status === 200) {
-        const userData = await response.json();
-        const userID = userData.id;
-        const userName = userData.name;
-        localStorage.setItem('UserID', userID);
-        localStorage.setItem('UserName', userName);
-        setAuthenticated(true);
-        history.push('/home');
-      }
-    } catch (error) {
-      console.log(error.message);
+    const response = await fetch(url, options);
+    if (response.ok) {
+      const userData = await response.json();
+      const userID = userData.id;
+      const userName = userData.name;
+      localStorage.setItem('UserID', userID);
+      localStorage.setItem('UserName', userName);
+      setAuthenticated(true);
+      history.push('/home');
     }
+
+    throw new Error(`${response.status} = ${response.statusText}`);
   }
 
   function handleLogout() {
