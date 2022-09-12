@@ -7,7 +7,7 @@ import history from '../../history';
 import { Container } from './style';
 
 import Header from '../../Components/Header/index';
-import ContactFormAnimal from '../../Components/AnimalForm';
+import AnimalForm from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer/index';
 import Loader from '../../Components/Loader';
 
@@ -64,7 +64,7 @@ export default function EditAnimal() {
       <Loader isLoading={isLoading} />
       <Header />
       <Container>
-        <ContactFormAnimal
+        <AnimalForm
           ref={animalFormRef}
           titleLabel={isLoading ? 'Carregando...' : `Editar ${animalName}`}
           buttonLabel="Salvar Alterações"

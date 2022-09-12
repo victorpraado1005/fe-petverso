@@ -5,7 +5,8 @@ import Home from './pages/Home';
 import Animal from './pages/Animal';
 import EditAnimal from './pages/EditAnimal';
 import AddAnimal from './pages/AddAnimal';
-import Vacina from './pages/Vacinas';
+import CreateVaccine from './pages/CreateVaccine';
+import CreateMedication from './pages/CreateMedication';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -25,7 +26,8 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/animals" component={Animal} />
       <CustomRoute isPrivate exact path="/editAnimal/:id" component={EditAnimal} />
       <CustomRoute isPrivate exact path="/addAnimal" component={AddAnimal} />
-      <CustomRoute isPrivate exact path="/vacinas" component={Vacina} />
+      <CustomRoute isPrivate exact path="/addVacinas/:id" component={CreateVaccine} />
+      <CustomRoute isPrivate exact path="/addMedicamento/:id" component={CreateMedication} />
     </Switch>
   );
 }

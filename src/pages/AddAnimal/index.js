@@ -7,7 +7,7 @@ import AnimalsService from '../../services/AnimalsService';
 import history from '../../history';
 
 import Header from '../../Components/Header';
-import ContactFormAnimal from '../../Components/AnimalForm';
+import AnimalForm from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer';
 
 export default function AddAnimal() {
@@ -39,7 +39,7 @@ export default function AddAnimal() {
   return (
     <Container>
       <Header />
-      <ContactFormAnimal
+      <AnimalForm
         ref={animalFormsRef}
         titleLabel="Criar Animal"
         buttonLabel="Criar Animal"

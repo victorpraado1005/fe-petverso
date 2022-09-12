@@ -59,12 +59,12 @@ export default function Animal() {
     }
   }
 
-  function handleVacinas() {
-    history.push('/vacinas');
+  function handleVacinas(id) {
+    history.push(`/addVacinas/${id}`);
   }
 
-  function handleMedicamentos() {
-    history.push('/medicamentos');
+  function handleMedicamentos(id) {
+    history.push(`/addMedicamento/${id}`);
   }
 
   function handleEditAnimal(id) {
@@ -120,10 +120,10 @@ export default function Animal() {
               </div>
 
               <div className="button-details">
-                <Button type="button" onClick={handleVacinas}>
+                <Button type="button" onClick={() => handleVacinas(animal.id)}>
                   Vacinas
                 </Button>
-                <Button type="button" onClick={handleMedicamentos}>
+                <Button type="button" onClick={() => handleMedicamentos(animal.id)}>
                   Medicamentos
                 </Button>
                 <Button type="button" className="btn-edit" onClick={() => handleEditAnimal(animal.id)}>
