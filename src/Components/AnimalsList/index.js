@@ -60,7 +60,7 @@ export default function Animal() {
   }
 
   function handleVacinas(id) {
-    history.push(`/addVacinas/${id}`);
+    history.push(`/vacinas/${id}`);
   }
 
   function handleMedicamentos(id) {
@@ -132,6 +132,7 @@ export default function Animal() {
                 <Button
                   type="button"
                   onClick={() => handleDeleteAnimal(animal)}
+                  className="delete-button"
                 >
                   Remover
                 </Button>

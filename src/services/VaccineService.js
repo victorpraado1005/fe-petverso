@@ -7,7 +7,7 @@ class VaccineService {
 
   // pegar as vacinas pelo ID do animal
   listVaccinesByAnimalId(animalId) {
-    return this.httpClient.get(`/vaccines/${animalId}`);
+    return this.httpClient.get(`/animals/vaccines/${animalId}`);
   }
 
   getVaccineById(id) {

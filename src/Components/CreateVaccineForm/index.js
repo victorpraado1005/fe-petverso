@@ -5,7 +5,11 @@ import { Container, FormArea, ButtonArea } from './style';
 
 import formatData from '../../utils/formatData';
 
+import VaccineService from '../../services/VaccineService';
+
 import useErrors from '../../hooks/useErros';
+
+import history from '../../history';
 
 import FormGroup from '../FormGroup';
 import Input from '../../input';
@@ -35,7 +39,7 @@ export default function VaccineForm() {
     setNextApplicationDate(formatData(event.target.value));
   }
 
-  function handleCreateVaccine() {
+  async function handleCreateVaccine() {
     removeAllErrors();
 
     if (!name) {
@@ -46,14 +50,24 @@ export default function VaccineForm() {
       return setError({ field: 'data_aplicacao', message: 'Preencher campo da data de aplicação da vacina' });
     }
 
-    console.log({
-      name, applicationDate, nextApplicationDate, id,
-    });
+    try {
+      const vaccineData = {
+        name,
+        application_date: applicationDate,
+        next_application: nextApplicationDate,
+        animal_id: id,
+      };
+
+      await VaccineService.createVaccine(vaccineData);
+      history.push(`/vacinas/${id}`);
+    } catch {
+      alert('Ocorreu um erro ao cadastrar a vacina');
+    }
   }
 
   return (
     <Container>
-      <Link to="/animals">
+      <Link to={`/vacinas/${id}`}>
         <img src={arrowLeft} alt="Seta para esquerda" title="Voltar" />
       </Link>
       <h1>Criar Vacina</h1>
@@ -86,7 +100,7 @@ export default function VaccineForm() {
 
         <ButtonArea>
           <Button
-            type="submit"
+            type="button"
             onClick={handleCreateVaccine}
           >
             Criar Vacina

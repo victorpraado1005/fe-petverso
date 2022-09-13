@@ -42,7 +42,7 @@ export const GridArea = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   place-items: center;
-  gap: 20px;
+  /* gap: 20px; */
   row-gap: 40px;
 
   button {
@@ -51,10 +51,10 @@ export const GridArea = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 470px;
-  height: 180px;
+  width: 100%;
+  max-width: 500px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
-  padding: 16px;
+  padding: 32px;
   border: 5px solid ${({ theme }) => theme.colors.primary.light};
   border-radius: 18px;
 
@@ -86,18 +86,25 @@ export const Card = styled.div`
     }
 
     .button-details{
-      text-align: center;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 10px;
       place-items: start;
+      text-align: center;
     }
+
+    .delete-button{
+    background: ${({ theme }) => theme.colors.danger.dark};
+  }
 
     button{
       background-color: ${({ theme }) => theme.colors.primary.dark};
-      width: 90px;
-      height: 30px;
+      width: 100%;
+      max-width: 140px;
+      height: 40px;
+      padding: 16px 18px;
+      font-size: 14px;
     }
 
     a{
