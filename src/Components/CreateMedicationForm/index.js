@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import MedicationService from '../../services/MedicationService';
+
+import history from '../../history';
 
 import { Container, FormArea, ButtonArea } from './style';
 
@@ -37,7 +40,7 @@ export default function VaccineForm() {
     setEndDate(formatData(event.target.value));
   }
 
-  function handleCreateVaccine() {
+  async function handleCreateVaccine() {
     removeAllErrors();
 
     if (!name) {
@@ -51,11 +54,26 @@ export default function VaccineForm() {
     console.log({
       name, startDate, endDate, repetition, id,
     });
+
+    try {
+      const medicationData = {
+        medicine_name: name,
+        start_date: startDate,
+        end_date: endDate,
+        repetition,
+        animal_id: id,
+      };
+
+      await MedicationService.createMedication(medicationData);
+      history.push(`/medicamentos/${id}`);
+    } catch {
+      alert('Ocorreu um erro ao cadastrar a vacina');
+    }
   }
 
   return (
     <Container>
-      <Link to="/animals">
+      <Link to={`/medicamentos/${id}`}>
         <img src={arrowLeft} alt="Seta para esquerda" title="Voltar" />
       </Link>
       <h1>Criar Medicação</h1>

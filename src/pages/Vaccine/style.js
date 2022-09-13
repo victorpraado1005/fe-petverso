@@ -13,6 +13,14 @@ export const TitleContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 
+  img{
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 5px;
+    left: 0px;
+  }
+
   h1{
     color: ${({ theme }) => theme.colors.primary.dark};
   }

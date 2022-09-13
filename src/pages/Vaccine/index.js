@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import {
   Container, TitleContainer, Card, ButtonArea, GridArea,
@@ -15,6 +15,8 @@ import Footer from '../../Components/Footer';
 import Loader from '../../Components/Loader';
 import Button from '../../button';
 import Modal from '../../Components/Modal';
+
+import arrowLeft from '../../assets/images/left-arrow_dark.png';
 
 export default function Vaccine() {
   const [vaccines, setVaccines] = useState([]);
@@ -81,6 +83,9 @@ export default function Vaccine() {
       <Header />
       <Container>
         <TitleContainer>
+          <Link to="/animals">
+            <img src={arrowLeft} alt="Seta para esquerda" title="Voltar" />
+          </Link>
           <h1>
             Vacinas
             {' '}

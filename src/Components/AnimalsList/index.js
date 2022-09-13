@@ -64,7 +64,7 @@ export default function Animal() {
   }
 
   function handleMedicamentos(id) {
-    history.push(`/addMedicamento/${id}`);
+    history.push(`/medicamentos/${id}`);
   }
 
   function handleEditAnimal(id) {

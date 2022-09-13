@@ -10,15 +10,15 @@ export default function Footer() {
       </div>
       <LineWhite />
       <div>
-        <Link to="/animals">Animal</Link>
+        <Link to="/animals">Animais</Link>
       </div>
       <LineWhite />
       <div>
-        <Link to="/consultas">Consultas</Link>
+        <Link to="/consultas">Por perto</Link>
       </div>
       <LineWhite />
       <div>
-        <Link to="/parques">Parques</Link>
+        <Link to="/parques">Assinatura</Link>
       </div>
       <LineWhite />
       <div>

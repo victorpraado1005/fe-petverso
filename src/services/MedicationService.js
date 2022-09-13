@@ -7,7 +7,7 @@ class VaccineService {
 
   // metodo para buscar o medicamento relacionado ao animal
   listMedicationByAnimalId(animalId) {
-    return this.httpClient.get(`/medication/${animalId}`);
+    return this.httpClient.get(`/animals/medication/${animalId}`);
   }
 
   // metodo para buscar o medicamento para alterar
