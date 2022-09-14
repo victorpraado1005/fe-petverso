@@ -14,11 +14,11 @@ export default function Footer() {
       </div>
       <LineWhite />
       <div>
-        <Link to="/consultas">Por perto</Link>
+        <Link to="/porperto">Por perto</Link>
       </div>
       <LineWhite />
       <div>
-        <Link to="/parques">Assinatura</Link>
+        <Link to="/assinatura">Assinatura</Link>
       </div>
       <LineWhite />
       <div>
