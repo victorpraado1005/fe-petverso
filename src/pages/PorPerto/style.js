@@ -31,3 +31,12 @@ export const InputArea = styled.div`
     margin-left: 20px;
   }
 `;
+
+export const ListArea = styled.div`
+  /* border: 1px solid; */
+  padding: 20px;
+
+  h1{
+    text-align: start;
+  }
+`;

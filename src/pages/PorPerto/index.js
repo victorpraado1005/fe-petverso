@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Container, InputArea } from './style';
+import { Container, InputArea, ListArea } from './style';
 
 import Header from '../../Components/Header';
 import PetshopsList from '../../Components/PetshopsList';
@@ -25,8 +25,6 @@ export default function PorPerto() {
     setIsZoneSelected('Zona Norte');
   }
 
-  console.log({ zoneSelected });
-
   return (
     <>
       <Header />
@@ -37,6 +35,7 @@ export default function PorPerto() {
             type="radio"
             name="regiao"
             value="zonaSul"
+            defaultChecked
             onClick={handleOptionZonaSul}
           />
           <span>Zona Sul</span>
@@ -62,7 +61,10 @@ export default function PorPerto() {
           />
           <span>Zona Norte</span>
         </InputArea>
-        <PetshopsList />
+        <ListArea>
+          <h1>PetShop:</h1>
+          <PetshopsList zoneSelected={zoneSelected} />
+        </ListArea>
       </Container>
       <Footer />
     </>

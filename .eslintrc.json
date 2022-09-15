@@ -27,6 +27,7 @@
       "react/jsx-no-bind": "off",
       "class-methods-use-this": "off",
       "linebreak-style": "off",
-      "jsx-a11y/label-has-associated-control": "off"
+      "jsx-a11y/label-has-associated-control": "off",
+      "no-param-reassign": "off"
     }
 }
