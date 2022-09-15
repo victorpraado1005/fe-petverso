@@ -4,9 +4,9 @@ import { Container, Card } from './style';
 
 import Button from '../../button';
 
-const petshops = [
+const parques = [
   {
-    nome: 'Cobasi 2',
+    nome: 'Parque da Aclimação 7',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -14,7 +14,7 @@ const petshops = [
     key: 1,
   },
   {
-    nome: 'Cobasi 3',
+    nome: 'Parque da Aclimação 8',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -22,7 +22,7 @@ const petshops = [
     key: 2,
   },
   {
-    nome: 'Cobasi 4',
+    nome: 'Parque da Aclimação 9',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -30,7 +30,7 @@ const petshops = [
     key: 3,
   },
   {
-    nome: 'Petz',
+    nome: 'Parque da Aclimação 10',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -38,7 +38,7 @@ const petshops = [
     key: 4,
   },
   {
-    nome: 'Petz 2',
+    nome: 'Parque da Aclimação 1',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -46,7 +46,7 @@ const petshops = [
     key: 5,
   },
   {
-    nome: 'Petz 5',
+    nome: 'Parque da Aclimação 2',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -54,7 +54,7 @@ const petshops = [
     key: 6,
   },
   {
-    nome: 'Cobasi 10',
+    nome: 'Parque da Aclimação 3',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -62,7 +62,7 @@ const petshops = [
     key: 7,
   },
   {
-    nome: 'PetMais',
+    nome: 'Parque da Aclimação 4',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -70,7 +70,7 @@ const petshops = [
     key: 8,
   },
   {
-    nome: 'PetMais sul',
+    nome: 'Parque da Aclimação 5',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -78,7 +78,7 @@ const petshops = [
     key: 9,
   },
   {
-    nome: 'PetMais sul',
+    nome: 'Parque da Aclimação 6',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -87,29 +87,29 @@ const petshops = [
   },
 ];
 
-export default function PetshopsList({ zoneSelected }) {
+export default function ParquesList({ zoneSelected }) {
   if (zoneSelected === '') {
     zoneSelected = 'Zona Sul';
   }
 
-  const pets = petshops.filter((pet) => pet.zona === zoneSelected);
+  const parque = parques.filter((pet) => pet.zona === zoneSelected);
 
   return (
     <Container>
-      {pets.map((petshop) => (
-        <Card key={petshop.key}>
+      {parque.map((park) => (
+        <Card key={park.key}>
           <div className="title-card">
-            <span>{petshop.nome}</span>
+            <span>{park.nome}</span>
           </div>
           <div className="data-card">
-            <span><strong>{petshop.rua}</strong></span>
-            <span><strong>{petshop.bairro}</strong></span>
-            <span><strong>{petshop.zona}</strong></span>
-            <span><strong>{petshop.telefone}</strong></span>
+            <span><strong>{park.rua}</strong></span>
+            <span><strong>{park.bairro}</strong></span>
+            <span><strong>{park.zona}</strong></span>
+            <span><strong>{park.telefone}</strong></span>
           </div>
           <div className="button-card">
             <Button>
-              Agendar Banho
+              Ver Avaliações
             </Button>
           </div>
         </Card>
@@ -118,6 +118,6 @@ export default function PetshopsList({ zoneSelected }) {
   );
 }
 
-PetshopsList.propTypes = {
+ParquesList.propTypes = {
   zoneSelected: PropTypes.string.isRequired,
 };

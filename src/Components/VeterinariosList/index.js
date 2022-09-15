@@ -4,9 +4,11 @@ import { Container, Card } from './style';
 
 import Button from '../../button';
 
-const petshops = [
+import history from '../../history';
+
+const clinicas = [
   {
-    nome: 'Cobasi 2',
+    nome: 'Clinica 1',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -14,7 +16,7 @@ const petshops = [
     key: 1,
   },
   {
-    nome: 'Cobasi 3',
+    nome: 'Clinica 1',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -22,7 +24,7 @@ const petshops = [
     key: 2,
   },
   {
-    nome: 'Cobasi 4',
+    nome: 'Clinica 3',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -30,7 +32,7 @@ const petshops = [
     key: 3,
   },
   {
-    nome: 'Petz',
+    nome: 'Clinica 4',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -38,7 +40,7 @@ const petshops = [
     key: 4,
   },
   {
-    nome: 'Petz 2',
+    nome: 'Clinica 5',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -46,7 +48,7 @@ const petshops = [
     key: 5,
   },
   {
-    nome: 'Petz 5',
+    nome: 'Clinica 6',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -54,7 +56,7 @@ const petshops = [
     key: 6,
   },
   {
-    nome: 'Cobasi 10',
+    nome: 'Clinica 7',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -62,7 +64,7 @@ const petshops = [
     key: 7,
   },
   {
-    nome: 'PetMais',
+    nome: 'Clinica 8',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -70,7 +72,7 @@ const petshops = [
     key: 8,
   },
   {
-    nome: 'PetMais sul',
+    nome: 'Clinica 9',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -78,7 +80,7 @@ const petshops = [
     key: 9,
   },
   {
-    nome: 'PetMais sul',
+    nome: 'Clinica 10',
     rua: 'Rua Sousa ramos, 320',
     bairro: 'Aclimação',
     telefone: '(11) 95038-9492',
@@ -87,29 +89,33 @@ const petshops = [
   },
 ];
 
-export default function PetshopsList({ zoneSelected }) {
+export default function VeterinariosList({ zoneSelected }) {
   if (zoneSelected === '') {
     zoneSelected = 'Zona Sul';
   }
 
-  const pets = petshops.filter((pet) => pet.zona === zoneSelected);
+  const clinica = clinicas.filter((pet) => pet.zona === zoneSelected);
+
+  function handleConsulta(nameClinica) {
+    history.push(`/consulta/${nameClinica}`);
+  }
 
   return (
     <Container>
-      {pets.map((petshop) => (
-        <Card key={petshop.key}>
+      {clinica.map((veterinario) => (
+        <Card key={veterinario.key}>
           <div className="title-card">
-            <span>{petshop.nome}</span>
+            <span>{veterinario.nome}</span>
           </div>
           <div className="data-card">
-            <span><strong>{petshop.rua}</strong></span>
-            <span><strong>{petshop.bairro}</strong></span>
-            <span><strong>{petshop.zona}</strong></span>
-            <span><strong>{petshop.telefone}</strong></span>
+            <span><strong>{veterinario.rua}</strong></span>
+            <span><strong>{veterinario.bairro}</strong></span>
+            <span><strong>{veterinario.zona}</strong></span>
+            <span><strong>{veterinario.telefone}</strong></span>
           </div>
           <div className="button-card">
-            <Button>
-              Agendar Banho
+            <Button onClick={() => handleConsulta(veterinario.nome)}>
+              Agendar Consulta
             </Button>
           </div>
         </Card>
@@ -118,6 +124,6 @@ export default function PetshopsList({ zoneSelected }) {
   );
 }
 
-PetshopsList.propTypes = {
+VeterinariosList.propTypes = {
   zoneSelected: PropTypes.string.isRequired,
 };

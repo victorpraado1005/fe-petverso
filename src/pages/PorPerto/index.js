@@ -4,6 +4,8 @@ import { Container, InputArea, ListArea } from './style';
 
 import Header from '../../Components/Header';
 import PetshopsList from '../../Components/PetshopsList';
+import VeterinariosList from '../../Components/VeterinariosList';
+import ParquesList from '../../Components/ParquesList';
 import Footer from '../../Components/Footer';
 
 export default function PorPerto() {
@@ -64,6 +66,14 @@ export default function PorPerto() {
         <ListArea>
           <h1>PetShop:</h1>
           <PetshopsList zoneSelected={zoneSelected} />
+        </ListArea>
+        <ListArea>
+          <h1>Clínica Veterinária:</h1>
+          <VeterinariosList zoneSelected={zoneSelected} />
+        </ListArea>
+        <ListArea>
+          <h1>Parques:</h1>
+          <ParquesList zoneSelected={zoneSelected} />
         </ListArea>
       </Container>
       <Footer />

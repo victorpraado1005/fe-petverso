@@ -10,6 +10,7 @@ import AddAnimal from './pages/AddAnimal';
 import CreateVaccine from './pages/CreateVaccine';
 import CreateMedication from './pages/CreateMedication';
 import PorPerto from './pages/PorPerto';
+import CreateConsultaForm from './Components/CreateConsultaForm';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -34,6 +35,7 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/medicamentos/:id" component={Medication} />
       <CustomRoute isPrivate exact path="/addMedicamento/:id" component={CreateMedication} />
       <CustomRoute isPrivate exact path="/porperto" component={PorPerto} />
+      <CustomRoute isPrivate exact path="/consulta/:clinica" component={CreateConsultaForm} />
     </Switch>
   );
 }
