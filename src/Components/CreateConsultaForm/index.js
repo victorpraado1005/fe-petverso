@@ -5,8 +5,6 @@ import {
   Container, FormArea, ButtonArea, InputArea, RowInputArea,
 } from './style';
 
-import formatData from '../../utils/formatData';
-
 import ConsultaService from '../../services/ConsultaService';
 import AnimalsService from '../../services/AnimalsService';
 
@@ -53,7 +51,7 @@ export default function VaccineForm() {
   }, []);
 
   function handleDataConsultaChange(event) {
-    setDataConsulta(formatData(event.target.value));
+    setDataConsulta(event.target.value);
   }
 
   function handleHoraConsultaChange(event) {
@@ -106,20 +104,21 @@ export default function VaccineForm() {
         <FormArea>
           <FormGroup error={getErrorMessageByFieldName('data_consulta')}>
             <Input
-              placeholder="Data da Consulta (DD/MM/AAAA)"
+              type="date"
               error={getErrorMessageByFieldName('data_consulta')}
               value={dataConsulta}
               onChange={handleDataConsultaChange}
-              maxLength="10"
             />
           </FormGroup>
           <FormGroup error={getErrorMessageByFieldName('hora_consulta')}>
             <Input
-              placeholder="Hora da consulta (HH:MM)"
+              type="time"
+              min="09:00"
+              max="18:00"
+              step="900"
               error={getErrorMessageByFieldName('hora_consulta')}
               value={horaConsulta}
               onChange={handleHoraConsultaChange}
-              maxLength="5"
             />
           </FormGroup>
           <InputArea>
