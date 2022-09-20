@@ -10,6 +10,30 @@ import Footer from '../../Components/Footer';
 
 export default function PorPerto() {
   const [zoneSelected, setIsZoneSelected] = useState('');
+  const [petShopSelected, setIsPetShopSelected] = useState('');
+  const [veterinarioSelected, setIsVeterinarioSelected] = useState('');
+  const [parquesSelected, setIsParquesSelected] = useState('');
+
+  function handleOptionPetShop() {
+    if (petShopSelected === 'desmarcado') {
+      return setIsPetShopSelected('PetShop');
+    }
+    setIsPetShopSelected('desmarcado');
+  }
+
+  function handleOptionVeterinario() {
+    if (veterinarioSelected === 'desmarcado') {
+      return setIsVeterinarioSelected('Veterinario');
+    }
+    setIsVeterinarioSelected('desmarcado');
+  }
+
+  function handleOptionParques() {
+    if (parquesSelected === 'desmarcado') {
+      return setIsParquesSelected('Parques');
+    }
+    setIsParquesSelected('desmarcado');
+  }
 
   function handleOptionZonaSul() {
     setIsZoneSelected('Zona Sul');
@@ -32,6 +56,32 @@ export default function PorPerto() {
       <Header />
       <Container>
         <h1>Confira os petshops e parques na sua região:</h1>
+        <InputArea>
+          <input
+            type="checkbox"
+            name="petshop"
+            value="petshop"
+            defaultChecked
+            onClick={handleOptionPetShop}
+          />
+          <span>PetShop</span>
+          <input
+            type="checkbox"
+            name="veterinario"
+            value="veterinario"
+            defaultChecked
+            onClick={handleOptionVeterinario}
+          />
+          <span>Veterinário</span>
+          <input
+            type="checkbox"
+            name="parques"
+            value="parques"
+            defaultChecked
+            onClick={handleOptionParques}
+          />
+          <span>Parques</span>
+        </InputArea>
         <InputArea>
           <input
             type="radio"
@@ -64,16 +114,22 @@ export default function PorPerto() {
           <span>Zona Norte</span>
         </InputArea>
         <ListArea>
-          <h1>PetShop:</h1>
-          <PetshopsList zoneSelected={zoneSelected} />
+          <PetshopsList
+            establishmentSelected={petShopSelected}
+            zoneSelected={zoneSelected}
+          />
         </ListArea>
         <ListArea>
-          <h1>Clínica Veterinária:</h1>
-          <VeterinariosList zoneSelected={zoneSelected} />
+          <VeterinariosList
+            establishmentSelected={veterinarioSelected}
+            zoneSelected={zoneSelected}
+          />
         </ListArea>
         <ListArea>
-          <h1>Parques:</h1>
-          <ParquesList zoneSelected={zoneSelected} />
+          <ParquesList
+            establishmentSelected={parquesSelected}
+            zoneSelected={zoneSelected}
+          />
         </ListArea>
       </Container>
       <Footer />

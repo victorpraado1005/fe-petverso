@@ -14,15 +14,15 @@ export default function Footer() {
       </div>
       <LineWhite />
       <div>
-        <Link to="/porperto">Por perto</Link>
+        <Link to="/porperto">O que tem por perto?</Link>
       </div>
       <LineWhite />
       <div>
-        <Link to="/assinatura">Assinatura</Link>
+        <Link to="/pedidos">Pedidos</Link>
       </div>
       <LineWhite />
       <div>
-        <Link to="/">Sair</Link>
+        <Link to="/meuperfil">Meu Perfil</Link>
       </div>
     </Container>
   );

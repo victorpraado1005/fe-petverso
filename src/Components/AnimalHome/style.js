@@ -23,7 +23,9 @@ export const TitleContainer = styled.div`
     justify-content: space-between;
     align-items: baseline;
     padding: 0px 60px;
+`;
 
+export const ButtonArea = styled.div`
     a {
       text-decoration: none;
       color: ${({ theme }) => theme.colors.background};
@@ -34,6 +36,10 @@ export const TitleContainer = styled.div`
       background: ${({ theme }) => theme.colors.primary.dark};
       height: 35px;
       width: 130px;
+    }
+
+    button ~ button {
+      margin-left: 24px;
     }
 `;
 

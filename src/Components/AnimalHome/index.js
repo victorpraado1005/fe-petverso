@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
-  Container, TitleContainer, GridArea, Card,
+  Container, TitleContainer, GridArea, Card, ButtonArea,
 } from './style';
 
 import Button from '../../button';
@@ -35,11 +35,18 @@ export default function AnimalHome() {
       <Loader isLoading={isLoading} />
       <TitleContainer>
         <h1>Meus Animais:</h1>
-        <Button>
-          <Link to="/addAnimal">
-            + Adicionar
-          </Link>
-        </Button>
+        <ButtonArea>
+          <Button>
+            <Link to="/animals">
+              Ver Todos
+            </Link>
+          </Button>
+          <Button>
+            <Link to="/addAnimal">
+              + Adicionar
+            </Link>
+          </Button>
+        </ButtonArea>
       </TitleContainer>
       <GridArea>
         {animals.map((animal) => (

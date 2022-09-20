@@ -87,7 +87,15 @@ const parques = [
   },
 ];
 
-export default function ParquesList({ zoneSelected }) {
+export default function ParquesList({ zoneSelected, establishmentSelected }) {
+  if (establishmentSelected === 'desmarcado') {
+    return null;
+  }
+
+  if (establishmentSelected === '') {
+    establishmentSelected = 'Parques';
+  }
+
   if (zoneSelected === '') {
     zoneSelected = 'Zona Sul';
   }
@@ -95,29 +103,33 @@ export default function ParquesList({ zoneSelected }) {
   const parque = parques.filter((pet) => pet.zona === zoneSelected);
 
   return (
-    <Container>
-      {parque.map((park) => (
-        <Card key={park.key}>
-          <div className="title-card">
-            <span>{park.nome}</span>
-          </div>
-          <div className="data-card">
-            <span><strong>{park.rua}</strong></span>
-            <span><strong>{park.bairro}</strong></span>
-            <span><strong>{park.zona}</strong></span>
-            <span><strong>{park.telefone}</strong></span>
-          </div>
-          <div className="button-card">
-            <Button>
-              Ver Avaliações
-            </Button>
-          </div>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <h1>Parques:</h1>
+      <Container>
+        {parque.map((park) => (
+          <Card key={park.key}>
+            <div className="title-card">
+              <span>{park.nome}</span>
+            </div>
+            <div className="data-card">
+              <span><strong>{park.rua}</strong></span>
+              <span><strong>{park.bairro}</strong></span>
+              <span><strong>{park.zona}</strong></span>
+              <span><strong>{park.telefone}</strong></span>
+            </div>
+            <div className="button-card">
+              <Button>
+                Ver Avaliações
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 }
 
 ParquesList.propTypes = {
+  establishmentSelected: PropTypes.string.isRequired,
   zoneSelected: PropTypes.string.isRequired,
 };

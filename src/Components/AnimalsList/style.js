@@ -95,7 +95,7 @@ export const Card = styled.div`
     }
 
     .delete-button{
-    background: ${({ theme }) => theme.colors.danger.dark};
+    background: ${({ theme }) => theme.colors.danger.main};
   }
 
     button{

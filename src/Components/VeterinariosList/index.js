@@ -89,7 +89,15 @@ const clinicas = [
   },
 ];
 
-export default function VeterinariosList({ zoneSelected }) {
+export default function VeterinariosList({ zoneSelected, establishmentSelected }) {
+  if (establishmentSelected === 'desmarcado') {
+    return null;
+  }
+
+  if (establishmentSelected === '') {
+    establishmentSelected = 'Veterinario';
+  }
+
   if (zoneSelected === '') {
     zoneSelected = 'Zona Sul';
   }
@@ -101,29 +109,33 @@ export default function VeterinariosList({ zoneSelected }) {
   }
 
   return (
-    <Container>
-      {clinica.map((veterinario) => (
-        <Card key={veterinario.key}>
-          <div className="title-card">
-            <span>{veterinario.nome}</span>
-          </div>
-          <div className="data-card">
-            <span><strong>{veterinario.rua}</strong></span>
-            <span><strong>{veterinario.bairro}</strong></span>
-            <span><strong>{veterinario.zona}</strong></span>
-            <span><strong>{veterinario.telefone}</strong></span>
-          </div>
-          <div className="button-card">
-            <Button onClick={() => handleConsulta(veterinario.nome)}>
-              Agendar Consulta
-            </Button>
-          </div>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <h1>Clínica Veterinária:</h1>
+      <Container>
+        {clinica.map((veterinario) => (
+          <Card key={veterinario.key}>
+            <div className="title-card">
+              <span>{veterinario.nome}</span>
+            </div>
+            <div className="data-card">
+              <span><strong>{veterinario.rua}</strong></span>
+              <span><strong>{veterinario.bairro}</strong></span>
+              <span><strong>{veterinario.zona}</strong></span>
+              <span><strong>{veterinario.telefone}</strong></span>
+            </div>
+            <div className="button-card">
+              <Button onClick={() => handleConsulta(veterinario.nome)}>
+                Agendar Consulta
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 }
 
 VeterinariosList.propTypes = {
+  establishmentSelected: PropTypes.string.isRequired,
   zoneSelected: PropTypes.string.isRequired,
 };

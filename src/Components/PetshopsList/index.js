@@ -87,7 +87,15 @@ const petshops = [
   },
 ];
 
-export default function PetshopsList({ zoneSelected }) {
+export default function PetshopsList({ zoneSelected, establishmentSelected }) {
+  if (establishmentSelected === 'desmarcado') {
+    return null;
+  }
+
+  if (establishmentSelected === '') {
+    establishmentSelected = 'PetShop';
+  }
+
   if (zoneSelected === '') {
     zoneSelected = 'Zona Sul';
   }
@@ -95,29 +103,33 @@ export default function PetshopsList({ zoneSelected }) {
   const pets = petshops.filter((pet) => pet.zona === zoneSelected);
 
   return (
-    <Container>
-      {pets.map((petshop) => (
-        <Card key={petshop.key}>
-          <div className="title-card">
-            <span>{petshop.nome}</span>
-          </div>
-          <div className="data-card">
-            <span><strong>{petshop.rua}</strong></span>
-            <span><strong>{petshop.bairro}</strong></span>
-            <span><strong>{petshop.zona}</strong></span>
-            <span><strong>{petshop.telefone}</strong></span>
-          </div>
-          <div className="button-card">
-            <Button>
-              Agendar Banho
-            </Button>
-          </div>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <h1>PetShop:</h1>
+      <Container>
+        {pets.map((petshop) => (
+          <Card key={petshop.key}>
+            <div className="title-card">
+              <span>{petshop.nome}</span>
+            </div>
+            <div className="data-card">
+              <span><strong>{petshop.rua}</strong></span>
+              <span><strong>{petshop.bairro}</strong></span>
+              <span><strong>{petshop.zona}</strong></span>
+              <span><strong>{petshop.telefone}</strong></span>
+            </div>
+            <div className="button-card">
+              <Button>
+                Agendar Banho
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 }
 
 PetshopsList.propTypes = {
+  establishmentSelected: PropTypes.string.isRequired,
   zoneSelected: PropTypes.string.isRequired,
 };

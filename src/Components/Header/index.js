@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { Context } from '../../Context/AuthContext';
 
-import { Container } from './style';
+import { Container, ButtonArea } from './style';
 
 import Button from '../../button';
 
@@ -14,7 +14,10 @@ export default function Header() {
   return (
     <Container>
       <img src={logoDark} alt="" />
-      <Button type="button" onClick={handleLogout}>Sair</Button>
+      <ButtonArea>
+        <Button type="button" onClick={handleLogout}>Contato</Button>
+        <Button type="button" className="delete-button" onClick={handleLogout}>Sair</Button>
+      </ButtonArea>
     </Container>
   );
 }

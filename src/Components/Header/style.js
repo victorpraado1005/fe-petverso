@@ -12,9 +12,20 @@ export const Container = styled.header`
   background-color: ${({ theme }) => theme.colors.primary.dark};
   padding: 0px 10px;
 
-
   img{
     width: 200px;
     height: 50px;
+  }
+`;
+
+export const ButtonArea = styled.div`
+
+  button ~ button{
+      margin-left: 12px;
+  }
+
+  .delete-button{
+    color: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.danger.main};
   }
 `;
