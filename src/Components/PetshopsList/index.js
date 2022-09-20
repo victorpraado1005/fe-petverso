@@ -4,6 +4,8 @@ import { Container, Card } from './style';
 
 import Button from '../../button';
 
+import history from '../../history';
+
 const petshops = [
   {
     nome: 'Cobasi 2',
@@ -102,6 +104,10 @@ export default function PetshopsList({ zoneSelected, establishmentSelected }) {
 
   const pets = petshops.filter((pet) => pet.zona === zoneSelected);
 
+  function handleBanho(petshopName) {
+    history.push(`/banho/${petshopName}`);
+  }
+
   return (
     <>
       <h1>PetShop:</h1>
@@ -118,7 +124,7 @@ export default function PetshopsList({ zoneSelected, establishmentSelected }) {
               <span><strong>{petshop.telefone}</strong></span>
             </div>
             <div className="button-card">
-              <Button>
+              <Button onClick={() => handleBanho(petshop.nome)}>
                 Agendar Banho
               </Button>
             </div>
