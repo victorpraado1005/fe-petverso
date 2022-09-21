@@ -10,7 +10,7 @@ import AnimalsService from '../../services/AnimalsService';
 
 import useErrors from '../../hooks/useErros';
 
-// import history from '../../history';
+import history from '../../history';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -85,9 +85,8 @@ export default function VaccineForm() {
         animal_id: animalId,
         users_id: UserId,
       };
-      // console.log(banhoData);
       await BanhoService.createBanho(banhoData);
-      // history.push('/porperto');
+      history.push('/porperto');
     } catch {
       alert('Ocorreu um erro ao agendar o banho');
     }
