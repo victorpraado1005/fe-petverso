@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 45px;
-  height: 100vh;
+  height: 92vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -11,10 +10,15 @@ export const Container = styled.div`
 export const UserData = styled.div`
   width: 100%;
   max-width: 400px;
-  height: 550px;
+  height: 70vh;
+  max-height: 600px;
   background: ${({ theme }) => theme.colors.primary.dark};
   border-radius: 6px;
   color: ${({ theme }) => theme.colors.background};
+
+  h3{
+    font-size: 22px;
+  }
 `;
 
 export const TitleUserData = styled.div`
@@ -57,7 +61,7 @@ export const AnimalsName = styled.div`
 export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid;
+  /* border: 1px solid; */
 `;
 
 export const CardAtividades = styled.div`
@@ -66,8 +70,70 @@ export const CardAtividades = styled.div`
   background: ${({ theme }) => theme.colors.primary.light};
 `;
 
-export const CardPlano = styled.div`
-  width: 500px;
-  padding: 18px;
+export const CardBeneficiosAssinatura = styled.div`
+  /* width: 100%; */
+  width: 600px;
+  padding: 24px 12px;
   background: ${({ theme }) => theme.colors.primary.main};
+  margin-top: 165px;
+  border-radius: 6px;
+  color: ${({ theme }) => theme.colors.background};
+
+  h3{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+`;
+
+export const ContainerCardInfoBeneficios = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export const CardInfoBeneficiosAssinatura = styled.div`
+    max-width: 137px;
+    width: 100%;
+    padding: 8px;
+    border: 3px solid #FFFFDE;
+    border-radius: 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3{
+      font-size: 16px;
+    }
+
+    span{
+      font-size: 8px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    img{
+      width: 50px;
+      height: 50px;
+      position: relative;
+      top: -15px;
+    }
+`;
+
+export const ContainerNotSubscriber = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  button{
+    width: 20%;
+  }
 `;

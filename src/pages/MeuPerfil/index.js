@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import {
-  Container, UserData, CardAtividades, CardPlano, ContainerCard, TitleUserData,
+  Container, UserData, CardAtividades, CardBeneficiosAssinatura, ContainerCard, TitleUserData,
   SubTitleUserData, AnimalsName,
-  ButtonArea,
+  ButtonArea, CardInfoBeneficiosAssinatura,
+  ContainerCardInfoBeneficios, ContainerNotSubscriber,
 } from './style';
 
 import UserService from '../../services/UserService';
@@ -14,11 +15,16 @@ import Footer from '../../Components/Footer';
 import Loader from '../../Components/Loader';
 import Button from '../../button';
 
+import freteGratis from '../../assets/images/entrega-gratis.png';
+import cupons from '../../assets/images/cupons.png';
+import kitMensal from '../../assets/images/ball.png';
+
 export default function Assinatura() {
   const UserId = localStorage.getItem('UserID');
   const [userInfo, setUserInfo] = useState('');
   const [animalsList, setAnimalList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubscriber, setIsSubscriber] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +33,9 @@ export default function Assinatura() {
         const userData = await UserService.getUserById(UserId);
 
         setUserInfo(userData);
+        if (userData.assinante) {
+          setIsSubscriber(true);
+        }
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -119,9 +128,37 @@ export default function Assinatura() {
             <h1>Atividades: </h1>
             <h1>Atividades: </h1>
           </CardAtividades>
-          <CardPlano>
-            <h1>Espaço reservado para o assinante: </h1>
-          </CardPlano>
+          <CardBeneficiosAssinatura>
+            <h3>Benefícios da sua assinatura: </h3>
+            {isSubscriber ? (
+              <ContainerCardInfoBeneficios>
+                <CardInfoBeneficiosAssinatura>
+                  <h3>Frete Grátis</h3>
+                  <img src={freteGratis} alt="frete gratis" />
+                  <span>*Em todos os pedidos no app</span>
+                </CardInfoBeneficiosAssinatura>
+                <CardInfoBeneficiosAssinatura>
+                  <h3>Cupons</h3>
+                  <img src={cupons} alt="frete gratis" />
+                  <span>Cupons detalhados na Home e na tela de pedidos</span>
+                </CardInfoBeneficiosAssinatura>
+                <CardInfoBeneficiosAssinatura>
+                  <h3>Kit Mensal</h3>
+                  <img src={kitMensal} alt="frete gratis" />
+                  <span>Todo mês um Kit personalizado será enviado até a sua casa!</span>
+                </CardInfoBeneficiosAssinatura>
+              </ContainerCardInfoBeneficios>
+            ) : (
+              <ContainerNotSubscriber>
+                <h1>
+                  Para aproveitar os benefícios de um assinante basta adquirir um
+                  de nossos planos! :)
+                </h1>
+                <Button>Ver Planos</Button>
+              </ContainerNotSubscriber>
+            )}
+
+          </CardBeneficiosAssinatura>
         </ContainerCard>
       </Container>
       <Footer />
