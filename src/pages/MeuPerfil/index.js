@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 
+import history from '../../history';
+
 import {
   Container, UserData, CardAtividades, CardBeneficiosAssinatura, ContainerCard, TitleUserData,
   SubTitleUserData, AnimalsName,
   ButtonArea, CardInfoBeneficiosAssinatura,
   ContainerCardInfoBeneficios, ContainerNotSubscriber,
+  ContainerCardPedidos, CardPedidos,
 } from './style';
 
 import UserService from '../../services/UserService';
 import AnimalsService from '../../services/AnimalsService';
+import PedidoService from '../../services/PedidoService';
 
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
@@ -22,6 +26,7 @@ import kitMensal from '../../assets/images/ball.png';
 export default function Assinatura() {
   const UserId = localStorage.getItem('UserID');
   const [userInfo, setUserInfo] = useState('');
+  const [pedidos, setPedidos] = useState([]);
   const [animalsList, setAnimalList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubscriber, setIsSubscriber] = useState(false);
@@ -48,6 +53,21 @@ export default function Assinatura() {
     (async () => {
       setIsLoading(true);
       try {
+        const listPedidos = await PedidoService.getPedidosByUserId(UserId);
+        setPedidos(listPedidos);
+        console.log(pedidos);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
         const AnimalsList = await AnimalsService.listAnimals(UserId);
 
         setAnimalList(AnimalsList);
@@ -58,6 +78,10 @@ export default function Assinatura() {
       }
     })();
   }, []);
+
+  function handleEditUser(id) {
+    history.push(`/editUser/${id}`);
+  }
 
   return (
     <>
@@ -92,7 +116,7 @@ export default function Assinatura() {
             </div>
           </SubTitleUserData>
           <ButtonArea>
-            <Button>Editar</Button>
+            <Button onClick={() => handleEditUser(userInfo.id)}>Editar</Button>
           </ButtonArea>
           <SubTitleUserData>
             <h3>Assinatura:</h3>
@@ -123,10 +147,29 @@ export default function Assinatura() {
         </UserData>
         <ContainerCard>
           <CardAtividades>
-            <h1>Atividades: </h1>
-            <h1>Atividades: </h1>
-            <h1>Atividades: </h1>
-            <h1>Atividades: </h1>
+            <h1>Meus Pedidos: </h1>
+            <ContainerCardPedidos>
+              {pedidos.map((pedido) => (
+                <CardPedidos>
+                  <div>
+                    <span className="title-data-pedido">Loja:</span>
+                    <span>{pedido.loja}</span>
+                  </div>
+                  <div>
+                    <span className="title-data-pedido">Data do Pedido:</span>
+                    <span>{pedido.data_pedido}</span>
+                  </div>
+                  <div>
+                    <span className="title-data-pedido">Valor Total:</span>
+                    <span>{pedido.valor_total}</span>
+                  </div>
+                  <div>
+                    <span className="title-data-pedido">Status do Pedido:</span>
+                    <span>{pedido.status}</span>
+                  </div>
+                </CardPedidos>
+              ))}
+            </ContainerCardPedidos>
           </CardAtividades>
           <CardBeneficiosAssinatura>
             <h3>Benefícios da sua assinatura: </h3>

@@ -64,18 +64,12 @@ export const ContainerCard = styled.div`
   /* border: 1px solid; */
 `;
 
-export const CardAtividades = styled.div`
-  width: 500px;
-  padding: 18px;
-  background: ${({ theme }) => theme.colors.primary.light};
-`;
-
 export const CardBeneficiosAssinatura = styled.div`
   /* width: 100%; */
   width: 600px;
   padding: 24px 12px;
   background: ${({ theme }) => theme.colors.primary.main};
-  margin-top: 165px;
+  margin-top: 15px;
   border-radius: 6px;
   color: ${({ theme }) => theme.colors.background};
 
@@ -136,4 +130,47 @@ export const ContainerNotSubscriber = styled.div`
   button{
     width: 20%;
   }
+`;
+
+export const CardAtividades = styled.div`
+  width: 600px;
+  padding: 24px 12px;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.colors.primary.light};
+  color: ${({ theme }) => theme.colors.background};
+
+  h1{
+    font-size: 22px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+`;
+
+export const ContainerCardPedidos = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  gap: 30px;
+`;
+
+export const CardPedidos = styled.div`
+    max-width: 234px;
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    background: ${({ theme }) => theme.colors.background};
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    span{
+      color: ${({ theme }) => theme.colors.primary.main};
+      font-size: 12px;
+    }
+
+    .title-data-pedido{
+      font-weight: bold;
+      margin-right: 5px;
+    }
 `;

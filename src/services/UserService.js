@@ -8,6 +8,10 @@ class AnimalsService {
   getUserById(id) {
     return this.httpClient.get(`/users/${id}`);
   }
+
+  updateUser(id, user) {
+    return this.httpClient.put(`/users/${id}`, user);
+  }
 }
 
 export default new AnimalsService();
