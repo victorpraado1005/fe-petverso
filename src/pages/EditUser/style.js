@@ -24,7 +24,7 @@ export const Card = styled.div`
   h1{
     color: ${({ theme }) => theme.colors.background};
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
 `;
@@ -44,6 +44,11 @@ export const FormArea = styled.div`
 
   input, select{
     width: 260px;
+    margin-bottom: 20px;
+  }
+
+  .email{
+    align-self: center;
   }
 `;
 

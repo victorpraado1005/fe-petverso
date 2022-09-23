@@ -6,6 +6,7 @@ import Header from '../../Components/Header';
 import WelcomeSection from '../../Components/WelcomeSection';
 import AnimalHome from '../../Components/AnimalHome';
 import Footer from '../../Components/Footer';
+import Dicas from '../../Components/Dicas';
 
 export default function Home() {
   const { authenticated } = useContext(Context);
@@ -19,6 +20,7 @@ export default function Home() {
     <>
       <Header />
       <WelcomeSection />
+      <Dicas />
       <AnimalHome />
       <Footer />
     </>

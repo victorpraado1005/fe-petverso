@@ -57,6 +57,7 @@ export default function EditAnimal() {
 
   async function handleUpdateUser() {
     try {
+      setIsLoading(true);
       const User = {
         name,
         email,
@@ -73,6 +74,8 @@ export default function EditAnimal() {
       history.push('/meuperfil');
     } catch {
       alert('Ocorreu um erro ao atualizar o usuário');
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -96,12 +99,14 @@ export default function EditAnimal() {
               />
             </FormGroup>
             <FormGroup>
-              <span>E-mail:</span>
-              <Input
-                placeholder={userData.email}
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
+              <div className="email">
+                <span>E-mail:</span>
+                <Input
+                  placeholder={userData.email}
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
               <span>Gênero:</span>
@@ -109,7 +114,6 @@ export default function EditAnimal() {
                 value={gender}
                 onChange={(event) => setGender(event.target.value)}
               >
-                <option value={gender}>{gender}</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Feminino">Feminino</option>
               </Select>
