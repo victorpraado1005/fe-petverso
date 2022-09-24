@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   h1{
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     color: ${({ theme }) => theme.colors.background};
   }
 `;
@@ -17,32 +17,39 @@ export const ContainerCardDicas = styled.div`
 `;
 
 export const CardDicas = styled.div`
-  max-width: 250px;
+  max-width: 300px;
   width: 100%;
-  padding: 12px;
+  padding-bottom: 12px;
   background: ${({ theme }) => theme.colors.background};
-  border-radius: 6px;
+  border-radius: 12px;
   color: ${({ theme }) => theme.colors.primary.dark};
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
-  .title-dicas{
-    font-size: 18px;
-    margin-bottom: 8px;
+  .img-curiosidade{
+    width: 100%;
+    height: 200px;
   }
 
   .text-dicas{
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 14px;
+    margin-top: 12px;
     margin-bottom: 16px;
   }
 
   button{
     background: ${({ theme }) => theme.colors.primary.dark};
-    color: ${({ theme }) => theme.colors.background};
     width: 40%;
     height: 32px;
+    justify-self: end;
+  }
+
+  a{
+    padding: 8px 12px;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.background};
   }
 `;
