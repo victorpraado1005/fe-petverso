@@ -6,8 +6,8 @@ class BanhoService {
   }
 
   // pegar as consultas pelo ID do animal
-  listBanhoByAnimalId(animalId) {
-    return this.httpClient.get(`/users/banho/${animalId}`);
+  listBanhoByUserlId(UserID) {
+    return this.httpClient.get(`/users/banhos/${UserID}`);
   }
 
   getBanhoById(id) {

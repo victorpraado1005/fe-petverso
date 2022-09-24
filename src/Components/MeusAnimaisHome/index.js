@@ -21,7 +21,6 @@ export default function MeusAnimaisHome() {
       setIsLoading(true);
       try {
         const AnimalsList = await AnimalsService.listAnimals(UserID);
-
         setAnimals(AnimalsList);
       } catch (error) {
         console.log(error.message);

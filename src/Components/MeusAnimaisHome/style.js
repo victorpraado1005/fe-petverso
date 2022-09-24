@@ -8,17 +8,19 @@ export const TitleContainer = styled.div`
   padding: 12px;
 
   h1{
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .button-area{
     display: flex;
-    justify-content: space-evenly;
-    width: 60%;
+    justify-content: space-between;
+    width: 50%;
   }
 
   button{
-    width: 120px;
+    width: 100px;
+    font-size: 12px;
+    padding: 0 14px;
     background: ${({ theme }) => theme.colors.primary.dark};
     color: ${({ theme }) => theme.colors.background};
   }
@@ -29,14 +31,18 @@ export const ListAnimalsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 12px;
   padding: 12px;
 
   .data-animal{
     width: 100%;
-    margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
+
+    h1{
+      font-size: 20px;
+    }
+
   }
 
   button{

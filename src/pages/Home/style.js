@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ContainerCardsHome = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 80px;
 `;
 
 export const CardHome = styled.div`

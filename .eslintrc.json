@@ -29,6 +29,7 @@
       "linebreak-style": "off",
       "jsx-a11y/label-has-associated-control": "off",
       "no-param-reassign": "off",
-      "no-return-assign": "off"
+      "no-return-assign": "off",
+      "prefer-template": "off"
     }
 }

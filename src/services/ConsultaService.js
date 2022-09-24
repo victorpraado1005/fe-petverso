@@ -6,8 +6,8 @@ class ConsultaService {
   }
 
   // pegar as consultas pelo ID do animal
-  listConsultaByAnimalId(animalId) {
-    return this.httpClient.get(`/users/consultas/${animalId}`);
+  listConsultaByUserId(userId) {
+    return this.httpClient.get(`/users/consultas/${userId}`);
   }
 
   getConsultaById(id) {

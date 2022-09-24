@@ -25,7 +25,6 @@ export default function MeusPedidosHome() {
       setIsLoading(true);
       try {
         const listPedidos = await PedidoService.getPedidosByUserId(UserId);
-        listPedidos.length = 2;
         setPedidos(listPedidos);
       } catch (error) {
         console.log(error.message);

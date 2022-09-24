@@ -7,8 +7,11 @@ export const TitleContainer = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  place-items: center;
 `;
 
 export const CardPedidos = styled.div`
