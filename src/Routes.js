@@ -14,6 +14,7 @@ import CreateConsultaForm from './Components/CreateConsultaForm';
 import CreateBanho from './Components/CreateBanho';
 import MeuPerfil from './pages/MeuPerfil';
 import EditUser from './pages/EditUser';
+import Pedidos from './pages/Pedidos';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -42,6 +43,7 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/banho/:petshop" component={CreateBanho} />
       <CustomRoute isPrivate exact path="/meuperfil" component={MeuPerfil} />
       <CustomRoute isPrivate exact path="/editUser/:id" component={EditUser} />
+      <CustomRoute isPrivate exact path="/pedidos" component={Pedidos} />
     </Switch>
   );
 }

@@ -27,8 +27,8 @@ export default function Home() {
       <WelcomeSection />
       <Dicas />
       <ContainerCardsHome>
-        <MeusAnimaisHome />
         <MeusPedidosHome />
+        <MeusAnimaisHome />
         <AgendamentosHome />
       </ContainerCardsHome>
       <Footer />

@@ -7,7 +7,8 @@ export const Container = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 250px;
+  margin-top: 32px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;

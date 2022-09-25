@@ -2,8 +2,14 @@ import styled from 'styled-components';
 
 export const TitleContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 12px;
+
+  button{
+    background: ${({ theme }) => theme.colors.primary.dark};
+  color: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 export const CardsContainer = styled.div`

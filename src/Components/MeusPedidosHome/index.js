@@ -10,7 +10,6 @@ import history from '../../history';
 
 import {
   TitleContainer, CardPedidos, CardsContainer,
-  ButtonArea,
 } from './style';
 
 import Button from '../../button';
@@ -39,6 +38,7 @@ export default function MeusPedidosHome() {
       <Loader isLoading={isLoading} />
       <TitleContainer>
         <h1>Meus Pedidos:</h1>
+        <Button onClick={() => history.push('/meuperfil')}>Ver todos</Button>
       </TitleContainer>
       <CardsContainer>
         {pedidos.map((pedido) => (
@@ -62,9 +62,6 @@ export default function MeusPedidosHome() {
           </CardPedidos>
         ))}
       </CardsContainer>
-      <ButtonArea>
-        <Button onClick={() => history.push('/meuperfil')}>Ver todos</Button>
-      </ButtonArea>
     </CardHome>
   );
 }
