@@ -25,6 +25,7 @@ export const ContainerProductsAndCart = styled.div`
 export const ContainerListaProdutos = styled.div`
   max-width: 550px;
   width: 100%;
+  height: 350px;
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.colors.primary.dark};
   display: flex;
@@ -67,10 +68,10 @@ export const ContainerCheckout = styled.div`
 
 export const ContainerCarrinho = styled.div`
   width: 500px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   border: 1px solid ${({ theme }) => theme.colors.primary.dark};
-  margin-top: 20px;
   padding: 10px;
 
   h1{
@@ -142,6 +143,16 @@ export const RowOptionFrete = styled.div`
     margin-right: 10px;
   }
   `;
+
+export const ContainerCupons = styled.div`
+  display: flex;
+  padding: 12px;
+  border: 1px solid black;
+
+  h1{
+    font-size: 22px;
+  }
+`;
 
 export const ContainerTotalPedido = styled.div`
   padding: 12px;

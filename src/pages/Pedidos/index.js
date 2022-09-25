@@ -8,7 +8,7 @@ import {
   InfoContainer, ContainerTotal, ContainerProductsAndCart,
   ContainerInfoEntrega, ContainerTotalPedido,
   RowInfoAddress, RowInfoFrete,
-  RowOptionFrete,
+  RowOptionFrete, ContainerCupons,
 } from './style';
 
 import UserService from '../../services/UserService';
@@ -22,6 +22,8 @@ export default function Pedidos() {
   const UserId = localStorage.getItem('UserID');
   const [carrinho, setCarrinho] = useState([]);
   const [userData, setUserData] = useState('');
+  const [frete, setFrete] = useState('');
+  const [valorFinal, setValorFinal] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   let valorCarrinho = 0;
 
@@ -58,9 +60,19 @@ export default function Pedidos() {
   }
 
   function handleRemoveCart(produto) {
+    setFrete('');
+
     setCarrinho((prevState) => prevState.filter(
       (produtoCarrinho) => produtoCarrinho.actionId !== produto.actionId,
     ));
+  }
+
+  function handleFreteSelecionadoNaoAssinante(valor, textoFrete) {
+    console.log(valor);
+    let valorTotal = valorCarrinho + valor;
+    setValorFinal(valorTotal);
+    console.log(valorCarrinho);
+    setFrete(textoFrete);
   }
 
   return (
@@ -142,21 +154,21 @@ export default function Pedidos() {
                       Sedex - 2 dias Utéis -
                       <s>R$8,50</s>
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Sedex - 2 dias Utéis" onClick={() => setFrete('Sedex - 2 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
                       Fedex - 3 dias Utéis -
                       <s>R$6,50</s>
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Fedex - 3 dias Utéis" onClick={() => setFrete('Fedex - 3 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
-                      Particular - 1 dias Utéis -
+                      Particular - 1 dias Útil -
                       <s>R$9,50</s>
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Particular - 1 dias Útil" onClick={() => setFrete('Particular - 1 dias Útil')} />
                   </RowOptionFrete>
                   <span className="text-assinatura-frete">Devido a sua assinatura você não terá custo com frete! :)</span>
                 </>
@@ -166,28 +178,41 @@ export default function Pedidos() {
                     <span>
                       Sedex - 2 dias Utéis - R$8,50
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Sedex - 2 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(8.50, 'Sedex - 2 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
                       Fedex - 3 dias Utéis - R$6,50
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Fedex - 3 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(6.50, 'Fedex - 3 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
                       Particular - 1 dias Utéis - R$9,50
                     </span>
-                    <input type="radio" name="frete" />
+                    <input type="radio" name="frete" value="Particular - 1 dias Útil" onClick={() => handleFreteSelecionadoNaoAssinante(9.50, 'Particular - 1 dias Útil')} />
                   </RowOptionFrete>
                 </>
               )}
             </RowInfoFrete>
           </ContainerInfoEntrega>
+          <ContainerCupons>
+            <h1>Cupons: </h1>
+          </ContainerCupons>
           <ContainerTotalPedido>
             <div className="border-total">
+              <h3>Frete Selecionado:</h3>
+              {frete ? (
+                <span>{frete}</span>
+              ) : (
+                <span>Selecionar Frete</span>
+              )}
               <h1>Valor Total: </h1>
-              <h3>{valorCarrinho}</h3>
+              {frete ? (
+                <h3>{valorFinal}</h3>
+              ) : (
+                <h3>{valorCarrinho}</h3>
+              )}
               <Button>Finalizar Pedido</Button>
             </div>
           </ContainerTotalPedido>
