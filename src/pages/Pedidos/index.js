@@ -23,13 +23,11 @@ export default function Pedidos() {
   const [carrinho, setCarrinho] = useState([]);
   const [userData, setUserData] = useState('');
   const [frete, setFrete] = useState('');
-  const [valorFinal, setValorFinal] = useState(0);
+  const [valorFrete, setValorFrete] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   let valorCarrinho = 0;
 
   const cart = [];
-
-  console.log(UserId);
 
   carrinho.map((produto) => (
     valorCarrinho += produto.valor
@@ -60,18 +58,13 @@ export default function Pedidos() {
   }
 
   function handleRemoveCart(produto) {
-    setFrete('');
-
     setCarrinho((prevState) => prevState.filter(
       (produtoCarrinho) => produtoCarrinho.actionId !== produto.actionId,
     ));
   }
 
   function handleFreteSelecionadoNaoAssinante(valor, textoFrete) {
-    console.log(valor);
-    let valorTotal = valorCarrinho + valor;
-    setValorFinal(valorTotal);
-    console.log(valorCarrinho);
+    setValorFrete(valor);
     setFrete(textoFrete);
   }
 
@@ -178,19 +171,19 @@ export default function Pedidos() {
                     <span>
                       Sedex - 2 dias Utéis - R$8,50
                     </span>
-                    <input type="radio" name="frete" value="Sedex - 2 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(8.50, 'Sedex - 2 dias Utéis')} />
+                    <input type="radio" name="frete2" value="Sedex - 2 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(8.50, 'Sedex - 2 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
                       Fedex - 3 dias Utéis - R$6,50
                     </span>
-                    <input type="radio" name="frete" value="Fedex - 3 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(6.50, 'Fedex - 3 dias Utéis')} />
+                    <input type="radio" name="frete2" value="Fedex - 3 dias Utéis" onClick={() => handleFreteSelecionadoNaoAssinante(6.50, 'Fedex - 3 dias Utéis')} />
                   </RowOptionFrete>
                   <RowOptionFrete>
                     <span>
                       Particular - 1 dias Utéis - R$9,50
                     </span>
-                    <input type="radio" name="frete" value="Particular - 1 dias Útil" onClick={() => handleFreteSelecionadoNaoAssinante(9.50, 'Particular - 1 dias Útil')} />
+                    <input type="radio" name="frete2" value="Particular - 1 dias Útil" onClick={() => handleFreteSelecionadoNaoAssinante(9.50, 'Particular - 1 dias Útil')} />
                   </RowOptionFrete>
                 </>
               )}
@@ -208,10 +201,10 @@ export default function Pedidos() {
                 <span>Selecionar Frete</span>
               )}
               <h1>Valor Total: </h1>
-              {frete ? (
-                <h3>{valorFinal}</h3>
-              ) : (
+              {userData.assinante ? (
                 <h3>{valorCarrinho}</h3>
+              ) : (
+                <h3>{valorCarrinho += valorFrete}</h3>
               )}
               <Button>Finalizar Pedido</Button>
             </div>
