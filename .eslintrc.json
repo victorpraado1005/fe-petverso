@@ -31,6 +31,8 @@
       "no-param-reassign": "off",
       "no-return-assign": "off",
       "prefer-template": "off",
-      "prefer-const": "off"
+      "prefer-const": "off",
+      "no-plusplus": "off",
+      "react/jsx-no-useless-fragment": "off"
     }
 }

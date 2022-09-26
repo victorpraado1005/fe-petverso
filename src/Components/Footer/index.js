@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
       <LineWhite />
       <div>
-        <Link to="/pedidos">Pedidos</Link>
+        <Link to="/lojas">PetShops</Link>
       </div>
       <LineWhite />
       <div>

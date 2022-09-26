@@ -14,6 +14,7 @@ import CreateConsultaForm from './Components/CreateConsultaForm';
 import CreateBanho from './Components/CreateBanho';
 import MeuPerfil from './pages/MeuPerfil';
 import EditUser from './pages/EditUser';
+import Lojas from './pages/Lojas';
 import Pedidos from './pages/Pedidos';
 
 function CustomRoute({ isPrivate, ...rest }) {
@@ -43,7 +44,8 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/banho/:petshop" component={CreateBanho} />
       <CustomRoute isPrivate exact path="/meuperfil" component={MeuPerfil} />
       <CustomRoute isPrivate exact path="/editUser/:id" component={EditUser} />
-      <CustomRoute isPrivate exact path="/pedidos" component={Pedidos} />
+      <CustomRoute isPrivate exact path="/lojas" component={Lojas} />
+      <CustomRoute isPrivate exact path="/pedidos/:loja" component={Pedidos} />
     </Switch>
   );
 }

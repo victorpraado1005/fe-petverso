@@ -5,9 +5,13 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 12px;
-  margin-top: 65px;
+  margin-top: 45px;
   color: ${({ theme }) => theme.colors.primary.dark};
 
+  h1{
+    text-align: center;
+    margin-bottom: 10px;
+  }
 
   button{
     background: ${({ theme }) => theme.colors.primary.dark};
@@ -146,11 +150,40 @@ export const RowOptionFrete = styled.div`
 
 export const ContainerCupons = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: start;
   padding: 12px;
-  border: 1px solid black;
+  width: 350px;
 
   h1{
     font-size: 22px;
+  }
+`;
+
+export const RowCupom = styled.div`
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 5px;
+
+  input{
+    margin-right: 5px;
+  }
+`;
+
+export const RowCupomNaoAssinante = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    text-align: center;
+    font-size: 14px;
+  }
+
+  button{
+    margin-top: 20px;
+    width: 40%;
   }
 `;
 
@@ -158,7 +191,7 @@ export const ContainerTotalPedido = styled.div`
   padding: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
 
   .border-total{
     border: 1px solid ${({ theme }) => theme.colors.primary.dark};
@@ -175,4 +208,19 @@ export const ContainerTotalPedido = styled.div`
     background: ${({ theme }) => theme.colors.success};
     height: 40px;
   }
+`;
+
+export const EspacamentoAreaTotalPedido = styled.div`
+  margin-bottom: 30px;
+
+  h3{
+    margin-bottom: 10px;
+  }
+`;
+
+export const ContainerValorTotalPedido = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

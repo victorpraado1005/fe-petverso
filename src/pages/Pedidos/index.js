@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
+import { useParams } from 'react-router-dom';
+
 import { produtos } from '../../utils/mock/produtos';
+
+import { lojas } from '../../utils/mock/lojas';
 
 import {
   Container, ContainerListaProdutos, RowProduct,
@@ -9,6 +13,8 @@ import {
   ContainerInfoEntrega, ContainerTotalPedido,
   RowInfoAddress, RowInfoFrete,
   RowOptionFrete, ContainerCupons,
+  RowCupom, RowCupomNaoAssinante,
+  EspacamentoAreaTotalPedido, ContainerValorTotalPedido,
 } from './style';
 
 import UserService from '../../services/UserService';
@@ -19,10 +25,14 @@ import Button from '../../button';
 import Loader from '../../Components/Loader';
 
 export default function Pedidos() {
+  const { loja } = useParams();
   const UserId = localStorage.getItem('UserID');
-  const [carrinho, setCarrinho] = useState([]);
   const [userData, setUserData] = useState('');
+  const [lojaSelecionada, setLojaSelecionada] = useState(lojas);
+  const [produtosLoja, setProdutoLoja] = useState(produtos);
+  const [carrinho, setCarrinho] = useState([]);
   const [frete, setFrete] = useState('');
+  const [cupomSelecionado, setCupomSelecionado] = useState('');
   const [valorFrete, setValorFrete] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   let valorCarrinho = 0;
@@ -39,6 +49,12 @@ export default function Pedidos() {
         setIsLoading(true);
         const UserInfo = await UserService.getUserById(UserId);
         setUserData(UserInfo);
+        setProdutoLoja((prevState) => prevState.filter(
+          (produto) => produto.loja === loja,
+        ));
+        setLojaSelecionada((prevState) => prevState.filter(
+          (lojaAtual) => lojaAtual.nome === loja,
+        ));
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -73,10 +89,11 @@ export default function Pedidos() {
       <Loader isLoading={isLoading} />
       <Header />
       <Container>
+        <h1>{loja}</h1>
         <ContainerProductsAndCart>
           <ContainerListaProdutos>
             <h1>Produtos: </h1>
-            {produtos.map((produto) => (
+            {produtosLoja.map((produto) => (
               <RowProduct key={produto.id}>
                 <InfoContainer>
                   <span>{produto.nome}</span>
@@ -191,22 +208,57 @@ export default function Pedidos() {
           </ContainerInfoEntrega>
           <ContainerCupons>
             <h1>Cupons: </h1>
+            {lojaSelecionada[0].cupons.map((cupom) => (
+              <>
+                {userData.assinante ? (
+                  <>
+                    <RowCupom key={Math.random()}>
+                      <input type="checkbox" name="cupom" onClick={() => setCupomSelecionado(cupom.nomeCupom)} />
+                      <span>{cupom.nomeCupom}</span>
+                    </RowCupom>
+                    <span>{cupom.descricaoCupom}</span>
+                  </>
+                ) : (
+                  null
+                )}
+              </>
+            ))}
+            {!userData.assinante ? (
+              <RowCupomNaoAssinante>
+                <span>Cupons especiais estão disponíveis apenas para assinantes PetVerso</span>
+                <Button>Ver Planos</Button>
+              </RowCupomNaoAssinante>
+            ) : (
+              null
+            )}
           </ContainerCupons>
           <ContainerTotalPedido>
             <div className="border-total">
-              <h3>Frete Selecionado:</h3>
-              {frete ? (
-                <span>{frete}</span>
-              ) : (
-                <span>Selecionar Frete</span>
-              )}
-              <h1>Valor Total: </h1>
-              {userData.assinante ? (
-                <h3>{valorCarrinho}</h3>
-              ) : (
-                <h3>{valorCarrinho += valorFrete}</h3>
-              )}
-              <Button>Finalizar Pedido</Button>
+              <EspacamentoAreaTotalPedido>
+                <h3>Cupom Selecionado: </h3>
+                {cupomSelecionado ? (
+                  <span>{cupomSelecionado}</span>
+                ) : (
+                  null
+                )}
+              </EspacamentoAreaTotalPedido>
+              <EspacamentoAreaTotalPedido>
+                <h3>Frete Selecionado:</h3>
+                {frete ? (
+                  <span>{frete}</span>
+                ) : (
+                  <span>Selecionar Frete</span>
+                )}
+              </EspacamentoAreaTotalPedido>
+              <ContainerValorTotalPedido>
+                <h1>Valor Total: </h1>
+                {userData.assinante ? (
+                  <h3>{valorCarrinho}</h3>
+                ) : (
+                  <h3>{valorCarrinho += valorFrete}</h3>
+                )}
+                <Button>Finalizar Pedido</Button>
+              </ContainerValorTotalPedido>
             </div>
           </ContainerTotalPedido>
         </ContainerTotal>
