@@ -4,7 +4,7 @@ import { Container } from './style';
 
 import AnimalsService from '../../services/AnimalsService';
 
-// import history from '../../history';
+import history from '../../history';
 
 import ToastContainer from '../../Components/Toast/ToastContainer';
 
@@ -33,11 +33,7 @@ export default function AddAnimal() {
 
       animalFormsRef.current.resetFields();
 
-      // history.push('/home');
-      toast({
-        type: 'success',
-        text: 'Animal cadastrado com sucesso!',
-      });
+      history.push('/home');
     } catch {
       toast({
         type: 'danger',
