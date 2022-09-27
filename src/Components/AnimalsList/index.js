@@ -13,6 +13,10 @@ import history from '../../history';
 import Button from '../../button';
 import Modal from '../Modal';
 import AnimalsService from '../../services/AnimalsService';
+import BanhoService from '../../services/BanhoService';
+import ConsultaService from '../../services/ConsultaService';
+import VaccineService from '../../services/VaccineService';
+import MedicationService from '../../services/MedicationService';
 
 export default function Animal() {
   const UserID = localStorage.getItem('UserID');
@@ -47,6 +51,11 @@ export default function Animal() {
 
   async function handleConfirmDeleteAnimal() {
     try {
+      setIsLoading(true);
+      await BanhoService.deleteBanhoByAnimalId(animalBeingDeleted.id);
+      await ConsultaService.deleteConsultaByAnimalId(animalBeingDeleted.id);
+      await VaccineService.deleteVaccineByAnimalId(animalBeingDeleted.id);
+      await MedicationService.deleteMedicationByAnimalId(animalBeingDeleted.id);
       await AnimalsService.deleteAnimal(animalBeingDeleted.id);
 
       setAnimals((prevState) => prevState.filter(
@@ -56,6 +65,8 @@ export default function Animal() {
       handleCloseDeleteModal();
     } catch {
       alert('Não foi possível excluir esse animal.');
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -83,6 +94,7 @@ export default function Animal() {
         onCancel={handleCloseDeleteModal}
         onConfirm={handleConfirmDeleteAnimal}
       >
+        <p>Iremos deletar todas as informações atreladas a esse animal.</p>
         <p>Esta ação não poderá ser desfeita!</p>
       </Modal>
 

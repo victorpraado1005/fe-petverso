@@ -25,6 +25,10 @@ class ConsultaService {
   deleteConsulta(consulta) {
     return this.httpClient.delete(`/consulta/${consulta}`);
   }
+
+  deleteConsultaByAnimalId(animalId) {
+    return this.httpClient.delete(`/animals/consulta/${animalId}`);
+  }
 }
 
 export default new ConsultaService();

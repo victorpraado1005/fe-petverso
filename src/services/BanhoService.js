@@ -25,6 +25,10 @@ class BanhoService {
   deleteBanho(banho) {
     return this.httpClient.delete(`/banho/${banho}`);
   }
+
+  deleteBanhoByAnimalId(animalId) {
+    return this.httpClient.delete(`/animals/banho/${animalId}`);
+  }
 }
 
 export default new BanhoService();

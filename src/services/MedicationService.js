@@ -26,6 +26,10 @@ class VaccineService {
   deleteMedication(id) {
     return this.httpClient.delete(`/medication/${id}`);
   }
+
+  deleteMedicationByAnimalId(animalId) {
+    return this.httpClient.delete(`/animals/medication/${animalId}`);
+  }
 }
 
 export default new VaccineService();
