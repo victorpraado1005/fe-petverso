@@ -86,9 +86,9 @@ const AnimalForm = forwardRef(({
       return setError({ field: 'species', message: 'Preencher campo de espécie' });
     }
 
-    if (!breed) {
-      return setError({ field: 'breed', message: 'Preencher campo de raça' });
-    }
+    // if (!breed) {
+    //   return setError({ field: 'breed', message: 'Preencher campo de raça' });
+    // }
 
     if (!gender) {
       return setError({ field: 'gender', message: 'Preencher campo de genero' });

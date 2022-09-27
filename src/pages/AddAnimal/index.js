@@ -4,11 +4,14 @@ import { Container } from './style';
 
 import AnimalsService from '../../services/AnimalsService';
 
-import history from '../../history';
+// import history from '../../history';
+
+import ToastContainer from '../../Components/Toast/ToastContainer';
 
 import Header from '../../Components/Header';
 import AnimalForm from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer';
+import toast from '../../utils/toast';
 
 export default function AddAnimal() {
   const animalFormsRef = useRef(null);
@@ -30,14 +33,22 @@ export default function AddAnimal() {
 
       animalFormsRef.current.resetFields();
 
-      history.push('/home');
+      // history.push('/home');
+      toast({
+        type: 'success',
+        text: 'Animal cadastrado com sucesso!',
+      });
     } catch {
-      alert('Ocorreu um erro ao cadastrar o animal');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao cadastrar o animal!',
+      });
     }
   }
 
   return (
     <Container>
+      <ToastContainer />
       <Header />
       <AnimalForm
         ref={animalFormsRef}
