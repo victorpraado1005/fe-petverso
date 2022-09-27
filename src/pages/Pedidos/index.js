@@ -18,6 +18,7 @@ import {
 } from './style';
 
 import UserService from '../../services/UserService';
+import PedidoService from '../../services/PedidoService';
 
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
@@ -32,10 +33,11 @@ export default function Pedidos() {
   const [produtosLoja, setProdutoLoja] = useState(produtos);
   const [carrinho, setCarrinho] = useState([]);
   const [frete, setFrete] = useState('');
-  const [cupomSelecionado, setCupomSelecionado] = useState('');
   const [valorFrete, setValorFrete] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   let valorCarrinho = 0;
+  const [cupomSelected, setCupomSelected] = useState('');
+  const [valorCupom, setValorCupom] = useState(0);
 
   const cart = [];
 
@@ -82,6 +84,32 @@ export default function Pedidos() {
   function handleFreteSelecionadoNaoAssinante(valor, textoFrete) {
     setValorFrete(valor);
     setFrete(textoFrete);
+  }
+
+  function handleCupomSelected(cupom) {
+    setCupomSelected(cupom.nomeCupom);
+    setValorCupom(cupom.desconto);
+  }
+
+  async function handleFinishOrder() {
+    try {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const dataPedido = day + '/0' + month + '/' + year;
+      const OrderData = {
+        data_pedido: dataPedido,
+        loja,
+        status: 'Em Separação',
+        valor_total: valorCarrinho,
+        user_id: UserId,
+      };
+      console.log(OrderData);
+      await PedidoService.createPedido(OrderData);
+    } catch {
+      alert('Não foi possível criar o pedido.');
+    }
   }
 
   return (
@@ -213,7 +241,7 @@ export default function Pedidos() {
                 {userData.assinante ? (
                   <>
                     <RowCupom key={Math.random()}>
-                      <input type="checkbox" name="cupom" onClick={() => setCupomSelecionado(cupom.nomeCupom)} />
+                      <input type="radio" name="cupom" value={cupom.nomeCupom} onClick={() => handleCupomSelected(cupom)} />
                       <span>{cupom.nomeCupom}</span>
                     </RowCupom>
                     <span>{cupom.descricaoCupom}</span>
@@ -236,8 +264,8 @@ export default function Pedidos() {
             <div className="border-total">
               <EspacamentoAreaTotalPedido>
                 <h3>Cupom Selecionado: </h3>
-                {cupomSelecionado ? (
-                  <span>{cupomSelecionado}</span>
+                {cupomSelected ? (
+                  <span>{cupomSelected}</span>
                 ) : (
                   null
                 )}
@@ -253,11 +281,11 @@ export default function Pedidos() {
               <ContainerValorTotalPedido>
                 <h1>Valor Total: </h1>
                 {userData.assinante ? (
-                  <h3>{valorCarrinho}</h3>
+                  <h3>{valorCarrinho -= (valorCarrinho * valorCupom)}</h3>
                 ) : (
                   <h3>{valorCarrinho += valorFrete}</h3>
                 )}
-                <Button>Finalizar Pedido</Button>
+                <Button onClick={handleFinishOrder}>Finalizar Pedido</Button>
               </ContainerValorTotalPedido>
             </div>
           </ContainerTotalPedido>

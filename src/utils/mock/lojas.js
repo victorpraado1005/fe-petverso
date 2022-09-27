@@ -12,17 +12,17 @@ export const lojas = [
       {
         nomeCupom: 'Cobasi 10',
         descricaoCupom: '10% de desconto na sua compra!',
-        desconto: 10,
+        desconto: 0.10,
       },
       {
         nomeCupom: 'Cobasi 20',
         descricaoCupom: '20% de desconto na sua compra!',
-        desconto: 20,
+        desconto: 0.20,
       },
       {
         nomeCupom: 'Cobasi 5',
         descricaoCupom: '5% de desconto na sua compra!',
-        desconto: 5,
+        desconto: 0.05,
       },
     ],
   },
@@ -38,12 +38,12 @@ export const lojas = [
       {
         nomeCupom: 'PetMais 5',
         descricaoCupom: '5% de desconto na sua compra!',
-        desconto: 5,
+        desconto: 0.05,
       },
       {
         nomeCupom: 'PetMais 15',
         descricaoCupom: '15% de desconto na sua compra!',
-        desconto: 15,
+        desconto: 0.15,
       },
     ],
   },
@@ -54,7 +54,7 @@ export const lojas = [
       {
         nomeCupom: 'Cobasi 20',
         descricaoCupom: '20% de desconto na sua compra!',
-        desconto: 20,
+        desconto: 0.20,
       },
     ],
   },
@@ -70,12 +70,12 @@ export const lojas = [
       {
         nomeCupom: 'PetCão 5',
         descricaoCupom: '5% de desconto na sua compra!',
-        desconto: 5,
+        desconto: 0.05,
       },
       {
         nomeCupom: 'PetCão 10',
         descricaoCupom: '10% de desconto na sua compra!',
-        desconto: 10,
+        desconto: 0.10,
       },
     ],
   },

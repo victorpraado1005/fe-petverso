@@ -31,7 +31,7 @@ export const CardPedidos = styled.div`
   flex-direction: column;
 
   span{
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .title-data-pedido{
