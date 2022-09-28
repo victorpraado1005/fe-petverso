@@ -8,7 +8,18 @@ export const TitleContainer = styled.div`
 
   button{
     background: ${({ theme }) => theme.colors.primary.dark};
-  color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.background};
+    width: 100px;
+  }
+
+  @media screen and (max-width: 1380px){
+    button{
+      width: 80px;
+    }
+
+    h1{
+      font-size: 18px;
+    }
   }
 `;
 
@@ -18,6 +29,11 @@ export const CardsContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   gap: 10px;
   place-items: center;
+
+  @media screen and (max-width: 1380px){
+      display: flex;
+      flex-direction: column;
+  }
 `;
 
 export const CardPedidos = styled.div`

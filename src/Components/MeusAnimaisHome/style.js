@@ -24,6 +24,26 @@ export const TitleContainer = styled.div`
     background: ${({ theme }) => theme.colors.primary.dark};
     color: ${({ theme }) => theme.colors.background};
   }
+
+  @media screen and (max-width: 1380px){
+    flex-direction: column;
+    font-size: 12px;
+
+    .button-area{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    }
+
+    button{
+      margin-top: 10px;
+      width: 100px;
+    }
+
+    h1{
+      font-size: 18px;
+    }
+  }
 `;
 
 export const ListAnimalsContainer = styled.div`
@@ -48,5 +68,13 @@ export const ListAnimalsContainer = styled.div`
   button{
     background: ${({ theme }) => theme.colors.primary.dark};
     color: ${({ theme }) => theme.colors.background};
+    width: 100px;
+  }
+
+  @media screen and (max-width: 1380px){
+    font-size: 12px;
+    button{
+      width: 60px;
+    }
   }
 `;

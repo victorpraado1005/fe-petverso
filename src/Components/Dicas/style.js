@@ -44,12 +44,32 @@ export const CardDicas = styled.div`
     background: ${({ theme }) => theme.colors.primary.dark};
     width: 40%;
     height: 32px;
-    justify-self: end;
   }
 
   a{
-    padding: 8px 12px;
     text-decoration: none;
     color: ${({ theme }) => theme.colors.background};
+  }
+
+  @media screen and (max-width: 1270px) {
+    width: 200px;
+
+    .img-curiosidade{
+    height: 150px;
+  }
+
+  .text-dicas{
+    font-size: 12px;
+  }
+
+  button{
+    width: 60px;
+    height: 22px;
+    text-align: center;
+  }
+
+  a{
+     font-size: 10px;
+  }
   }
 `;

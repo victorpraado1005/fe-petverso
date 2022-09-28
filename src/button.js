@@ -4,7 +4,7 @@ export default styled.button`
     /* width: 90px; */
     height: 32px;
     border: none;
-    padding: 0 24px;
+    /* padding: 0 20px; */
     background: ${({ theme }) => theme.colors.background};
     font-size: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);

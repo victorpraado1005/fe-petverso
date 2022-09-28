@@ -3,6 +3,13 @@ import styled from 'styled-components';
 export const TitleContainer = styled.div`
   padding: 12px;
   text-align: center;
+
+  @media screen and (max-width: 1380px){
+
+  h1{
+    font-size: 18px;
+  }
+}
 `;
 
 export const TitleAgendamentosContainer = styled.div`
@@ -13,6 +20,13 @@ export const TitleAgendamentosContainer = styled.div`
 
   h1{
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 1380px){
+
+    h1{
+      font-size: 18px;
+    }
   }
 `;
 
@@ -46,6 +60,19 @@ export const CardInfoAgendamento = styled.div`
       font-size: 15px;
       display: inline;
       margin-right: 5px;
+    }
+  }
+
+  @media screen and (max-width: 1380px){
+    width: 120px;
+
+    .data-agendamento{
+      span{
+        font-size: 10px;
+      }
+      h3{
+        font-size: 12px;
+      }
     }
   }
 `;

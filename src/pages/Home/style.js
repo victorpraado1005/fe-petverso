@@ -18,4 +18,8 @@ export const CardHome = styled.div`
     h1{
       font-size: 22px;
     }
+
+    @media screen and (max-width: 1380px) {
+      width: 300px;
+    }
 `;

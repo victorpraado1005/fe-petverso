@@ -19,6 +19,9 @@ export const Container = styled.header`
 `;
 
 export const ButtonArea = styled.div`
+  button{
+    width: 100px;
+  }
 
   button ~ button{
       margin-left: 12px;
