@@ -10,7 +10,7 @@ class BanhoService {
     return this.httpClient.get(`/users/banhos/${UserID}`);
   }
 
-  getBanhoById(id) {
+  getBanhoByAnimalId(id) {
     return this.httpClient.get(`/banho/${id}`);
   }
 

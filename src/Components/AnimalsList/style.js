@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     height: 55vh;
     margin: 0 auto;
 
@@ -52,7 +52,7 @@ export const GridArea = styled.div`
 
 export const Card = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   padding: 32px;
   border: 5px solid ${({ theme }) => theme.colors.primary.light};

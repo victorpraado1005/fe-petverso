@@ -105,7 +105,7 @@ export default function VeterinariosList({ zoneSelected, establishmentSelected }
   const clinica = clinicas.filter((pet) => pet.zona === zoneSelected);
 
   function handleConsulta(nameClinica) {
-    history.push(`/consulta/${nameClinica}`);
+    history.push(`/addconsulta/${nameClinica}`);
   }
 
   return (

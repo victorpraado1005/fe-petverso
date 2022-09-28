@@ -16,6 +16,8 @@ import MeuPerfil from './pages/MeuPerfil';
 import EditUser from './pages/EditUser';
 import Lojas from './pages/Lojas';
 import Pedidos from './pages/Pedidos';
+import Banhos from './pages/Banhos';
+import Consultas from './pages/Consultas';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -40,12 +42,14 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/medicamentos/:id" component={Medication} />
       <CustomRoute isPrivate exact path="/addMedicamento/:id" component={CreateMedication} />
       <CustomRoute isPrivate exact path="/porperto" component={PorPerto} />
-      <CustomRoute isPrivate exact path="/consulta/:clinica" component={CreateConsultaForm} />
+      <CustomRoute isPrivate exact path="/addconsulta/:clinica" component={CreateConsultaForm} />
       <CustomRoute isPrivate exact path="/banho/:petshop" component={CreateBanho} />
       <CustomRoute isPrivate exact path="/meuperfil" component={MeuPerfil} />
       <CustomRoute isPrivate exact path="/editUser/:id" component={EditUser} />
       <CustomRoute isPrivate exact path="/lojas" component={Lojas} />
       <CustomRoute isPrivate exact path="/pedidos/:loja" component={Pedidos} />
+      <CustomRoute isPrivate exact path="/banhos/:id" component={Banhos} />
+      <CustomRoute isPrivate exact path="/consulta/:id" component={Consultas} />
     </Switch>
   );
 }

@@ -10,7 +10,7 @@ class ConsultaService {
     return this.httpClient.get(`/users/consultas/${userId}`);
   }
 
-  getConsultaById(id) {
+  getConsultaByAnimalId(id) {
     return this.httpClient.get(`/consulta/${id}`);
   }
 
