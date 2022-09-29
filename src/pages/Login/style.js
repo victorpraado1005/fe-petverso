@@ -45,4 +45,17 @@ export const Content = styled.div`
 export const ButtonArea = styled.div`
   display: flex;
   margin-top: 24px;
+
+  button{
+    width: 100px;
+   }
+
+   button ~ button {
+    margin-left: 8px;
+   }
+
+   .button-login{
+    background: ${({ theme }) => theme.colors.primary.light};
+    color: ${({ theme }) => theme.colors.background};
+   }
 `;

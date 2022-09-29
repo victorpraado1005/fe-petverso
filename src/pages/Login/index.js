@@ -94,7 +94,7 @@ export default function Login() {
           </FormGroup>
           <ButtonArea>
             <Button type="submit">Criar Conta</Button>
-            <Button type="submit" onClick={handleLogin}>Acessar</Button>
+            <Button type="submit" className="button-login" onClick={handleLogin}>Acessar</Button>
           </ButtonArea>
         </Content>
       </Container>

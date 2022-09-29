@@ -6,6 +6,9 @@ import {
   Container, TitleContainer, GridArea, Card,
 } from './style';
 
+import trash from '../../assets/images/trash.png';
+import edit from '../../assets/images/edit.png';
+
 import Loader from '../Loader';
 
 import history from '../../history';
@@ -117,23 +120,41 @@ export default function Animal() {
       <GridArea>
         {animals.map((animal) => (
           <Card key={animal.id}>
-            <div className="animal-name">
+            <div className="title-container">
               <strong>{animal.name}</strong>
+              <div className="title-button">
+                <Button type="button" className="btn-edit" onClick={() => handleEditAnimal(animal.id)}>
+                  <img src={edit} alt="Editar" />
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => handleDeleteAnimal(animal)}
+                  className="delete-button"
+                >
+                  <img src={trash} alt="Remover" />
+                </Button>
+              </div>
             </div>
             <div className="section-info">
               <div className="animal-info">
                 <span>
-                  Espécie:
+                  <strong>
+                    Espécie:
+                  </strong>
                   {' '}
                   {animal.species}
                 </span>
                 <span>
-                  Raça:
+                  <strong>
+                    Raça:
+                  </strong>
                   {' '}
                   {animal.breed}
                 </span>
                 <span>
-                  Sexo:
+                  <strong>
+                    Sexo:
+                  </strong>
                   {' '}
                   {animal.gender}
                 </span>
@@ -151,16 +172,6 @@ export default function Animal() {
                 </Button>
                 <Button type="button" onClick={() => handleMedicamentos(animal.id)}>
                   Medicamentos
-                </Button>
-                <Button type="button" className="btn-edit" onClick={() => handleEditAnimal(animal.id)}>
-                  Editar
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => handleDeleteAnimal(animal)}
-                  className="delete-button"
-                >
-                  Remover
                 </Button>
               </div>
             </div>

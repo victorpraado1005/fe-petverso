@@ -14,9 +14,14 @@ export const ContainerPetShops = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 20px;
-  row-gap: 40px;
+  row-gap: 20px;
   place-items: center;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 100px;
+  }
 `;
 
 export const CardLojas = styled.div`

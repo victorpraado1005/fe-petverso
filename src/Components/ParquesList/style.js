@@ -38,5 +38,13 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    button {
+      width: 110px;
+    }
+  }
+
+  @media screen and (max-width: 1130px) {
+    width: 150px;
   }
 `;
