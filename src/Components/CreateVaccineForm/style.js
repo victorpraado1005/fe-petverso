@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   background: ${({ theme }) => theme.colors.primary.main};
   padding: 16px;
-  margin-top: 55px;
+  margin-top: 205px;
   border-radius: 12px;
 
   img{

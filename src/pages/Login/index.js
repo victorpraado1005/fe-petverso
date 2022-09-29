@@ -12,6 +12,9 @@ import Button from '../../button';
 import Logo from '../../assets/images/logo_petverso.svg';
 import Loader from '../../Components/Loader';
 
+import ToastContainer from '../../Components/Toast/ToastContainer';
+import toast from '../../utils/toast';
+
 export default function Login() {
   const { login } = useContext(Context);
   const [email, setEmail] = useState('');
@@ -48,7 +51,10 @@ export default function Login() {
 
       await login(email, password);
     } catch {
-      document.getElementById('senha').style.display = 'block';
+      toast({
+        type: 'danger',
+        text: 'Login ou Senha inválidos!',
+      });
     } finally {
       setIsLoading(false);
     }
@@ -57,6 +63,7 @@ export default function Login() {
   return (
     <>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Container>
         <img src={Logo} alt="" />
         <Content>

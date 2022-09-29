@@ -21,6 +21,19 @@ export const Container = styled.footer`
     color: ${({ theme }) => theme.colors.background};
     cursor: pointer;
   }
+
+  .container-option-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      margin-bottom: 2px;
+      width: 20px;
+      height: 20px;
+     }
+  }
 `;
 
 export const LineWhite = styled.div`

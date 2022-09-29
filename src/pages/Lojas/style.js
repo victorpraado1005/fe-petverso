@@ -38,6 +38,10 @@ export const CardLojas = styled.div`
     margin-bottom: 10px;
     color: ${({ theme }) => theme.colors.background};
   }
+
+  button{
+    width: 100px;
+   }
 `;
 
 export const AreaCupons = styled.div`

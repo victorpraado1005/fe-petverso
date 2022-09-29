@@ -22,6 +22,9 @@ import Loader from '../Loader';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
+import ToastContainer from '../Toast/ToastContainer';
+import toast from '../../utils/toast';
+
 export default function VaccineForm() {
   const [dataBanho, setDataBanho] = useState('');
   const [horaBanho, setHoraBanho] = useState('');
@@ -88,13 +91,17 @@ export default function VaccineForm() {
       await BanhoService.createBanho(banhoData);
       history.push('/porperto');
     } catch {
-      alert('Ocorreu um erro ao agendar o banho');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao agendar o Banho.',
+      });
     }
   }
 
   return (
     <>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Header />
       <Container>
         <Link to="/porperto">

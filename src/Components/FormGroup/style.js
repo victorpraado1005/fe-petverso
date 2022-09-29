@@ -11,6 +11,6 @@ export const Container = styled.div`
     font-weight: bold;
     font-size: 12px;
     display: block;
-    margin-top: 8px;
+    margin-bottom: 8px;
   }
 `;

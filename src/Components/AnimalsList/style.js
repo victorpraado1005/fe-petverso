@@ -61,7 +61,7 @@ export const Card = styled.div`
       padding: 12px;
       border-radius: 12px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       text-align: center;
       color: ${({ theme }) => theme.colors.background};
@@ -73,21 +73,19 @@ export const Card = styled.div`
 
     .title-button{
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      margin-right: 30px;
+      /* border: 1px solid black; */
 
       button{
         font-size: 12px;
         background: ${({ theme }) => theme.colors.primary.dark};
+        width: 0px;
       }
 
       button ~ button {
-          margin-left: 8px;
-      }
-
-      img {
-        width: 25px;
-        height: 25px;
+          margin-left: 40px;
       }
     }
 

@@ -33,7 +33,7 @@ export default function AddAnimal() {
 
       animalFormsRef.current.resetFields();
 
-      history.push('/home');
+      history.push('/animals');
     } catch {
       toast({
         type: 'danger',

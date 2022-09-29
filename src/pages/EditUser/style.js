@@ -44,7 +44,7 @@ export const FormArea = styled.div`
 
   input, select{
     width: 260px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .email{

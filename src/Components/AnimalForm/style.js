@@ -6,7 +6,7 @@ export const Card = styled.div`
   margin: 0 auto;
   background: ${({ theme }) => theme.colors.primary.main};
   padding: 16px;
-  margin-top: 25px;
+  margin-top: 95px;
   border-radius: 12px;
 
   img{

@@ -22,6 +22,9 @@ import Loader from '../Loader';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
+import ToastContainer from '../Toast/ToastContainer';
+import toast from '../../utils/toast';
+
 export default function VaccineForm() {
   const [dataConsulta, setDataConsulta] = useState('');
   const [horaConsulta, sethoraConsulta] = useState('');
@@ -88,13 +91,17 @@ export default function VaccineForm() {
       await ConsultaService.createConsulta(consultaData);
       history.push('/porperto');
     } catch {
-      alert('Ocorreu um erro ao agendar a consulta');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao agendar a consulta',
+      });
     }
   }
 
   return (
     <>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Header />
       <Container>
         <Link to="/porperto">

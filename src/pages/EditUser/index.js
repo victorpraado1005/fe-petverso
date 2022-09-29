@@ -18,6 +18,11 @@ import Button from '../../button';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
+import ToastContainer from '../../Components/Toast/ToastContainer';
+import toast from '../../utils/toast';
+
+import useErrors from '../../hooks/useErros';
+
 export default function EditAnimal() {
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setIsUserData] = useState('');
@@ -30,6 +35,10 @@ export default function EditAnimal() {
   const [estado, setEstado] = useState('');
   const [cep, setCep] = useState('');
   const { id } = useParams();
+
+  const {
+    setError, removeAllErrors, getErrorMessageByFieldName,
+  } = useErrors();
 
   useEffect(() => {
     (async () => {
@@ -56,6 +65,24 @@ export default function EditAnimal() {
   }, []);
 
   async function handleUpdateUser() {
+    removeAllErrors();
+
+    if (!name) {
+      return setError({ field: 'name', message: 'Preencher campo de nome' });
+    }
+
+    if (!email) {
+      return setError({ field: 'email', message: 'Preencher campo de e-mail' });
+    }
+
+    if (!gender) {
+      return setError({ field: 'gender', message: 'Preencher campo de Gênero' });
+    }
+
+    if (!phone) {
+      return setError({ field: 'phone', message: 'Preencher campo de Telefone' });
+    }
+
     try {
       setIsLoading(true);
       const User = {
@@ -73,7 +100,10 @@ export default function EditAnimal() {
       await UserService.updateUser(id, User);
       history.push('/meuperfil');
     } catch {
-      alert('Ocorreu um erro ao atualizar o usuário');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao editar o usuário!',
+      });
     } finally {
       setIsLoading(false);
     }
@@ -82,6 +112,7 @@ export default function EditAnimal() {
   return (
     <>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Header />
       <Container>
         <Card>
@@ -90,27 +121,30 @@ export default function EditAnimal() {
           </Link>
           <h1>Editar Informações</h1>
           <FormArea>
-            <FormGroup>
+            <FormGroup error={getErrorMessageByFieldName('name')}>
               <span>Nome:</span>
               <Input
+                error={getErrorMessageByFieldName('name')}
                 placeholder={userData.name}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
             </FormGroup>
-            <FormGroup>
+            <FormGroup error={getErrorMessageByFieldName('email')}>
               <div className="email">
                 <span>E-mail:</span>
                 <Input
+                  error={getErrorMessageByFieldName('email')}
                   placeholder={userData.email}
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
             </FormGroup>
-            <FormGroup>
+            <FormGroup error={getErrorMessageByFieldName('gendet')}>
               <span>Gênero:</span>
               <Select
+                error={getErrorMessageByFieldName('gender')}
                 value={gender}
                 onChange={(event) => setGender(event.target.value)}
               >
@@ -118,9 +152,10 @@ export default function EditAnimal() {
                 <option value="Feminino">Feminino</option>
               </Select>
             </FormGroup>
-            <FormGroup>
+            <FormGroup error={getErrorMessageByFieldName('phone')}>
               <span>Telefone:</span>
               <Input
+                error={getErrorMessageByFieldName('phone')}
                 placeholder={userData.phone}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}

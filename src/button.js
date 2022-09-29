@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.button`
-    /* width: 90px; */
+    width: 90px;
     height: 32px;
     border: none;
     /* padding: 0 20px; */

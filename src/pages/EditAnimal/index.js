@@ -11,6 +11,9 @@ import AnimalForm from '../../Components/AnimalForm';
 import Footer from '../../Components/Footer/index';
 import Loader from '../../Components/Loader';
 
+import ToastContainer from '../../Components/Toast/ToastContainer';
+import toast from '../../utils/toast';
+
 export default function EditAnimal() {
   const [isLoading, setIsLoading] = useState(true);
   const [animalName, setAnimalName] = useState('');
@@ -55,13 +58,17 @@ export default function EditAnimal() {
 
       history.push('/animals');
     } catch {
-      alert('Ocorreu um erro ao atualizar o animal');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao editar o animal.',
+      });
     }
   }
 
   return (
     <>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Header />
       <Container>
         <AnimalForm

@@ -124,14 +124,14 @@ export default function Animal() {
               <strong>{animal.name}</strong>
               <div className="title-button">
                 <Button type="button" className="btn-edit" onClick={() => handleEditAnimal(animal.id)}>
-                  <img src={edit} alt="Editar" />
+                  <img width="25px" height="25px" src={edit} alt="Editar" />
                 </Button>
                 <Button
                   type="button"
                   onClick={() => handleDeleteAnimal(animal)}
                   className="delete-button"
                 >
-                  <img src={trash} alt="Remover" />
+                  <img width="30px" height="30px" src={trash} alt="Remover" />
                 </Button>
               </div>
             </div>

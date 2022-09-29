@@ -17,6 +17,9 @@ import Button from '../../button';
 
 import arrowLeft from '../../assets/images/left-arrow.png';
 
+import ToastContainer from '../Toast/ToastContainer';
+import toast from '../../utils/toast';
+
 export default function VaccineForm() {
   const [name, setName] = useState('');
   const [applicationDate, setApplicationDate] = useState('');
@@ -61,12 +64,16 @@ export default function VaccineForm() {
       await VaccineService.createVaccine(vaccineData);
       history.push(`/vacinas/${id}`);
     } catch {
-      alert('Ocorreu um erro ao cadastrar a vacina');
+      toast({
+        type: 'danger',
+        text: 'Ocorreu um erro ao cadastrar a vacina',
+      });
     }
   }
 
   return (
     <Container>
+      <ToastContainer />
       <Link to={`/vacinas/${id}`}>
         <img src={arrowLeft} alt="Seta para esquerda" title="Voltar" />
       </Link>
