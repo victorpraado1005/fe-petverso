@@ -14,6 +14,8 @@ import Loader from '../../Components/Loader';
 import FormGroup from '../../Components/FormGroup';
 
 import history from '../../history';
+import ToastContainer from '../../Components/Toast/ToastContainer';
+import toast from '../../utils/toast';
 
 export default function Assinatura() {
   const UserId = localStorage.getItem('UserID');
@@ -107,7 +109,10 @@ export default function Assinatura() {
       await UserService.updateUser(UserId, User);
       history.push('/home');
     } catch {
-      alert('Não foi possível finalizar a assinatura.');
+      toast({
+        type: 'danger',
+        text: 'Não foi possível finalizar a assinatura',
+      });
     } finally {
       setIsLoading(false);
     }
@@ -162,7 +167,10 @@ export default function Assinatura() {
       await UserService.createUser(User);
       history.push('/home');
     } catch {
-      alert('Não foi possível finalizar a assinatura.');
+      toast({
+        type: 'danger',
+        text: 'Não foi possível finalizar a assinatura',
+      });
     } finally {
       setIsLoading(false);
     }
@@ -171,6 +179,7 @@ export default function Assinatura() {
   return (
     <Body>
       <Loader isLoading={isLoading} />
+      <ToastContainer />
       <Container>
         <h1 className="title-text">Conta</h1>
         {UserId ? (
