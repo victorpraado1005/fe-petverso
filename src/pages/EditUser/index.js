@@ -66,17 +66,13 @@ export default function EditAnimal() {
 
   async function handleUpdateUser() {
     removeAllErrors();
-
+    console.log('olá');
     if (!name) {
       return setError({ field: 'name', message: 'Preencher campo de nome' });
     }
 
     if (!email) {
       return setError({ field: 'email', message: 'Preencher campo de e-mail' });
-    }
-
-    if (!gender) {
-      return setError({ field: 'gender', message: 'Preencher campo de Gênero' });
     }
 
     if (!phone) {
