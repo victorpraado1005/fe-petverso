@@ -25,6 +25,8 @@ import Footer from '../../Components/Footer';
 import Button from '../../button';
 import Loader from '../../Components/Loader';
 
+import history from '../../history';
+
 export default function Pedidos() {
   const { loja } = useParams();
   const UserId = localStorage.getItem('UserID');
@@ -175,7 +177,7 @@ export default function Pedidos() {
                     {userData.estado}
                   </span>
                 </div>
-                <Button>Editar</Button>
+                <Button onClick={() => history.push(`/editUser/${userData.id}`)}>Editar</Button>
               </RowInfoAddress>
             ) : (
               <>
@@ -281,9 +283,17 @@ export default function Pedidos() {
               <ContainerValorTotalPedido>
                 <h1>Valor Total: </h1>
                 {userData.assinante ? (
-                  <h3>{valorCarrinho -= (valorCarrinho * valorCupom)}</h3>
+                  <h3>
+                    R$
+                    {' '}
+                    {valorCarrinho -= (valorCarrinho * valorCupom)}
+                  </h3>
                 ) : (
-                  <h3>{valorCarrinho += valorFrete}</h3>
+                  <h3>
+                    R$
+                    {' '}
+                    {valorCarrinho += valorFrete}
+                  </h3>
                 )}
                 <Button onClick={handleFinishOrder}>Finalizar Pedido</Button>
               </ContainerValorTotalPedido>

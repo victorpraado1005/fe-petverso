@@ -18,6 +18,7 @@ import Lojas from './pages/Lojas';
 import Pedidos from './pages/Pedidos';
 import Banhos from './pages/Banhos';
 import Consultas from './pages/Consultas';
+import Assinatura from './pages/Assinatura';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -32,6 +33,7 @@ function CustomRoute({ isPrivate, ...rest }) {
 export default function Routes() {
   return (
     <Switch>
+      <CustomRoute exact path="/assinatura" component={Assinatura} />
       <CustomRoute exact path="/" component={Login} />
       <CustomRoute isPrivate exact path="/home" component={Home} />
       <CustomRoute isPrivate exact path="/animals" component={Animal} />

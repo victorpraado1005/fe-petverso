@@ -54,6 +54,7 @@ export default function Assinatura() {
       setIsLoading(true);
       try {
         const listPedidos = await PedidoService.getPedidosByUserId(UserId);
+        listPedidos.length = 4;
         setPedidos(listPedidos);
         console.log(pedidos);
       } catch (error) {
@@ -197,7 +198,7 @@ export default function Assinatura() {
                   Para aproveitar os benefícios de um assinante basta adquirir um
                   de nossos planos! :)
                 </h1>
-                <Button>Ver Planos</Button>
+                <Button onClick={() => history.push('/assinatura')}>Ver Planos</Button>
               </ContainerNotSubscriber>
             )}
 

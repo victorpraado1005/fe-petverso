@@ -15,6 +15,8 @@ import Loader from '../../Components/Loader';
 import ToastContainer from '../../Components/Toast/ToastContainer';
 import toast from '../../utils/toast';
 
+import history from '../../history';
+
 export default function Login() {
   const { login } = useContext(Context);
   const [email, setEmail] = useState('');
@@ -100,7 +102,7 @@ export default function Login() {
             />
           </FormGroup>
           <ButtonArea>
-            <Button type="submit">Criar Conta</Button>
+            <Button type="submit" onClick={() => history.push('/assinatura')}>Criar Conta</Button>
             <Button type="submit" className="button-login" onClick={handleLogin}>Acessar</Button>
           </ButtonArea>
         </Content>

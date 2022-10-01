@@ -27,6 +27,11 @@ export const ButtonArea = styled.div`
       margin-left: 12px;
   }
 
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.primary.dark};
+  }
+
   .delete-button{
     color: ${({ theme }) => theme.colors.background};
     background: ${({ theme }) => theme.colors.danger.main};

@@ -11,30 +11,40 @@ import user from '../../assets/images/user.png';
 export default function Footer() {
   return (
     <Container>
-      <div className="container-option-footer">
-        <img src={home} alt="Home" />
-        <Link to="/home">Home</Link>
-      </div>
+      <Link to="/home">
+        <div className="container-option-footer">
+          <img src={home} alt="Home" />
+          Home
+        </div>
+      </Link>
       <LineWhite />
-      <div className="container-option-footer">
-        <img src={animals} alt="Home" />
-        <Link to="/animals">Animais</Link>
-      </div>
+      <Link to="/animals">
+        <div className="container-option-footer">
+          <img src={animals} alt="Home" />
+          Animais
+        </div>
+      </Link>
       <LineWhite />
-      <div className="container-option-footer">
-        <img src={porperto} alt="Home" />
-        <Link to="/porperto">O que tem por perto?</Link>
-      </div>
+      <Link to="/porperto">
+        <div className="container-option-footer">
+          <img src={porperto} alt="Home" />
+          O que tem por perto?
+        </div>
+      </Link>
       <LineWhite />
-      <div className="container-option-footer">
-        <img src={petshop} alt="Home" />
-        <Link to="/lojas">PetShops</Link>
-      </div>
+      <Link to="/lojas">
+        <div className="container-option-footer">
+          <img src={petshop} alt="Home" />
+          PetShops
+        </div>
+      </Link>
       <LineWhite />
-      <div className="container-option-footer">
-        <img src={user} alt="Home" />
-        <Link to="/meuperfil">Meu Perfil</Link>
-      </div>
+      <Link to="/meuperfil">
+        <div className="container-option-footer">
+          <img src={user} alt="Home" />
+          Meu Perfil
+        </div>
+      </Link>
     </Container>
   );
 }

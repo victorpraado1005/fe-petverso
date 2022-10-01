@@ -19,7 +19,7 @@ export const Container = styled.main`
 export const Content = styled.div`
   width: 100%;
   max-width: 500px;
-  background: ${({ theme }) => theme.colors.primary.dark};
+  background: ${({ theme }) => theme.colors.primary.main};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   margin: auto;
@@ -55,7 +55,7 @@ export const ButtonArea = styled.div`
    }
 
    .button-login{
-    background: ${({ theme }) => theme.colors.primary.light};
+    background: ${({ theme }) => theme.colors.primary.dark};
     color: ${({ theme }) => theme.colors.background};
    }
 `;

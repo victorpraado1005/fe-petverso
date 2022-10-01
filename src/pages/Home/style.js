@@ -14,6 +14,7 @@ export const CardHome = styled.div`
     border-radius: 6px;
     color: ${({ theme }) => theme.colors.background};
     font-weight: bold;
+    padding: 12px;
 
     h1{
       font-size: 22px;
