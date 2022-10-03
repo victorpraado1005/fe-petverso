@@ -94,6 +94,14 @@ export default function Pedidos() {
   }
 
   async function handleFinishOrder() {
+    if (carrinho.length === 0) {
+      return alert('O carrinho está vazio.');
+    }
+
+    if (!frete) {
+      return alert('Favor selecionar o frete antes de continuar');
+    }
+
     try {
       setIsLoading(true);
       const date = new Date();
