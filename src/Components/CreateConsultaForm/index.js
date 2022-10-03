@@ -32,7 +32,7 @@ export default function VaccineForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { clinica } = useParams();
   const UserId = localStorage.getItem('UserID');
-  let animalId = '';
+  const [animalId, setAnimalId] = useState('');
 
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
@@ -62,7 +62,7 @@ export default function VaccineForm() {
   }
 
   function handleOptionClickListAnimal(animal) {
-    animalId = animal.id;
+    setAnimalId(animal.id);
   }
 
   async function handleCreateConsulta() {

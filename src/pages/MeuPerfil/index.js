@@ -148,7 +148,10 @@ export default function Assinatura() {
         </UserData>
         <ContainerCard>
           <CardAtividades>
-            <h1>Meus Pedidos: </h1>
+            <div className="title-card-pedidos">
+              <h1>Meus Pedidos: </h1>
+              <Button onClick={() => history.push(`/todospedidos/${UserId}`)}>Ver Todos</Button>
+            </div>
             <ContainerCardPedidos>
               {pedidos.map((pedido) => (
                 <CardPedidos>

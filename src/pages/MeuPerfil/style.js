@@ -139,10 +139,17 @@ export const CardAtividades = styled.div`
   background: ${({ theme }) => theme.colors.primary.light};
   color: ${({ theme }) => theme.colors.background};
 
-  h1{
-    font-size: 22px;
+  .title-card-pedidos{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 24px;
+
+    h1{
+    font-size: 22px;
     text-align: center;
+  }
   }
 `;
 

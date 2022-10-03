@@ -15,6 +15,7 @@ export const TitleContainer = styled.div`
 export const TitleAgendamentosContainer = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: space-around;
   padding: 4px;
 

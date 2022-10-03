@@ -19,6 +19,7 @@ import Pedidos from './pages/Pedidos';
 import Banhos from './pages/Banhos';
 import Consultas from './pages/Consultas';
 import Assinatura from './pages/Assinatura';
+import TodosPedidos from './pages/TodosPedidos';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('UserID');
@@ -52,6 +53,7 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/pedidos/:loja" component={Pedidos} />
       <CustomRoute isPrivate exact path="/banhos/:id" component={Banhos} />
       <CustomRoute isPrivate exact path="/consulta/:id" component={Consultas} />
+      <CustomRoute isPrivate exact path="/todospedidos/:id" component={TodosPedidos} />
     </Switch>
   );
 }

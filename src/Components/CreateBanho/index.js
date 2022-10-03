@@ -32,7 +32,7 @@ export default function VaccineForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { petshop } = useParams();
   const UserId = localStorage.getItem('UserID');
-  let animalId = '';
+  const [animalId, setAnimalId] = useState('');
 
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
@@ -62,7 +62,7 @@ export default function VaccineForm() {
   }
 
   function handleOptionClickListAnimal(animal) {
-    animalId = animal.id;
+    setAnimalId(animal.id);
   }
 
   async function handleCreateBanho() {
@@ -77,7 +77,7 @@ export default function VaccineForm() {
     }
 
     if (!animalId) {
-      alert('Selecionar o animal para o banho');
+      return alert('Selecionar o animal para o banho');
     }
 
     try {
@@ -131,7 +131,7 @@ export default function VaccineForm() {
           <InputArea>
             {animalsList.map((animal) => (
               <RowInputArea key={animal.id}>
-                <input type="radio" name="animal" value={animal.name} onClick={() => handleOptionClickListAnimal(animal)} />
+                <input type="radio" name="animal" onClick={() => handleOptionClickListAnimal(animal)} />
                 <span>{animal.name}</span>
               </RowInputArea>
             ))}
