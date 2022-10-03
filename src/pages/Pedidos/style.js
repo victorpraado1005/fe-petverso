@@ -29,6 +29,8 @@ export const ContainerProductsAndCart = styled.div`
 export const ContainerListaProdutos = styled.div`
   max-width: 550px;
   width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
   height: 350px;
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.colors.primary.dark};
@@ -72,6 +74,8 @@ export const ContainerCheckout = styled.div`
 
 export const ContainerCarrinho = styled.div`
   width: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -207,6 +211,7 @@ export const ContainerTotalPedido = styled.div`
     margin-top: 20px;
     background: ${({ theme }) => theme.colors.success};
     height: 40px;
+    width: 120px;
   }
 `;
 

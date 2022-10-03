@@ -95,11 +95,12 @@ export default function Pedidos() {
 
   async function handleFinishOrder() {
     try {
+      setIsLoading(true);
       const date = new Date();
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
       const day = date.getDate();
-      const dataPedido = day + '/0' + month + '/' + year;
+      const dataPedido = day + '/' + month + '/' + year;
       const OrderData = {
         data_pedido: dataPedido,
         loja,
@@ -111,6 +112,9 @@ export default function Pedidos() {
       await PedidoService.createPedido(OrderData);
     } catch {
       alert('Não foi possível criar o pedido.');
+    } finally {
+      setIsLoading(false);
+      history.push('/home');
     }
   }
 
@@ -256,7 +260,7 @@ export default function Pedidos() {
             {!userData.assinante ? (
               <RowCupomNaoAssinante>
                 <span>Cupons especiais estão disponíveis apenas para assinantes PetVerso</span>
-                <Button>Ver Planos</Button>
+                <Button onClick={() => history.push('/assinatura')}>Ver Planos</Button>
               </RowCupomNaoAssinante>
             ) : (
               null

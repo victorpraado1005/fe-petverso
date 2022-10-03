@@ -67,6 +67,8 @@ export default function VaccineForm() {
 
   async function handleCreateBanho() {
     removeAllErrors();
+    const myArray = dataBanho.split('-');
+    const dataFormatada = myArray[2] + '/' + myArray[1] + '/' + myArray[0];
 
     if (!dataBanho) {
       return setError({ field: 'data_banho', message: 'Preencher o campo com a data do banho' });
@@ -82,7 +84,7 @@ export default function VaccineForm() {
 
     try {
       const banhoData = {
-        data_banho: dataBanho,
+        data_banho: dataFormatada,
         hora_banho: horaBanho,
         petshop,
         animal_id: animalId,

@@ -94,22 +94,30 @@ export default function Vaccine() {
               <div className="section-info">
                 <div className="animal-info">
                   <span>
-                    Data do banho:
+                    <strong>
+                      Data da Consulta:
+                    </strong>
                     {' '}
                     {consulta.data_consulta}
                   </span>
                   <span>
-                    Hora do banho:
+                    <strong>
+                      Hora da Consulta:
+                    </strong>
                     {' '}
                     {consulta.hora_consulta}
                   </span>
                   <span>
-                    Clínica:
+                    <strong>
+                      Clínica:
+                    </strong>
                     {' '}
                     {consulta.clinica}
                   </span>
                   <span>
-                    Animal:
+                    <strong>
+                      Animal:
+                    </strong>
                     {' '}
                     {consulta.animal_name}
                   </span>

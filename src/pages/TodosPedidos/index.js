@@ -42,7 +42,7 @@ export default function TodosPedidos() {
           <Link to="/meuperfil">
             <img src={arrowLeft} alt="Seta para esquerda" title="Voltar" />
           </Link>
-          <h1>Pedidos</h1>
+          <h1>Seus Pedidos</h1>
           <h1>&ensp;</h1>
         </div>
         <GridArea>

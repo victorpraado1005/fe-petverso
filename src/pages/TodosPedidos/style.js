@@ -5,6 +5,7 @@ export const Container = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   margin-top: 65px;
+  margin-bottom: 80px;
 
   .title-pedidos{
     width: 1000px;

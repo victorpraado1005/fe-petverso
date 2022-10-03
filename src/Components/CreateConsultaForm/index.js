@@ -67,6 +67,8 @@ export default function VaccineForm() {
 
   async function handleCreateConsulta() {
     removeAllErrors();
+    const myArray = dataConsulta.split('-');
+    const dataFormatada = myArray[2] + '/' + myArray[1] + '/' + myArray[0];
 
     if (!dataConsulta) {
       return setError({ field: 'data_consulta', message: 'Preencher o campo com a data da consulta' });
@@ -82,7 +84,7 @@ export default function VaccineForm() {
 
     try {
       const consultaData = {
-        data_consulta: dataConsulta,
+        data_consulta: dataFormatada,
         hora_consulta: horaConsulta,
         clinica,
         animal_id: animalId,
