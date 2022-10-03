@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 
 import { Container, Card } from './style';
 
-import Button from '../../button';
-
 const parques = [
   {
     nome: 'Parque da Aclimação 7',
@@ -116,11 +114,6 @@ export default function ParquesList({ zoneSelected, establishmentSelected }) {
               <span><strong>{park.bairro}</strong></span>
               <span><strong>{park.zona}</strong></span>
               <span><strong>{park.telefone}</strong></span>
-            </div>
-            <div className="button-card">
-              <Button>
-                Ver Avaliações
-              </Button>
             </div>
           </Card>
         ))}
