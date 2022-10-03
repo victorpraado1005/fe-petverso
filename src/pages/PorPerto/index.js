@@ -55,7 +55,7 @@ export default function PorPerto() {
     <>
       <Header />
       <Container>
-        <h1>Confira os petshops e parques na sua região:</h1>
+        <h1>Confira os Petshops, Clinicas e Parques na sua região:</h1>
         <InputArea>
           <input
             type="checkbox"
