@@ -2,7 +2,7 @@ import HttpClient from './utils/HttpClient';
 
 class BanhoService {
   constructor() {
-    this.httpClient = new HttpClient('https://api-petverso.herokuapp.com');
+    this.httpClient = new HttpClient('https://petverso-production-6d1a.up.railway.app');
   }
 
   // pegar as consultas pelo ID do animal

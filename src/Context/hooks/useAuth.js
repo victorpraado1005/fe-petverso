@@ -14,7 +14,7 @@ export default function useAuth() {
 
   async function login(email, password) {
   // adicionar a logica de login aqui
-    const url = 'https://api-petverso.herokuapp.com/users/login';
+    const url = 'https://petverso-production-6d1a.up.railway.app/users/login';
 
     const infoLogin = {
       email,
