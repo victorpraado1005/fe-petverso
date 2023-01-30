@@ -2,7 +2,7 @@ import HttpClient from './utils/HttpClient';
 
 class PedidoService {
   constructor() {
-    this.httpClient = new HttpClient('https://petverso-production-6d1a.up.railway.app');
+    this.httpClient = new HttpClient('https://petverso-production-f14e.up.railway.app');
   }
 
   getPedidosByUserId(id) {
