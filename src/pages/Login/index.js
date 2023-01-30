@@ -48,7 +48,7 @@ export default function Login() {
       }
 
       if (!password) {
-        return setError({ field: 'senha', message: 'Preencher campo de senha' });
+        return setError({ field: 'senha', message: 'Preencher campo de senha.' });
       }
 
       await login(email, password);
