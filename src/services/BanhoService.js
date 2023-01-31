@@ -1,8 +1,10 @@
 import HttpClient from './utils/HttpClient';
 
+const url = process.env.REACT_APP_API_URL;
+
 class BanhoService {
   constructor() {
-    this.httpClient = new HttpClient('https://petverso-production-f14e.up.railway.app');
+    this.httpClient = new HttpClient(url);
   }
 
   // pegar as consultas pelo ID do animal
