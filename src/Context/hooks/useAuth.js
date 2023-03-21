@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import history from '../../history';
 
+const url = process.env.REACT_APP_API_URL;
+
 export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
 
@@ -14,7 +16,7 @@ export default function useAuth() {
 
   async function login(email, password) {
   // adicionar a logica de login aqui
-    const url = 'https://petverso-production-f14e.up.railway.app/users/login';
+    const finalUrl = `${url}/users/login`;
 
     const infoLogin = {
       email,
@@ -29,7 +31,7 @@ export default function useAuth() {
       body: JSON.stringify(infoLogin),
     };
 
-    const response = await fetch(url, options);
+    const response = await fetch(finalUrl, options);
     if (response.ok) {
       const userData = await response.json();
       const userID = userData.id;

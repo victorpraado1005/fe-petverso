@@ -8,6 +8,10 @@ import {
 
 import BanhoService from '../../services/BanhoService';
 
+import formatDateToBrazil from '../../utils/formatDateToBrazil';
+
+import CutDateTime from '../../utils/cutTime';
+
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 import Loader from '../../Components/Loader';
@@ -98,14 +102,14 @@ export default function Vaccine() {
                       Data do banho:
                     </strong>
                     {' '}
-                    {banho.data_banho}
+                    {formatDateToBrazil(banho.data_banho)}
                   </span>
                   <span>
                     <strong>
                       Hora do banho:
                     </strong>
                     {' '}
-                    {banho.hora_banho}
+                    {CutDateTime(banho.hora_banho)}
                   </span>
                   <span>
                     <strong>
