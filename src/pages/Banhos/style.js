@@ -31,6 +31,14 @@ export const TitleContainer = styled.div`
   }
 `;
 
+export const MessageNotFound = styled.div`
+  margin-top: 80px;
+  h1{
+    color: ${({ theme }) => theme.colors.primary.dark};
+    text-align: center;
+  }
+`;
+
 export const GridArea = styled.div`
   margin-top: 24px;
   display: grid;

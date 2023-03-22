@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import {
-  Container, TitleContainer, Card, ButtonArea, GridArea,
+  Container, TitleContainer, Card, ButtonArea, GridArea, MessageNotFound,
 } from './style';
 
 import BanhoService from '../../services/BanhoService';
@@ -89,51 +89,57 @@ export default function Vaccine() {
             {' '}
           </h1>
         </TitleContainer>
-        <GridArea>
-          {banhos.map((banho) => (
-            <Card key={banho.id}>
-              <div className="animal-name">
-                <strong>{banho.name}</strong>
-              </div>
-              <div className="section-info">
-                <div className="animal-info">
-                  <span>
-                    <strong>
-                      Data do banho:
-                    </strong>
-                    {' '}
-                    {formatDateToBrazil(banho.data_banho)}
-                  </span>
-                  <span>
-                    <strong>
-                      Hora do banho:
-                    </strong>
-                    {' '}
-                    {CutDateTime(banho.hora_banho)}
-                  </span>
-                  <span>
-                    <strong>
-                      PetShop:
-                    </strong>
-                    {' '}
-                    {banho.petshop}
-                  </span>
-                  <span>
-                    <strong>
-                      Animal:
-                    </strong>
-                    {' '}
-                    {banho.animal_name}
-                  </span>
+        {banhos.length > 0 ? (
+          <GridArea>
+            {banhos.map((banho) => (
+              <Card key={banho.id}>
+                <div className="animal-name">
+                  <strong>{banho.name}</strong>
                 </div>
-              </div>
-              <ButtonArea>
-                {/* <Button type="button">Editar</Button> */}
-                <Button type="button" className="delete-button" onClick={() => handleDeleteBanho(banho)}>Apagar</Button>
-              </ButtonArea>
-            </Card>
-          ))}
-        </GridArea>
+                <div className="section-info">
+                  <div className="animal-info">
+                    <span>
+                      <strong>
+                        Data do banho:
+                      </strong>
+                      {' '}
+                      {formatDateToBrazil(banho.data_banho)}
+                    </span>
+                    <span>
+                      <strong>
+                        Hora do banho:
+                      </strong>
+                      {' '}
+                      {CutDateTime(banho.hora_banho)}
+                    </span>
+                    <span>
+                      <strong>
+                        PetShop:
+                      </strong>
+                      {' '}
+                      {banho.petshop}
+                    </span>
+                    <span>
+                      <strong>
+                        Animal:
+                      </strong>
+                      {' '}
+                      {banho.animal_name}
+                    </span>
+                  </div>
+                </div>
+                <ButtonArea>
+                  {/* <Button type="button">Editar</Button> */}
+                  <Button type="button" className="delete-button" onClick={() => handleDeleteBanho(banho)}>Apagar</Button>
+                </ButtonArea>
+              </Card>
+            ))}
+          </GridArea>
+        ) : (
+          <MessageNotFound>
+            <h1>Nenhum banho agendado</h1>
+          </MessageNotFound>
+        )}
       </Container>
       <Footer />
     </>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import {
-  Container, TitleContainer, Card, ButtonArea, GridArea,
+  Container, TitleContainer, Card, ButtonArea, GridArea, MessageNotFound,
 } from './style';
 
 import ConsultaService from '../../services/ConsultaService';
@@ -85,51 +85,57 @@ export default function Vaccine() {
             {' '}
           </h1>
         </TitleContainer>
-        <GridArea>
-          {List.map((consulta) => (
-            <Card key={consulta.id}>
-              <div className="animal-name">
-                <strong>{consulta.name}</strong>
-              </div>
-              <div className="section-info">
-                <div className="animal-info">
-                  <span>
-                    <strong>
-                      Data da Consulta:
-                    </strong>
-                    {' '}
-                    {consulta.data_consulta}
-                  </span>
-                  <span>
-                    <strong>
-                      Hora da Consulta:
-                    </strong>
-                    {' '}
-                    {consulta.hora_consulta}
-                  </span>
-                  <span>
-                    <strong>
-                      Clínica:
-                    </strong>
-                    {' '}
-                    {consulta.clinica}
-                  </span>
-                  <span>
-                    <strong>
-                      Animal:
-                    </strong>
-                    {' '}
-                    {consulta.animal_name}
-                  </span>
+        {List.length > 0 ? (
+          <GridArea>
+            {List.map((consulta) => (
+              <Card key={consulta.id}>
+                <div className="animal-name">
+                  <strong>{consulta.name}</strong>
                 </div>
-              </div>
-              <ButtonArea>
-                {/* <Button type="button">Editar</Button> */}
-                <Button type="button" className="delete-button" onClick={() => handleDeleteConsulta(consulta)}>Apagar</Button>
-              </ButtonArea>
-            </Card>
-          ))}
-        </GridArea>
+                <div className="section-info">
+                  <div className="animal-info">
+                    <span>
+                      <strong>
+                        Data da Consulta:
+                      </strong>
+                      {' '}
+                      {consulta.data_consulta}
+                    </span>
+                    <span>
+                      <strong>
+                        Hora da Consulta:
+                      </strong>
+                      {' '}
+                      {consulta.hora_consulta}
+                    </span>
+                    <span>
+                      <strong>
+                        Clínica:
+                      </strong>
+                      {' '}
+                      {consulta.clinica}
+                    </span>
+                    <span>
+                      <strong>
+                        Animal:
+                      </strong>
+                      {' '}
+                      {consulta.animal_name}
+                    </span>
+                  </div>
+                </div>
+                <ButtonArea>
+                  {/* <Button type="button">Editar</Button> */}
+                  <Button type="button" className="delete-button" onClick={() => handleDeleteConsulta(consulta)}>Apagar</Button>
+                </ButtonArea>
+              </Card>
+            ))}
+          </GridArea>
+        ) : (
+          <MessageNotFound>
+            <h1>Nenhuma consulta agendada</h1>
+          </MessageNotFound>
+        )}
       </Container>
       <Footer />
     </>
