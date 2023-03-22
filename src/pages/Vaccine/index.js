@@ -18,6 +18,8 @@ import Modal from '../../Components/Modal';
 
 import arrowLeft from '../../assets/images/left-arrow_dark.png';
 
+import formatDateToBrazil from '../../utils/formatDateToBrazil';
+
 export default function Vaccine() {
   const [vaccines, setVaccines] = useState([]);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
@@ -105,12 +107,12 @@ export default function Vaccine() {
                   <span>
                     Data de aplicação:
                     {' '}
-                    {vaccine.application_date}
+                    {formatDateToBrazil(vaccine.application_date)}
                   </span>
                   <span>
                     Próxima aplicação:
                     {' '}
-                    {vaccine.next_application}
+                    {formatDateToBrazil(vaccine.next_application)}
                   </span>
                 </div>
               </div>

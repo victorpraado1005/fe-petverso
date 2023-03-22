@@ -28,6 +28,13 @@ export const FormArea = styled.div`
   input{
     width: 60%;
   }
+
+  h5{
+    margin-top: 10px;
+    color: ${({ theme }) => theme.colors.background};
+    font-weight: bold;
+    font-size: 16px;
+  }
 `;
 
 export const ButtonArea = styled.div`

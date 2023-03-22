@@ -3,8 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 
 import { Container, FormArea, ButtonArea } from './style';
 
-import formatData from '../../utils/formatData';
-
 import VaccineService from '../../services/VaccineService';
 
 import useErrors from '../../hooks/useErros';
@@ -35,11 +33,11 @@ export default function VaccineForm() {
   }
 
   function handleApplicationDateChange(event) {
-    setApplicationDate(formatData(event.target.value));
+    setApplicationDate(event.target.value);
   }
 
   function handleNextApplicationDateChange(event) {
-    setNextApplicationDate(formatData(event.target.value));
+    setNextApplicationDate(event.target.value);
   }
 
   async function handleCreateVaccine() {
@@ -60,7 +58,6 @@ export default function VaccineForm() {
         next_application: nextApplicationDate,
         animal_id: id,
       };
-
       await VaccineService.createVaccine(vaccineData);
       history.push(`/vacinas/${id}`);
     } catch {
@@ -88,20 +85,20 @@ export default function VaccineForm() {
           />
         </FormGroup>
         <FormGroup error={getErrorMessageByFieldName('data_aplicacao')}>
+          <h5>Data da Aplicação</h5>
           <Input
-            placeholder="Data da Aplicação (DD/MM/AAAA)"
+            type="date"
             error={getErrorMessageByFieldName('data_aplicacao')}
             value={applicationDate}
             onChange={handleApplicationDateChange}
-            maxLength="10"
           />
         </FormGroup>
         <FormGroup>
+          <h5>Proxima Aplicação</h5>
           <Input
-            placeholder="Próxima Aplicação (DD/MM/AAAA)"
+            type="date"
             value={nextApplicationDate}
             onChange={handleNextApplicationDateChange}
-            maxLength="10"
           />
         </FormGroup>
 

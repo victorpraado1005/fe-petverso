@@ -18,6 +18,8 @@ import Modal from '../../Components/Modal';
 
 import arrowLeft from '../../assets/images/left-arrow_dark.png';
 
+import formatDateToBrazil from '../../utils/formatDateToBrazil';
+
 export default function Medication() {
   const [medications, setMedications] = useState([]);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
@@ -104,12 +106,12 @@ export default function Medication() {
                 <span>
                   Data de Início:
                   {' '}
-                  {medication.start_date}
+                  {formatDateToBrazil(medication.start_date)}
                 </span>
                 <span>
                   Data de Término:
                   {' '}
-                  {medication.end_date}
+                  {formatDateToBrazil(medication.end_date)}
                 </span>
                 <span>
                   Repetição:

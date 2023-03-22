@@ -6,8 +6,6 @@ import history from '../../history';
 
 import { Container, FormArea, ButtonArea } from './style';
 
-import formatData from '../../utils/formatData';
-
 import useErrors from '../../hooks/useErros';
 
 import FormGroup from '../FormGroup';
@@ -36,11 +34,11 @@ export default function VaccineForm() {
   }
 
   function handleStartDate(event) {
-    setStartDate(formatData(event.target.value));
+    setStartDate(event.target.value);
   }
 
   function handleEndDate(event) {
-    setEndDate(formatData(event.target.value));
+    setEndDate(event.target.value);
   }
 
   async function handleCreateVaccine() {
@@ -53,10 +51,6 @@ export default function VaccineForm() {
     if (!startDate) {
       return setError({ field: 'data_inicio', message: 'Preencher campo da data de início da medicação' });
     }
-
-    console.log({
-      name, startDate, endDate, repetition, id,
-    });
 
     try {
       const medicationData = {
@@ -94,20 +88,20 @@ export default function VaccineForm() {
           />
         </FormGroup>
         <FormGroup error={getErrorMessageByFieldName('data_inicio')}>
+          <h5>Data de Inicio</h5>
           <Input
-            placeholder="Data de Início (DD/MM/AAAA)"
+            type="date"
             error={getErrorMessageByFieldName('data_inicio')}
             value={startDate}
             onChange={handleStartDate}
-            maxLength="10"
           />
         </FormGroup>
         <FormGroup>
+          <h5>Data de Término</h5>
           <Input
-            placeholder="Data de Término (DD/MM/AAAA)"
+            type="date"
             value={endDate}
             onChange={handleEndDate}
-            maxLength="10"
           />
         </FormGroup>
         <FormGroup>
