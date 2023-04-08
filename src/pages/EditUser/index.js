@@ -54,7 +54,6 @@ export default function EditAnimal() {
         setCity(userInfo.city);
         setEstado(userInfo.estado);
         setCep(userInfo.cep);
-        console.log(userInfo);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -66,7 +65,6 @@ export default function EditAnimal() {
 
   async function handleUpdateUser() {
     removeAllErrors();
-    console.log('olá');
     if (!name) {
       return setError({ field: 'name', message: 'Preencher campo de nome' });
     }

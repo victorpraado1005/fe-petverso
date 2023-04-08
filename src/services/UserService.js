@@ -18,6 +18,10 @@ class AnimalsService {
   updateUser(id, user) {
     return this.httpClient.put(`/users/${id}`, user);
   }
+
+  updateSubscription(id, user) {
+    return this.httpClient.put(`/users/updateSubscription/${id}`, user);
+  }
 }
 
 export default new AnimalsService();

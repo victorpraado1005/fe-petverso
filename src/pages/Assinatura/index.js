@@ -95,18 +95,10 @@ export default function Assinatura() {
     try {
       setIsLoading(true);
       const User = {
-        name: userInfo.name,
-        email: userInfo.email,
-        phone: userInfo.phone,
-        address: userInfo.address,
-        city: userInfo.city,
-        estado: userInfo.estado,
-        cep: userInfo.cep,
-        gender: userInfo.gender,
         assinante: auxPlano,
       };
 
-      await UserService.updateUser(UserId, User);
+      await UserService.updateSubscription(UserId, User);
       history.push('/home');
     } catch {
       toast({
