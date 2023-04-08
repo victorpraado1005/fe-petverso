@@ -112,7 +112,11 @@ export default function Vaccine() {
                   <span>
                     Próxima aplicação:
                     {' '}
-                    {formatDateToBrazil(vaccine.next_application)}
+                    {!vaccine.next_application ? (
+                      <strong>Não informado</strong>
+                    ) : (
+                      <strong>{formatDateToBrazil(vaccine.next_application)}</strong>
+                    )}
                   </span>
                 </div>
               </div>

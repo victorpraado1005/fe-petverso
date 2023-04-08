@@ -52,10 +52,14 @@ export default function VaccineForm() {
     }
 
     try {
+      let AuxNextApplicationDate = null;
+      if (nextApplicationDate) {
+        AuxNextApplicationDate = nextApplicationDate;
+      }
       const vaccineData = {
         name,
         application_date: applicationDate,
-        next_application: nextApplicationDate,
+        next_application: AuxNextApplicationDate,
         animal_id: id,
       };
       await VaccineService.createVaccine(vaccineData);
