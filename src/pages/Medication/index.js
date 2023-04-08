@@ -111,7 +111,11 @@ export default function Medication() {
                 <span>
                   Data de Término:
                   {' '}
-                  {formatDateToBrazil(medication.end_date)}
+                  {!medication.end_date ? (
+                    <strong>Não informado</strong>
+                  ) : (
+                    <strong>{formatDateToBrazil(medication.end_date)}</strong>
+                  )}
                 </span>
                 <span>
                   Repetição:

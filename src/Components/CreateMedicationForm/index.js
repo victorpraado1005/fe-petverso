@@ -53,10 +53,16 @@ export default function VaccineForm() {
     }
 
     try {
+      let AuxEndDate = null;
+
+      if (endDate) {
+        AuxEndDate = endDate;
+      }
+
       const medicationData = {
         medicine_name: name,
         start_date: startDate,
-        end_date: endDate,
+        end_date: AuxEndDate,
         repetition,
         animal_id: id,
       };
