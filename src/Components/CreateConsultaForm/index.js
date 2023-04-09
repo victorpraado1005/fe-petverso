@@ -79,7 +79,7 @@ export default function VaccineForm() {
     }
 
     if (!animalId) {
-      alert('Selecionar o animal para a consulta');
+      return alert('Selecionar o animal para a consulta');
     }
 
     try {
