@@ -67,8 +67,6 @@ export default function VaccineForm() {
 
   async function handleCreateBanho() {
     removeAllErrors();
-    // const myArray = dataBanho.split('-');
-    // const dataFormatada = myArray[2] + '-' + myArray[1] + '-' + myArray[0];
 
     if (!dataBanho) {
       return setError({ field: 'data_banho', message: 'Preencher o campo com a data do banho' });

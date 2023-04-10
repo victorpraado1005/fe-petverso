@@ -23,7 +23,6 @@ export const ContainerProductsAndCart = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 `;
 
 export const ContainerListaProdutos = styled.div`
@@ -158,7 +157,7 @@ export const ContainerCupons = styled.div`
   justify-content: start;
   padding: 12px;
   width: 350px;
-
+  border: 1px solid red;
   h1{
     font-size: 22px;
   }

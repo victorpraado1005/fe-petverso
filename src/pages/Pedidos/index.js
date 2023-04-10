@@ -116,7 +116,6 @@ export default function Pedidos() {
         valor_total: valorCarrinho,
         user_id: UserId,
       };
-      console.log(OrderData);
       await PedidoService.createPedido(OrderData);
     } catch {
       alert('Não foi possível criar o pedido.');
