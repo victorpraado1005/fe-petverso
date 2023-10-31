@@ -38,7 +38,6 @@ export const CardsContainer = styled.div`
 
 export const CardPedidos = styled.div`
   width: 200px;
-  height: 100px;
   padding: 8px;
   border-radius: 6px;
   background: ${({ theme }) => theme.colors.background};

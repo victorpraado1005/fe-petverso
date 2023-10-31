@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 92vh;
+  height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -164,7 +164,6 @@ export const ContainerCardPedidos = styled.div`
 export const CardPedidos = styled.div`
     max-width: 234px;
     width: 100%;
-    height: 100px;
     padding: 8px;
     background: ${({ theme }) => theme.colors.background};
     border-radius: 4px;
