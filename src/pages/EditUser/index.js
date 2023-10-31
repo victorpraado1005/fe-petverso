@@ -89,9 +89,10 @@ export default function EditAnimal() {
         cep,
         gender,
       };
-      console.log(User);
 
       await UserService.updateUser(id, User);
+      localStorage.clear();
+      localStorage.setItem('UserName', name);
       history.push('/meuperfil');
     } catch {
       toast({
