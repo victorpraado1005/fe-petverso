@@ -91,7 +91,6 @@ export default function EditAnimal() {
       };
 
       await UserService.updateUser(id, User);
-      localStorage.clear();
       localStorage.setItem('UserName', name);
       history.push('/meuperfil');
     } catch {
