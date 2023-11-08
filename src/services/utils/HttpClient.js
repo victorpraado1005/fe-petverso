@@ -4,7 +4,13 @@ class HttpClient {
   }
 
   async get(path) {
-    const response = await fetch(`${this.baseURL}${path}`);
+    const header = new Headers();
+    header.append('Authorization', localStorage.getItem('accessToken'));
+
+    const response = await fetch(`${this.baseURL}${path}`, {
+      method: 'GET',
+      headers: header,
+    });
 
     if (response.ok) {
       return response.json();
@@ -14,14 +20,14 @@ class HttpClient {
   }
 
   async post(path, body) {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-    });
+    const header = new Headers();
+    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
       method: 'POST',
       body: JSON.stringify(body),
-      headers,
+      headers: header,
     });
 
     let responseBody = null;
@@ -38,14 +44,14 @@ class HttpClient {
   }
 
   async put(path, body) {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-    });
+    const header = new Headers();
+    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
       method: 'PUT',
       body: JSON.stringify(body),
-      headers,
+      headers: header,
     });
 
     let responseBody = null;
@@ -62,13 +68,13 @@ class HttpClient {
   }
 
   async delete(path) {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-    });
+    const header = new Headers();
+    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
       method: 'DELETE',
-      headers,
+      headers: header,
     });
 
     if (response.ok) {

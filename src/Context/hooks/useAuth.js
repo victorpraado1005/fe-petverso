@@ -33,11 +33,10 @@ export default function useAuth() {
 
     const response = await fetch(finalUrl, options);
     if (response.ok) {
-      const userData = await response.json();
-      const userID = userData.id;
-      const userName = userData.name;
-      localStorage.setItem('UserID', userID);
-      localStorage.setItem('UserName', userName);
+      const { id, name, accessToken } = await response.json();
+      localStorage.setItem('UserID', id);
+      localStorage.setItem('UserName', name);
+      localStorage.setItem('accessToken', accessToken);
       setAuthenticated(true);
       history.push('/home');
     }
