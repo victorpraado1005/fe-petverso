@@ -7,6 +7,14 @@ class AnimalsService {
     this.httpClient = new HttpClient(url);
   }
 
+  me() {
+    return this.httpClient.get('/users/me');
+  }
+
+  login(user) {
+    return this.httpClient.post('/users/login', user);
+  }
+
   getUserById(id) {
     return this.httpClient.get(`/users/${id}`);
   }

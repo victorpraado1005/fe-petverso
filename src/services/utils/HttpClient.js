@@ -4,6 +4,14 @@ class HttpClient {
   }
 
   async get(path) {
+    if (path === '/users/login') {
+      const response = await fetch(`${this.baseURL}${path}`);
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(`${response.status} = ${response.statusText}`);
+    }
+
     const header = new Headers();
     header.append('Authorization', localStorage.getItem('accessToken'));
 

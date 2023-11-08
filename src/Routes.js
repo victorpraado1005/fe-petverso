@@ -22,7 +22,7 @@ import Assinatura from './pages/Assinatura';
 import TodosPedidos from './pages/TodosPedidos';
 
 function CustomRoute({ isPrivate, ...rest }) {
-  const logged = localStorage.getItem('UserID');
+  const logged = localStorage.getItem('accessToken');
 
   if (isPrivate && !logged) {
     return <Redirect to="/" />;
