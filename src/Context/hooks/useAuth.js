@@ -14,15 +14,23 @@ export default function useAuth() {
     }
   }, []);
 
+  async function getMe() {
+    if (!localStorage.getItem('accessToken')) {
+      return;
+    }
+
+    const { user } = await UserService.me();
+
+    setUserInfo(user);
+  }
+
   useEffect(() => {
     (async () => {
       if (!localStorage.getItem('accessToken')) {
         return;
       }
 
-      const { user } = await UserService.me();
-
-      setUserInfo(user);
+      await getMe();
     })();
   }, []);
 
@@ -38,6 +46,7 @@ export default function useAuth() {
     localStorage.setItem('UserID', id);
     localStorage.setItem('UserName', name);
     localStorage.setItem('accessToken', accessToken);
+    getMe();
     setAuthenticated(true);
     history.push('/home');
 
@@ -53,6 +62,6 @@ export default function useAuth() {
   }
 
   return {
-    authenticated, login, handleLogout, userInfo,
+    authenticated, login, handleLogout, userInfo, getMe,
   };
 }

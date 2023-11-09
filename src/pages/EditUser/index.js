@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Context } from '../../Context/AuthContext';
 
 import UserService from '../../services/UserService';
 import history from '../../history';
@@ -24,6 +25,8 @@ import toast from '../../utils/toast';
 import useErrors from '../../hooks/useErros';
 
 export default function EditAnimal() {
+  const { getMe } = useContext(Context);
+
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setIsUserData] = useState('');
   const [name, setName] = useState('');
@@ -91,6 +94,7 @@ export default function EditAnimal() {
       };
 
       await UserService.updateUser(id, User);
+      await getMe();
       localStorage.setItem('UserID', id);
       localStorage.setItem('UserName', name);
       history.push('/meuperfil');
