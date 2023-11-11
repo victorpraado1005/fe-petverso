@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { Link } from 'react-router-dom';
+import { Context } from '../../Context/AuthContext';
 
 import {
   Container, TitleContainer, GridArea, Card, ButtonArea,
@@ -11,7 +12,7 @@ import Loader from '../Loader';
 import AnimalsService from '../../services/AnimalsService';
 
 export default function AnimalHome() {
-  const UserID = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +20,7 @@ export default function AnimalHome() {
     (async () => {
       setIsLoading(true);
       try {
-        const AnimalsList = await AnimalsService.listAnimals(UserID);
+        const AnimalsList = await AnimalsService.listAnimals(data.user.id);
 
         setAnimals(AnimalsList);
       } catch (error) {

@@ -1,4 +1,5 @@
 import { Router } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'styled-components';
 
 import Routes from './Routes';
@@ -11,17 +12,21 @@ import { AuthProvider } from './Context/AuthContext';
 
 // import ToastContainer from './Components/Toast/ToastContainer';
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <AuthProvider>
-        <GlobalStyles />
-        {/* <ToastContainer /> */}
-        <Router history={history}>
-          <Routes />
-        </Router>
-      </AuthProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={defaultTheme}>
+        <AuthProvider>
+          <GlobalStyles />
+          {/* <ToastContainer /> */}
+          <Router history={history}>
+            <Routes />
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

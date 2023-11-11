@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import PedidoService from '../../services/PedidoService';
 
@@ -15,7 +17,7 @@ import {
 import Button from '../../button';
 
 export default function MeusPedidosHome() {
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [pedidos, setPedidos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +25,7 @@ export default function MeusPedidosHome() {
     (async () => {
       setIsLoading(true);
       try {
-        const listPedidos = await PedidoService.getPedidosByUserId(UserId);
+        const listPedidos = await PedidoService.getPedidosByUserId(data.user.id);
         listPedidos.length = 4;
         setPedidos(listPedidos);
       } catch (error) {

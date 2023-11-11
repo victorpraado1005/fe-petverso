@@ -25,7 +25,7 @@ import toast from '../../utils/toast';
 import useErrors from '../../hooks/useErros';
 
 export default function EditAnimal() {
-  const { getMe } = useContext(Context);
+  const { refetch } = useContext(Context);
 
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setIsUserData] = useState('');
@@ -94,9 +94,9 @@ export default function EditAnimal() {
       };
 
       await UserService.updateUser(id, User);
-      await getMe();
       localStorage.setItem('UserID', id);
       localStorage.setItem('UserName', name);
+      refetch();
       history.push('/meuperfil');
     } catch {
       toast({

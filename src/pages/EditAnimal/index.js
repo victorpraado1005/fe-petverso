@@ -1,5 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import {
+  useEffect, useState, useRef, useContext,
+} from 'react';
 import { useParams } from 'react-router-dom';
+
+import { Context } from '../../Context/AuthContext';
 
 import AnimalsService from '../../services/AnimalsService';
 import history from '../../history';
@@ -38,7 +42,7 @@ export default function EditAnimal() {
   }, [id]);
 
   async function handleSubmit(formData) {
-    const userId = localStorage.getItem('UserID');
+    const { data } = useContext(Context);
 
     try {
       const animal = {
@@ -49,7 +53,7 @@ export default function EditAnimal() {
         lenght_animal: formData.lenght,
         species: formData.species,
         nickname: formData.nickName,
-        users_id: userId,
+        users_id: data.user.id,
       };
 
       const animalData = await AnimalsService.updateAnimal(id, animal);

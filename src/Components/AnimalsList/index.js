@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import { Context } from '../../Context/AuthContext';
 
 import {
   Container, TitleContainer, GridArea, Card,
@@ -22,7 +23,7 @@ import VaccineService from '../../services/VaccineService';
 import MedicationService from '../../services/MedicationService';
 
 export default function Animal() {
-  const UserID = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
@@ -31,7 +32,7 @@ export default function Animal() {
     (async () => {
       setIsLoading(true);
       try {
-        const AnimalsList = await AnimalsService.listAnimals(UserID);
+        const AnimalsList = await AnimalsService.listAnimals(data.user.id);
 
         setAnimals(AnimalsList);
       } catch (error) {

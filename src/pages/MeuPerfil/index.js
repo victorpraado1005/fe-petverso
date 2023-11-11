@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import history from '../../history';
 
@@ -24,7 +26,7 @@ import cupons from '../../assets/images/cupons.png';
 import kitMensal from '../../assets/images/ball.png';
 
 export default function Assinatura() {
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [userInfo, setUserInfo] = useState('');
   const [pedidos, setPedidos] = useState([]);
   const [animalsList, setAnimalList] = useState([]);
@@ -35,43 +37,20 @@ export default function Assinatura() {
     (async () => {
       setIsLoading(true);
       try {
-        const userData = await UserService.getUserById(UserId);
-
+        const userData = await UserService.getUserById(data.user.id);
         setUserInfo(userData);
+
         if (userData.assinante) {
           setIsSubscriber(true);
         }
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      try {
-        const listPedidos = await PedidoService.getPedidosByUserId(UserId);
+        const listPedidos = await PedidoService.getPedidosByUserId(data.user.id);
         listPedidos.length = 4;
-        setPedidos(listPedidos);
-        console.log(pedidos);
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      try {
-        const AnimalsList = await AnimalsService.listAnimals(UserId);
+        const AnimalsList = await AnimalsService.listAnimals(data.user.id);
 
         setAnimalList(AnimalsList);
+        setPedidos(listPedidos);
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -150,7 +129,7 @@ export default function Assinatura() {
           <CardAtividades>
             <div className="title-card-pedidos">
               <h1>Meus Pedidos: </h1>
-              <Button onClick={() => history.push(`/todospedidos/${UserId}`)}>Ver Todos</Button>
+              <Button onClick={() => history.push(`/todospedidos/${data.user.id}`)}>Ver Todos</Button>
             </div>
             <ContainerCardPedidos>
               {pedidos.map((pedido) => (

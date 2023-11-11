@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import {
   Container, ContainerFormCriarConta, ContainerUsario,
@@ -18,7 +20,7 @@ import ToastContainer from '../../Components/Toast/ToastContainer';
 import toast from '../../utils/toast';
 
 export default function Assinatura() {
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [userInfo, setUserInfo] = useState('');
   const [plano, setPlano] = useState('');
   const [name, setName] = useState('');
@@ -41,12 +43,12 @@ export default function Assinatura() {
     (async () => {
       setIsLoading(true);
 
-      if (!UserId) {
+      if (!data.user.id) {
         return setIsLoading(false);
       }
 
       try {
-        const userData = await UserService.getUserById(UserId);
+        const userData = await UserService.getUserById(data.user.id);
 
         setUserInfo(userData);
       } catch (error) {
@@ -98,7 +100,7 @@ export default function Assinatura() {
         assinante: auxPlano,
       };
 
-      await UserService.updateSubscription(UserId, User);
+      await UserService.updateSubscription(data.user.id, User);
       history.push('/home');
     } catch {
       toast({
@@ -174,7 +176,7 @@ export default function Assinatura() {
       <ToastContainer />
       <Container>
         <h1 className="title-text">Conta</h1>
-        {UserId ? (
+        {data.user.id ? (
           <ContainerUsario>
             <h1>
               Olá,
@@ -385,7 +387,7 @@ export default function Assinatura() {
               </span>
             </div>
             <div className="btn-confirmar">
-              {UserId ? (
+              {data.user.id ? (
                 <Button onClick={handleAssinarUsuarioComConta}>Confirmar</Button>
               ) : (
                 <Button onClick={handleCriarConta}>Confirmar</Button>

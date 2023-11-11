@@ -1,4 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import { Container } from './style';
 
@@ -15,9 +17,9 @@ import toast from '../../utils/toast';
 
 export default function AddAnimal() {
   const animalFormsRef = useRef(null);
-  async function handleSubmit(formData) {
-    const userId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
 
+  async function handleSubmit(formData) {
     try {
       const animal = {
         name: formData.name,
@@ -27,8 +29,9 @@ export default function AddAnimal() {
         lenght_animal: formData.lenght,
         species: formData.species,
         nickname: formData.nickName,
-        users_id: userId,
+        users_id: data.user.id,
       };
+      console.log(animal);
       await AnimalsService.createAnimal(animal);
 
       animalFormsRef.current.resetFields();

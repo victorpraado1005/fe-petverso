@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import BanhoService from '../../services/BanhoService';
 import ConsultaService from '../../services/ConsultaService';
@@ -11,27 +13,18 @@ import {
 } from './style';
 
 export default function AgendamentosHome() {
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [banhos, setBanhos] = useState([]);
   const [consultas, setConsultas] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const listBanhos = await BanhoService.listBanhoByUserlId(UserId);
+        const listBanhos = await BanhoService.listBanhoByUserlId(data.user.id);
         listBanhos.length = 2;
-        setBanhos(listBanhos);
-      } catch (error) {
-        console.log(error.message);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const listConsultas = await ConsultaService.listConsultaByUserId(UserId);
+        const listConsultas = await ConsultaService.listConsultaByUserId(data.user.id);
         listConsultas.length = 2;
+        setBanhos(listBanhos);
         setConsultas(listConsultas);
       } catch (error) {
         console.log(error.message);

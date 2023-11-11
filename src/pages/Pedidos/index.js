@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import { useParams } from 'react-router-dom';
+
+import { Context } from '../../Context/AuthContext';
 
 import { produtos } from '../../utils/mock/produtos';
 
@@ -29,7 +31,7 @@ import history from '../../history';
 
 export default function Pedidos() {
   const { loja } = useParams();
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [userData, setUserData] = useState('');
   const [lojaSelecionada, setLojaSelecionada] = useState(lojas);
   const [produtosLoja, setProdutoLoja] = useState(produtos);
@@ -51,7 +53,7 @@ export default function Pedidos() {
     (async () => {
       try {
         setIsLoading(true);
-        const UserInfo = await UserService.getUserById(UserId);
+        const UserInfo = await UserService.getUserById(data.user.id);
         setUserData(UserInfo);
         setProdutoLoja((prevState) => prevState.filter(
           (produto) => produto.loja === loja,
@@ -114,7 +116,7 @@ export default function Pedidos() {
         loja,
         status: 'Em Separação',
         valor_total: valorCarrinho,
-        user_id: UserId,
+        user_id: data.user.id,
       };
       await PedidoService.createPedido(OrderData);
     } catch {

@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+
+import { Context } from '../../Context/AuthContext';
 
 import {
   Container, FormArea, ButtonArea, InputArea, RowInputArea,
@@ -31,7 +33,7 @@ export default function VaccineForm() {
   const [animalsList, setAnimalList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { clinica } = useParams();
-  const UserId = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [animalId, setAnimalId] = useState('');
 
   const {
@@ -42,7 +44,7 @@ export default function VaccineForm() {
     (async () => {
       setIsLoading(true);
       try {
-        const AnimalsList = await AnimalsService.listAnimals(UserId);
+        const AnimalsList = await AnimalsService.listAnimals(data.user.id);
 
         setAnimalList(AnimalsList);
       } catch (error) {
@@ -88,7 +90,7 @@ export default function VaccineForm() {
         hora_consulta: horaConsulta,
         clinica,
         animal_id: animalId,
-        users_id: UserId,
+        users_id: data.user.id,
       };
       await ConsultaService.createConsulta(consultaData);
       history.push('/porperto');

@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Context } from '../../Context/AuthContext';
 
 import AnimalsService from '../../services/AnimalsService';
 import Loader from '../Loader';
@@ -12,7 +14,7 @@ import Button from '../../button';
 import history from '../../history';
 
 export default function MeusAnimaisHome() {
-  const UserID = localStorage.getItem('UserID');
+  const { data } = useContext(Context);
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +22,7 @@ export default function MeusAnimaisHome() {
     (async () => {
       setIsLoading(true);
       try {
-        const AnimalsList = await AnimalsService.listAnimals(UserID);
+        const AnimalsList = await AnimalsService.listAnimals(data.user.id);
         setAnimals(AnimalsList);
       } catch (error) {
         console.log(error.message);
