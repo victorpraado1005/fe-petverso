@@ -24,7 +24,6 @@ function AuthProvider({ children }) {
     queryKey: 'users/me',
     queryFn: () => UserService.me(),
     retry: false,
-    refetchOnWindowFocus: true,
   });
 
   if (isFetching) {

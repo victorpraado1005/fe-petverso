@@ -31,7 +31,6 @@ export default function AddAnimal() {
         nickname: formData.nickName,
         users_id: data.user.id,
       };
-      console.log(animal);
       await AnimalsService.createAnimal(animal);
 
       animalFormsRef.current.resetFields();

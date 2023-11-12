@@ -22,6 +22,7 @@ export default function EditAnimal() {
   const [isLoading, setIsLoading] = useState(true);
   const [animalName, setAnimalName] = useState('');
   const animalFormRef = useRef(null);
+  const { data } = useContext(Context);
   const { id } = useParams();
 
   useEffect(() => {
@@ -42,8 +43,6 @@ export default function EditAnimal() {
   }, [id]);
 
   async function handleSubmit(formData) {
-    const { data } = useContext(Context);
-
     try {
       const animal = {
         name: formData.name,
