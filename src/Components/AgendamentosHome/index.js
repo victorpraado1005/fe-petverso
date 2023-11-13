@@ -7,6 +7,8 @@ import ConsultaService from '../../services/ConsultaService';
 
 import { CardHome } from '../../pages/Home/style';
 
+import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
+
 import {
   TitleContainer, TitleAgendamentosContainer, ContainerCardsAgendamento, CardInfoAgendamento,
   ContainerCards,
@@ -49,7 +51,7 @@ export default function AgendamentosHome() {
                 <div>
                   <h3>Data: </h3>
                   <span>
-                    {banho.data_banho}
+                    {formatDataToBrazilFormat(banho.data_banho)}
                   </span>
                 </div>
                 <div>
@@ -81,7 +83,7 @@ export default function AgendamentosHome() {
                 <div>
                   <h3>Data: </h3>
                   <span>
-                    {consulta.data_consulta}
+                    {formatDataToBrazilFormat(consulta.data_consulta)}
                   </span>
                 </div>
                 <div>

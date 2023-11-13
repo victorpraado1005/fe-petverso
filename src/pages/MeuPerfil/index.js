@@ -25,6 +25,8 @@ import freteGratis from '../../assets/images/entrega-gratis.png';
 import cupons from '../../assets/images/cupons.png';
 import kitMensal from '../../assets/images/ball.png';
 
+import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
+
 export default function Assinatura() {
   const { data } = useContext(Context);
   const [userInfo, setUserInfo] = useState('');
@@ -140,7 +142,7 @@ export default function Assinatura() {
                   </div>
                   <div>
                     <span className="title-data-pedido">Data do Pedido:</span>
-                    <span>{pedido.data_pedido}</span>
+                    <span>{formatDataToBrazilFormat(pedido.data_pedido)}</span>
                   </div>
                   <div>
                     <span className="title-data-pedido">Valor Total:</span>

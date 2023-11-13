@@ -15,6 +15,7 @@ import Button from '../../button';
 import Modal from '../../Components/Modal';
 
 import arrowLeft from '../../assets/images/left-arrow_dark.png';
+import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
 
 export default function Vaccine() {
   const [List, setConsultas] = useState([]);
@@ -99,7 +100,7 @@ export default function Vaccine() {
                         Data da Consulta:
                       </strong>
                       {' '}
-                      {consulta.data_consulta}
+                      {formatDataToBrazilFormat(consulta.data_consulta)}
                     </span>
                     <span>
                       <strong>

@@ -15,6 +15,7 @@ import {
 } from './style';
 
 import Button from '../../button';
+import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
 
 export default function MeusPedidosHome() {
   const { data } = useContext(Context);
@@ -52,7 +53,7 @@ export default function MeusPedidosHome() {
             </div>
             <div>
               <span className="title-data-pedido"> Data: </span>
-              <span>{pedido.data_pedido}</span>
+              <span>{formatDataToBrazilFormat(pedido.data_pedido)}</span>
             </div>
             <div>
               <span className="title-data-pedido"> Valor: </span>
