@@ -46,7 +46,7 @@ export default function MeusPedidosHome() {
       </TitleContainer>
       <CardsContainer>
         {pedidos.map((pedido) => (
-          <CardPedidos>
+          <CardPedidos key={pedido.id}>
             <div>
               <span className="title-data-pedido"> Loja: </span>
               <span>{pedido.loja}</span>

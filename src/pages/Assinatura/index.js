@@ -20,7 +20,7 @@ import ToastContainer from '../../Components/Toast/ToastContainer';
 import toast from '../../utils/toast';
 
 export default function Assinatura() {
-  const { data } = useContext(Context);
+  const { data, refetch } = useContext(Context);
   const [userInfo, setUserInfo] = useState('');
   const [plano, setPlano] = useState('');
   const [name, setName] = useState('');
@@ -39,25 +39,27 @@ export default function Assinatura() {
     setError, removeAllErrors, getErrorMessageByFieldName,
   } = useErrors();
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+  if (data) {
+    useEffect(() => {
+      (async () => {
+        setIsLoading(true);
 
-      if (!data.user.id) {
-        return setIsLoading(false);
-      }
+        if (!data.user.id) {
+          return setIsLoading(false);
+        }
 
-      try {
-        const userData = await UserService.getUserById(data.user.id);
+        try {
+          const userData = await UserService.getUserById(data.user.id);
 
-        setUserInfo(userData);
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+          setUserInfo(userData);
+        } catch (error) {
+          console.log(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      })();
+    }, []);
+  }
 
   function handlePlanoNaoAssinante() {
     setPlano('Não Assinante');
@@ -157,9 +159,10 @@ export default function Assinatura() {
         assinante: auxPlano,
         password,
       };
-      console.log(User);
-      await UserService.createUser(User);
+      const { accessToken } = await UserService.createUser(User);
+      localStorage.setItem('accessToken', accessToken);
       history.push('/home');
+      refetch();
     } catch {
       toast({
         type: 'danger',
@@ -176,7 +179,7 @@ export default function Assinatura() {
       <ToastContainer />
       <Container>
         <h1 className="title-text">Conta</h1>
-        {data.user.id ? (
+        {data ? (
           <ContainerUsario>
             <h1>
               Olá,
@@ -387,7 +390,7 @@ export default function Assinatura() {
               </span>
             </div>
             <div className="btn-confirmar">
-              {data.user.id ? (
+              {data ? (
                 <Button onClick={handleAssinarUsuarioComConta}>Confirmar</Button>
               ) : (
                 <Button onClick={handleCriarConta}>Confirmar</Button>

@@ -24,9 +24,18 @@ export default function AgendamentosHome() {
       try {
         const listBanhos = await BanhoService.listBanhoByUserlId(data.user.id);
         listBanhos.length = 2;
+        setBanhos(listBanhos);
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
         const listConsultas = await ConsultaService.listConsultaByUserId(data.user.id);
         listConsultas.length = 2;
-        setBanhos(listBanhos);
         setConsultas(listConsultas);
       } catch (error) {
         console.log(error.message);
@@ -46,7 +55,7 @@ export default function AgendamentosHome() {
       <ContainerCardsAgendamento>
         <ContainerCards>
           {banhos.map((banho) => (
-            <CardInfoAgendamento>
+            <CardInfoAgendamento key={banho.id}>
               <div className="data-agendamento">
                 <div>
                   <h3>Data: </h3>
@@ -78,7 +87,7 @@ export default function AgendamentosHome() {
         </ContainerCards>
         <ContainerCards>
           {consultas.map((consulta) => (
-            <CardInfoAgendamento>
+            <CardInfoAgendamento key={consulta.id}>
               <div className="data-agendamento">
                 <div>
                   <h3>Data: </h3>

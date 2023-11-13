@@ -48,7 +48,7 @@ export default function MeusAnimaisHome() {
       </TitleContainer>
       <ListAnimalsContainer>
         {animals.map((animal) => (
-          <div className="data-animal">
+          <div className="data-animal" key={animal.id}>
             <h1>
               -
               {' '}
