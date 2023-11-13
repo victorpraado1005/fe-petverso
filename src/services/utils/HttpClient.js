@@ -23,6 +23,11 @@ class HttpClient {
       headers: header,
     });
 
+    if (response.status === 401) {
+      alert('Sua sessão expirou');
+      localStorage.removeItem('accessToken');
+    }
+
     if (response.ok) {
       return response.json();
     }
@@ -48,6 +53,11 @@ class HttpClient {
     const contentType = response.headers.get('Content-Type');
     if (contentType.includes('application/json')) {
       responseBody = await response.json();
+    }
+
+    if (response.status === 401) {
+      alert('Sua sessão expirou');
+      localStorage.removeItem('accessToken');
     }
 
     if (response.ok) {
@@ -77,6 +87,11 @@ class HttpClient {
       responseBody = await response.json();
     }
 
+    if (response.status === 401) {
+      alert('Sua sessão expirou');
+      localStorage.removeItem('accessToken');
+    }
+
     if (response.ok) {
       return responseBody;
     }
@@ -96,6 +111,11 @@ class HttpClient {
       method: 'DELETE',
       headers: header,
     });
+
+    if (response.status === 401) {
+      alert('Sua sessão expirou');
+      localStorage.removeItem('accessToken');
+    }
 
     if (response.ok) {
       return response;
