@@ -12,8 +12,11 @@ class HttpClient {
       throw new Error(`${response.status} = ${response.statusText}`);
     }
 
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
+
     const header = new Headers();
-    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Authorization', accessToken);
 
     const response = await fetch(`${this.baseURL}${path}`, {
       method: 'GET',
@@ -28,8 +31,11 @@ class HttpClient {
   }
 
   async post(path, body) {
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
+
     const header = new Headers();
-    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Authorization', accessToken);
     header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
@@ -52,8 +58,11 @@ class HttpClient {
   }
 
   async put(path, body) {
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
+
     const header = new Headers();
-    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Authorization', accessToken);
     header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
@@ -76,8 +85,11 @@ class HttpClient {
   }
 
   async delete(path) {
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
+
     const header = new Headers();
-    header.append('Authorization', localStorage.getItem('accessToken'));
+    header.append('Authorization', accessToken);
     header.append('Content-Type', 'application/json');
 
     const response = await fetch(`${this.baseURL}${path}`, {
