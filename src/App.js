@@ -1,7 +1,6 @@
 import { Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'styled-components';
-import { Analytics } from '@vercel/analytics';
 
 import Routes from './Routes';
 import history from './history';
@@ -24,7 +23,6 @@ function App() {
           {/* <ToastContainer /> */}
           <Router history={history}>
             <Routes />
-            <Analytics />
           </Router>
         </AuthProvider>
       </ThemeProvider>

@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@vercel/analytics": "^1.1.1",
     "components": "^0.1.0",
     "history": "^4.10.1",
     "prop-types": "^15.8.1",
