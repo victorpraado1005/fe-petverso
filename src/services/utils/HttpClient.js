@@ -24,7 +24,6 @@ class HttpClient {
     });
 
     if (response.status === 401) {
-      alert('Sua sessão expirou');
       localStorage.removeItem('accessToken');
     }
 
@@ -56,7 +55,6 @@ class HttpClient {
     }
 
     if (response.status === 401) {
-      alert('Sua sessão expirou');
       localStorage.removeItem('accessToken');
     }
 
@@ -88,7 +86,6 @@ class HttpClient {
     }
 
     if (response.status === 401) {
-      alert('Sua sessão expirou');
       localStorage.removeItem('accessToken');
     }
 
@@ -113,7 +110,6 @@ class HttpClient {
     });
 
     if (response.status === 401) {
-      alert('Sua sessão expirou');
       localStorage.removeItem('accessToken');
     }
 
