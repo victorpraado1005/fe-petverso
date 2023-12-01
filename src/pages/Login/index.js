@@ -69,7 +69,7 @@ export default function Login() {
       <Container>
         <img src={Logo} alt="" />
         <Content>
-          <h1>Login</h1>
+          <h1>Login :)</h1>
           <p
             id="senha"
             style={{
