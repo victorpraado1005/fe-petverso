@@ -20,6 +20,7 @@ import Banhos from './pages/Banhos';
 import Consultas from './pages/Consultas';
 import Assinatura from './pages/Assinatura';
 import TodosPedidos from './pages/TodosPedidos';
+import Teste from './pages/Teste';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const logged = localStorage.getItem('accessToken');
@@ -54,6 +55,7 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/banhos/:id" component={Banhos} />
       <CustomRoute isPrivate exact path="/consulta/:id" component={Consultas} />
       <CustomRoute isPrivate exact path="/todospedidos/:id" component={TodosPedidos} />
+      <CustomRoute isPrivate exact path="/teste" component={Teste} />
     </Switch>
   );
 }
