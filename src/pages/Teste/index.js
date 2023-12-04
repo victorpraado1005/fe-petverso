@@ -1,7 +1,7 @@
-import NewFooterMenu from '../../Components/NewFooterMenu';
+import Header from '../../Components/Header';
 
 export default function Teste() {
   return (
-    <NewFooterMenu />
+    <Header />
   );
 }
