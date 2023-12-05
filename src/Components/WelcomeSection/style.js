@@ -1,22 +1,63 @@
 import styled from 'styled-components';
 
-import banner from '../../assets/images/banner_main.png';
-
 export const Container = styled.div`
-  background-image: url(${banner});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* margin-top: 32px; */
-  height: 200px;
+  width: 100%;
+  height: 121px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.primary.dark};
+  padding-top: 32px;
+  gap: 16px;
+
+  .pataIntroEsquerda{
+    display: none;
+
+    @media screen and (min-width: 744px) {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 744px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+  }
+
+  @media screen and (min-width: 1024px) {
+    img {
+      width: 84px;
+      height: 84px;
+    }
+  }
+`;
+
+export const ContainerText = styled.div`
+  text-align: center;
+  padding: 0px 8px;
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
 
   span{
-    font-size: 24px;
-    margin-bottom: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.primary.light};
+  }
+
+  @media screen and (min-width: 744px) {
+    flex-direction: row;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    span {
+      font-size: 16px;
+    }
   }
 `;
