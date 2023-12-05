@@ -8,21 +8,15 @@ export const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  img{
-    position: relative;
-    top: 100px;
-  }
-
+  gap: 64px;
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  width: 80%;
   max-width: 500px;
   background: ${({ theme }) => theme.colors.primary.main};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

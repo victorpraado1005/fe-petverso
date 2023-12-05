@@ -9,7 +9,7 @@ import FormGroup from '../../Components/FormGroup';
 
 import Input from '../../input';
 import Button from '../../button';
-import Logo from '../../assets/images/logo_petverso.svg';
+import Logo from '../../assets/images/logoOficial.svg';
 import Loader from '../../Components/Loader';
 
 import ToastContainer from '../../Components/Toast/ToastContainer';
