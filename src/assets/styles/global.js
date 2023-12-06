@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background: #FFFFDE;
+    background: ${({ theme }) => theme.colors.backgroundDark};
     font-size: 16px;
     margin: auto;
   }

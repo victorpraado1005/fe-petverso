@@ -5,9 +5,11 @@ import { Context } from '../../Context/AuthContext';
 import AnimalsService from '../../services/AnimalsService';
 import Loader from '../Loader';
 
-import { CardHome } from '../../pages/Home/style';
+// import { CardHome } from '../../pages/Home/style';
 
-import { TitleContainer, ListAnimalsContainer } from './style';
+import {
+  Container, HeaderContainer, ListAnimalsContainer, CardAnimalName,
+} from './style';
 
 import Button from '../../button';
 
@@ -32,32 +34,37 @@ export default function MeusAnimaisHome() {
     })();
   }, []);
 
-  function handleEditAnimal(id) {
-    history.push(`/editAnimal/${id}`);
-  }
-
   return (
-    <CardHome>
+    <Container>
       <Loader isLoading={isLoading} />
-      <TitleContainer>
+      <HeaderContainer>
         <h1>Meus Animais:</h1>
-        <div className="button-area">
-          <Button onClick={() => history.push('/animals')}>Ver todos</Button>
-          <Button onClick={() => history.push('/addAnimal')}>+ Adicionar</Button>
-        </div>
-      </TitleContainer>
+        <Button onClick={() => history.push('/animals')}>Ver todos</Button>
+      </HeaderContainer>
       <ListAnimalsContainer>
         {animals.map((animal) => (
-          <div className="data-animal" key={animal.id}>
+          <CardAnimalName key={animal.id}>
             <h1>
-              -
-              {' '}
               {animal.name}
             </h1>
-            <Button onClick={() => handleEditAnimal(animal.id)}>Editar</Button>
-          </div>
+          </CardAnimalName>
         ))}
+        <CardAnimalName>
+          <h1>Tecko</h1>
+        </CardAnimalName>
+        <CardAnimalName>
+          <h1>Tecko</h1>
+        </CardAnimalName>
+        <CardAnimalName>
+          <h1>Tecko</h1>
+        </CardAnimalName>
+        <CardAnimalName>
+          <h1>Tecko</h1>
+        </CardAnimalName>
+        <CardAnimalName>
+          <h1>Tecko</h1>
+        </CardAnimalName>
       </ListAnimalsContainer>
-    </CardHome>
+    </Container>
   );
 }
