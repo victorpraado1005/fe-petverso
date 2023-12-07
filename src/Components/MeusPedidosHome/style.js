@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 260px;
-  background: ${({ theme }) => theme.colors.primary.light};
+  height: 350px;
   border-radius: 15px;
-  /* height: 300px; */
+  background: ${({ theme }) => theme.colors.primary.light};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
@@ -116,4 +116,17 @@ export const CardPedidos = styled.div`
   @media screen and (min-width: 1100px){
     width: 300px;
   }
+`;
+
+export const ContainerSemPedidos = styled.div`
+  width: 100%;
+  height: 100%;
+  color: ${({ theme }) => theme.colors.background};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0px 16px;
 `;
