@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 260px;
+  height: 350px;
   border-radius: 15px;
   background: ${({ theme }) => theme.colors.primary.light};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-bottom: 64px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-bottom: 24px;
 
   @media screen and (min-width: 320px){
     width: 300px;
@@ -192,4 +192,15 @@ export const SecondLineInfoCardAgendamentos = styled.div`
         font-size: 13px;
       }
     }
+`;
+
+export const ContainerSemAgendamentos = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 10px;
+  color: ${({ theme }) => theme.colors.background};
 `;
