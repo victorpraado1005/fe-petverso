@@ -1,26 +1,25 @@
 import styled from 'styled-components';
 
-export const ContainerCardsHome = styled.div`
+export const Container = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
 `;
 
-export const CardHome = styled.div`
-    max-width: 450px;
-    width: 100%;
-    margin-top: 25px;
-    background: ${({ theme }) => theme.colors.primary.light};
-    border-radius: 6px;
-    color: ${({ theme }) => theme.colors.background};
-    font-weight: bold;
-    padding: 12px;
+export const ContainerCardsHome = styled.div`
+  width: 90%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
 
-    h1{
-      font-size: 22px;
-    }
-
-    @media screen and (max-width: 1380px) {
-      width: 300px;
-    }
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    gap: 16px;
+    align-items: start;
+  }
 `;

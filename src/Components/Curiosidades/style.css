@@ -1,0 +1,11 @@
+.carousel-container{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .carousel-container{
+    width: 90%;
+  }
+}

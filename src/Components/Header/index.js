@@ -9,6 +9,7 @@ import Button from '../../button';
 import logo from '../../assets/images/logoOficial.svg';
 import menuBurguer from '../../assets/images/menu_burguer.svg';
 import ModalNavBar from '../ModalNavBar';
+import history from '../../history';
 
 export default function NewFooterMenu() {
   const { handleLogout } = useContext(Context);
@@ -20,6 +21,7 @@ export default function NewFooterMenu() {
 
   function handleCloseModalNavBar() {
     setIsModalNavBarVisible(false);
+    history.push('/home');
   }
 
   return (

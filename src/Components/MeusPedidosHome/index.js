@@ -4,14 +4,12 @@ import { Context } from '../../Context/AuthContext';
 
 import PedidoService from '../../services/PedidoService';
 
-import { CardHome } from '../../pages/Home/style';
-
 import Loader from '../Loader';
 
 import history from '../../history';
 
 import {
-  TitleContainer, CardPedidos, CardsContainer,
+  Container, HeaderCardPedidos, CardsContainerPedidos, CardPedidos,
 } from './style';
 
 import Button from '../../button';
@@ -38,13 +36,13 @@ export default function MeusPedidosHome() {
   }, []);
 
   return (
-    <CardHome>
+    <Container>
       <Loader isLoading={isLoading} />
-      <TitleContainer>
+      <HeaderCardPedidos>
         <h1>Meus Pedidos:</h1>
         <Button onClick={() => history.push('/meuperfil')}>Ver todos</Button>
-      </TitleContainer>
-      <CardsContainer>
+      </HeaderCardPedidos>
+      <CardsContainerPedidos>
         {pedidos.map((pedido) => (
           <CardPedidos key={pedido.id}>
             <div>
@@ -65,7 +63,7 @@ export default function MeusPedidosHome() {
             </div>
           </CardPedidos>
         ))}
-      </CardsContainer>
-    </CardHome>
+      </CardsContainerPedidos>
+    </Container>
   );
 }

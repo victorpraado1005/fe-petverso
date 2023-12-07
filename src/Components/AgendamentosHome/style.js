@@ -1,15 +1,61 @@
 import styled from 'styled-components';
 
-export const TitleContainer = styled.div`
-  padding: 12px;
-  text-align: center;
+export const Container = styled.div`
+  width: 260px;
+  border-radius: 15px;
+  background: ${({ theme }) => theme.colors.primary.light};
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  @media screen and (max-width: 1380px){
-
-  h1{
-    font-size: 18px;
+  @media screen and (min-width: 320px){
+    width: 300px;
   }
-}
+
+  @media screen and (min-width: 744px){
+    width: 690px;
+  }
+
+  @media screen and (min-width: 1024px){
+    width: 320px;
+  }
+`;
+
+export const HeaderCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  background: ${({ theme }) => theme.colors.primary.main};
+  color: ${({ theme }) => theme.colors.background};
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 16px;
+  }
+
+  button{
+    background: ${({ theme }) => theme.colors.primary.dark};
+    color: ${({ theme }) => theme.colors.background};
+    width: 80px;
+  }
+
+  @media screen and (min-width: 300px){
+    h1 {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (min-width: 744px){
+    button {
+      width: 100px;
+    }
+  }
 `;
 
 export const TitleAgendamentosContainer = styled.div`
@@ -32,48 +78,118 @@ export const TitleAgendamentosContainer = styled.div`
 `;
 
 export const ContainerCardsAgendamento = styled.div`
-  padding: 12px;
-  display: flex;
-  justify-content: space-around;
-`;
-
-export const ContainerCards = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 24px;
+
+  @media screen and (min-width: 744px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  @media screen and (min-width: 1024px){
+    display: flex;
+  }
 `;
 
-export const CardInfoAgendamento = styled.div`
-  width: 180px;
-  padding: 4px;
-  background: ${({ theme }) => theme.colors.background};
-  margin-bottom: 5px;
+export const CardAgendamentos = styled.div`
+  width: 240px;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.colors.primary.dark};
+  color: ${({ theme }) => theme.colors.background};
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 12px 4px;
+  gap: 8px;
 
-  .data-agendamento{
-    display: flex;
-    flex-direction: column;
-    span{
-    color: ${({ theme }) => theme.colors.primary.dark};
+  @media screen and (min-width: 320px) {
+      width: 280px;
+  }
+
+  @media screen and (min-width: 744px){
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1024px){
+    width: 270px;
+  }
+
+  @media screen and (min-width: 1100px){
+    width: 300px;
+  }
+`;
+
+export const HeaderInfoCardAgendamentos = styled.div`
+    width: 100%;
     font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+
+    span {
+      font-size: 14px;
+    }
+`;
+
+export const InfoCardAgendamentos = styled.div`
+    width: 100%;
+    padding: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    span{
+      font-size: 10px;
     }
 
     h3{
-      color: ${({ theme }) => theme.colors.primary.dark};
-      font-size: 15px;
+      font-size: 11px;
       display: inline;
-      margin-right: 5px;
     }
-  }
 
-  @media screen and (max-width: 1380px){
-    width: 120px;
-
-    .data-agendamento{
+    @media screen and (min-width: 320px) {
       span{
-        font-size: 10px;
-      }
-      h3{
         font-size: 12px;
       }
+
+      h3{
+        font-size: 13px;
+      }
     }
-  }
+`;
+
+export const SecondLineInfoCardAgendamentos = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    span{
+      font-size: 10px;
+    }
+
+    h3{
+      font-size: 11px;
+      display: inline;
+    }
+
+    @media screen and (min-width: 320px) {
+      span{
+        font-size: 12px;
+      }
+
+      h3{
+        font-size: 13px;
+      }
+    }
 `;
