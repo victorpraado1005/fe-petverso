@@ -13,7 +13,10 @@ export const Container = styled.div`
 
     @media screen and (min-width: 744px){
       width: 400px;
-      height: 300px;
+    }
+
+    @media screen and (min-width: 1024px){
+      width: 320px;
     }
 `;
 
@@ -71,6 +74,10 @@ export const ListAnimalsContainer = styled.div`
 
   @media screen and (min-width: 744px){
     grid-template-columns: 180px 180px;
+  }
+
+  @media screen and (min-width: 1024px){
+    grid-template-columns: 145px 145px;
   }
 `;
 

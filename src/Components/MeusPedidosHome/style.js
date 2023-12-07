@@ -6,7 +6,6 @@ export const Container = styled.div`
   border-radius: 15px;
   /* height: 300px; */
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-bottom: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +17,10 @@ export const Container = styled.div`
 
   @media screen and (min-width: 744px){
     width: 690px;
+  }
+
+  @media screen and (min-width: 1024px){
+    width: 320px;
   }
 `;
 
@@ -68,6 +71,10 @@ export const CardsContainerPedidos = styled.div`
     grid-template-rows: 1fr 1fr;
     gap: 8px 16px;
   }
+
+  @media screen and (min-width: 1024px){
+    display: flex;
+  }
 `;
 
 export const CardPedidos = styled.div`
@@ -99,6 +106,14 @@ export const CardPedidos = styled.div`
   }
 
   @media screen and (min-width: 744px){
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1024px){
+    width: 260px;
+  }
+
+  @media screen and (min-width: 1100px){
     width: 300px;
   }
 `;

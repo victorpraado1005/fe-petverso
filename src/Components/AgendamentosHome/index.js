@@ -5,14 +5,16 @@ import { Context } from '../../Context/AuthContext';
 import BanhoService from '../../services/BanhoService';
 import ConsultaService from '../../services/ConsultaService';
 
-import { CardHome } from '../../pages/Home/style';
+// import { CardHome } from '../../pages/Home/style';
 
 import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
 
 import {
-  TitleContainer, TitleAgendamentosContainer, ContainerCardsAgendamento, CardInfoAgendamento,
-  ContainerCards,
+  Container, HeaderCard, ContainerCardsAgendamento, CardAgendamentos,
+  HeaderInfoCardAgendamentos, InfoCardAgendamentos, SecondLineInfoCardAgendamentos,
 } from './style';
+import Button from '../../button';
+import history from '../../history';
 
 export default function AgendamentosHome() {
   const { data } = useContext(Context);
@@ -44,80 +46,73 @@ export default function AgendamentosHome() {
   }, []);
 
   return (
-    <CardHome>
-      <TitleContainer>
+    <Container>
+      <HeaderCard>
         <h1>Agendamentos:</h1>
-      </TitleContainer>
-      <TitleAgendamentosContainer>
-        <h1>Banhos: </h1>
-        <h1>Consultas: </h1>
-      </TitleAgendamentosContainer>
+        <Button onClick={() => history.push('/agendamentos')}>Ver Todos</Button>
+      </HeaderCard>
       <ContainerCardsAgendamento>
-        <ContainerCards>
-          {banhos.map((banho) => (
-            <CardInfoAgendamento key={banho.id}>
-              <div className="data-agendamento">
-                <div>
-                  <h3>Data: </h3>
-                  <span>
-                    {formatDataToBrazilFormat(banho.data_banho)}
-                  </span>
-                </div>
-                <div>
-                  <h3>Horário: </h3>
-                  <span>
-                    {banho.hora_banho}
-                  </span>
-                </div>
-                <div>
-                  <h3>PetShop: </h3>
-                  <span>
-                    {banho.petshop}
-                  </span>
-                </div>
-                <div>
-                  <h3>Animal: </h3>
-                  <span>
-                    {banho.animal_name}
-                  </span>
-                </div>
+        {banhos.map((banho) => (
+          <CardAgendamentos key={banho.id}>
+            <HeaderInfoCardAgendamentos>
+              <h2>Banho:</h2>
+              <span>
+                {banho.animal_name}
+              </span>
+            </HeaderInfoCardAgendamentos>
+            <InfoCardAgendamentos>
+              <div>
+                <h3>Data: </h3>
+                <span>
+                  {formatDataToBrazilFormat(banho.data_banho)}
+                </span>
               </div>
-            </CardInfoAgendamento>
-          ))}
-        </ContainerCards>
-        <ContainerCards>
-          {consultas.map((consulta) => (
-            <CardInfoAgendamento key={consulta.id}>
-              <div className="data-agendamento">
-                <div>
-                  <h3>Data: </h3>
-                  <span>
-                    {formatDataToBrazilFormat(consulta.data_consulta)}
-                  </span>
-                </div>
-                <div>
-                  <h3>Horário: </h3>
-                  <span>
-                    {consulta.hora_consulta}
-                  </span>
-                </div>
-                <div>
-                  <h3>Clinica: </h3>
-                  <span>
-                    {consulta.clinica}
-                  </span>
-                </div>
-                <div>
-                  <h3>Animal: </h3>
-                  <span>
-                    {consulta.animal_name}
-                  </span>
-                </div>
+              <div>
+                <h3>Horário: </h3>
+                <span>
+                  {banho.hora_banho}
+                </span>
               </div>
-            </CardInfoAgendamento>
-          ))}
-        </ContainerCards>
+            </InfoCardAgendamentos>
+            <SecondLineInfoCardAgendamentos>
+              <h3>PetShop: </h3>
+              <span>
+                {banho.petshop}
+              </span>
+            </SecondLineInfoCardAgendamentos>
+          </CardAgendamentos>
+        ))}
+        {consultas.map((consulta) => (
+          <CardAgendamentos key={consulta.id}>
+            <HeaderInfoCardAgendamentos>
+              <h2>Consulta:</h2>
+              <span>
+                {consulta.animal_name}
+              </span>
+            </HeaderInfoCardAgendamentos>
+            <InfoCardAgendamentos>
+              <div>
+                <h3>Data: </h3>
+                <span>
+                  {formatDataToBrazilFormat(consulta.data_consulta)}
+                </span>
+              </div>
+              <div>
+                <h3>Horário: </h3>
+                <span>
+                  {consulta.hora_consulta}
+                </span>
+              </div>
+            </InfoCardAgendamentos>
+            <SecondLineInfoCardAgendamentos>
+              <h3>Clinica: </h3>
+              <span>
+                {consulta.clinica}
+              </span>
+            </SecondLineInfoCardAgendamentos>
+          </CardAgendamentos>
+        ))}
       </ContainerCardsAgendamento>
-    </CardHome>
+    </Container>
   );
 }

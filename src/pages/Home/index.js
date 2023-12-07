@@ -1,4 +1,4 @@
-import { ContainerCardsHome } from './style';
+import { Container, ContainerCardsHome } from './style';
 
 import Header from '../../Components/Header';
 import WelcomeSection from '../../Components/WelcomeSection';
@@ -10,15 +10,15 @@ import AgendamentosHome from '../../Components/AgendamentosHome';
 
 export default function Home() {
   return (
-    <>
+    <Container>
       <Header />
       <WelcomeSection />
       <ContainerCardsHome>
-        <MeusPedidosHome />
         <MeusAnimaisHome />
+        <MeusPedidosHome />
         <AgendamentosHome />
       </ContainerCardsHome>
       <Footer />
-    </>
+    </Container>
   );
 }

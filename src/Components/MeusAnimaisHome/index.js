@@ -49,21 +49,6 @@ export default function MeusAnimaisHome() {
             </h1>
           </CardAnimalName>
         ))}
-        <CardAnimalName>
-          <h1>Tecko</h1>
-        </CardAnimalName>
-        <CardAnimalName>
-          <h1>Tecko</h1>
-        </CardAnimalName>
-        <CardAnimalName>
-          <h1>Tecko</h1>
-        </CardAnimalName>
-        <CardAnimalName>
-          <h1>Tecko</h1>
-        </CardAnimalName>
-        <CardAnimalName>
-          <h1>Tecko</h1>
-        </CardAnimalName>
       </ListAnimalsContainer>
     </Container>
   );
