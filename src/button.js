@@ -12,4 +12,10 @@ export default styled.button`
     line-height: 15px;
     border-radius: 4px;
     color: ${({ theme }) => theme.colors.primary.dark};
+    transition: 0.3s;
+
+    :hover{
+      width: 105px;
+      height: 35px;
+    }
 `;

@@ -91,6 +91,30 @@ export const CardAnimalName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.8s;
+
+  .btn-edit-animal{
+    display: none;
+    transition: 0.8s;
+  }
+
+  :hover{
+    background: ${({ theme }) => theme.colors.backgroundDark};
+
+    h1{
+      display: none;
+    }
+
+    .btn-edit-animal{
+      display: flex;
+
+      button{
+        width: 60px;
+        background: ${({ theme }) => theme.colors.primary.dark};
+        color: ${({ theme }) => theme.colors.background};
+      }
+    }
+  }
 
   @media screen and (min-width: 744px){
     font-size: 8px;

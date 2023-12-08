@@ -47,6 +47,9 @@ export default function MeusAnimaisHome() {
             <h1>
               {animal.name}
             </h1>
+            <div className="btn-edit-animal">
+              <Button onClick={() => history.push(`/editAnimal/${animal.id}`)}>Editar</Button>
+            </div>
           </CardAnimalName>
         ))}
       </ListAnimalsContainer>

@@ -35,6 +35,13 @@ export const TitleContainer = styled.div`
       height: 35px;
       width: 130px;
     }
+
+    :hover{
+      button {
+        width: 140px;
+        height: 40px;
+      }
+    }
 `;
 
 export const GridArea = styled.div`

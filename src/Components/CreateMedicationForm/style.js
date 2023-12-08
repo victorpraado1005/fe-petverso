@@ -43,9 +43,16 @@ export const ButtonArea = styled.div`
     align-items: center;
 
     button{
-    margin-top: 40px;
-    width: 50%;
-    height: 35px;
-    font-size: 14px;
-  }
+      margin-top: 40px;
+      width: 220px;
+      height: 45px;
+      font-size: 14px;
+    }
+
+    :hover{
+      button{
+        width: 240px;
+        height: 50px;
+       }
+     }
 `;
