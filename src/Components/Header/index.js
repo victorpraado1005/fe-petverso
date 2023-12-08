@@ -36,8 +36,8 @@ export default function NewFooterMenu() {
           <img src={menuBurguer} alt="Icone Menu Burguer" width={32} height={32} />
         </button>
         <div className="navBar">
-          <Button type="button"><a href="https://site-petverso.vercel.app/#contato" target="_blank" rel="noreferrer">Contato</a></Button>
-          <Button type="button" className="delete-button" onClick={handleLogout}>Sair</Button>
+          <Button><a href="https://site-petverso.vercel.app/#contato" target="_blank" rel="noreferrer">Contato</a></Button>
+          <Button className="delete-button" onClick={handleLogout}>Sair</Button>
         </div>
       </Container>
     </>

@@ -41,10 +41,6 @@ export const ButtonArea = styled.div`
   justify-content: center;
   align-items: center;
   margin: 8px 0;
-
-  button{
-    width: 30%;
-  }
 `;
 
 export const AnimalsName = styled.div`

@@ -27,10 +27,10 @@ export const Container = styled.div`
     display: flex;
     gap: 8px;
 
-    button{
-    width: 100px;
-    height: 35px;
-  }
+    /* button {
+      width: 100px;
+      height: 35px;
+    } */
   }
 
   .delete-button{

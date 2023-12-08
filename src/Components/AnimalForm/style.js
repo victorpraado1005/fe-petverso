@@ -46,7 +46,14 @@ export const ButtonArea = styled.div`
   button{
     margin-top: 40px;
     height: 50px;
-    width: 70%;
+    width: 220px;
     font-size: 16px;
   }
+
+  :hover{
+    button{
+      width: 240px;
+      height: 55px;
+     }
+   }
 `;

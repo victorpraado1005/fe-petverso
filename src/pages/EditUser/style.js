@@ -60,8 +60,15 @@ export const ButtonArea = styled.div`
 
   button{
     margin-top: 40px;
+    width: 220px;
     height: 50px;
-    width: 60%;
     font-size: 16px;
+  }
+
+  :hover{
+    button {
+      width: 240px;
+      height: 55px;
+    }
   }
 `;

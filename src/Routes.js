@@ -16,10 +16,9 @@ import MeuPerfil from './pages/MeuPerfil';
 import EditUser from './pages/EditUser';
 import Lojas from './pages/Lojas';
 import Pedidos from './pages/Pedidos';
-import Banhos from './pages/Banhos';
-import Consultas from './pages/Consultas';
 import Assinatura from './pages/Assinatura';
 import TodosPedidos from './pages/TodosPedidos';
+import Agendamentos from './pages/Agendamentos';
 import Teste from './pages/Teste';
 
 function CustomRoute({ isPrivate, ...rest }) {
@@ -52,9 +51,8 @@ export default function Routes() {
       <CustomRoute isPrivate exact path="/editUser/:id" component={EditUser} />
       <CustomRoute isPrivate exact path="/lojas" component={Lojas} />
       <CustomRoute isPrivate exact path="/pedidos/:loja" component={Pedidos} />
-      <CustomRoute isPrivate exact path="/banhos/:id" component={Banhos} />
-      <CustomRoute isPrivate exact path="/consulta/:id" component={Consultas} />
       <CustomRoute isPrivate exact path="/todospedidos/:id" component={TodosPedidos} />
+      <CustomRoute isPrivate exact path="/agendamentos" component={Agendamentos} />
       <CustomRoute isPrivate exact path="/teste" component={Teste} />
     </Switch>
   );

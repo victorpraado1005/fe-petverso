@@ -78,12 +78,8 @@ export default function Animal() {
     history.push(`/vacinas/${id}`);
   }
 
-  function handleBanhos(id) {
-    history.push(`/banhos/${id}`);
-  }
-
-  function handleConsultas(id) {
-    history.push(`/consulta/${id}`);
+  function handleAgendamentos() {
+    history.push('/agendamentos');
   }
 
   function handleMedicamentos(id) {
@@ -160,13 +156,9 @@ export default function Animal() {
                   {animal.gender}
                 </span>
               </div>
-
               <div className="button-details">
-                <Button type="button" onClick={() => handleBanhos(animal.id)}>
-                  Banhos
-                </Button>
-                <Button type="button" onClick={() => handleConsultas(animal.id)}>
-                  Consultas
+                <Button type="button" onClick={() => handleAgendamentos()}>
+                  Agendamentos
                 </Button>
                 <Button type="button" onClick={() => handleVacinas(animal.id)}>
                   Vacinas
