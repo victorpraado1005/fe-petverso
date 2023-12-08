@@ -121,13 +121,19 @@ export const Card = styled.div`
       text-align: center;
       margin-top: 10px;
       padding: 12px;
-    }
 
-    button{
-      background-color: ${({ theme }) => theme.colors.primary.dark};
-      width: 100px;
-      height: 30px;
-      font-size: 12px;
+      button {
+        background-color: ${({ theme }) => theme.colors.primary.dark};
+        width: 120px;
+        height: 30px;
+        font-size: 12px;
+        transition: 0.3s;
+      }
+
+      button:hover{
+        width: 130px;
+        height: 35px;
+      }
     }
 
     a{
