@@ -41,7 +41,7 @@ export default function MeusPedidosHome() {
       <Loader isLoading={isLoading} />
       <HeaderCardPedidos>
         <h1>Meus Pedidos:</h1>
-        <Button onClick={() => history.push('/meuperfil')}>Ver todos</Button>
+        <Button onClick={() => history.push(`/todospedidos/${data.user.id}`)}>Ver todos</Button>
       </HeaderCardPedidos>
       {pedidos.length > 0 ? (
         <CardsContainerPedidos>
