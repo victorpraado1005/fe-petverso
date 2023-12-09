@@ -60,6 +60,10 @@ export const HeaderCard = styled.div`
     button {
       width: 100px;
     }
+
+    h1 {
+      font-size: 20px;
+    }
   }
 `;
 
