@@ -3,9 +3,6 @@ import {
   Container, ContainerPetShops, CardLojas, AreaCupons,
 } from './style';
 
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
-
 import { lojas } from '../../utils/mock/lojas';
 
 import Button from '../../button';
@@ -15,7 +12,6 @@ export default function Lojas() {
 
   return (
     <Container>
-      <Header />
       <h1>PetShops</h1>
       <ContainerPetShops>
         {lojas.map((loja) => (
@@ -34,7 +30,6 @@ export default function Lojas() {
           </CardLojas>
         ))}
       </ContainerPetShops>
-      <Footer />
     </Container>
   );
 }

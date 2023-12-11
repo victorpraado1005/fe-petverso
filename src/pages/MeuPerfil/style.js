@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding-top: 48px;
+`;
+
+export const ContainerContent = styled.div`
+  display: flex;
 `;
 
 export const UserData = styled.div`

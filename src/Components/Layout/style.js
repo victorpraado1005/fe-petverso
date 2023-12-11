@@ -7,12 +7,13 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   /* gap: 64px; */
-`;
+  `;
 
 export const ContainerContent = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: center;
+
+  justify-content: start;
   align-items: start;
   padding-top: 48px;
 
