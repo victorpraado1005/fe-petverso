@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <Container>
       <IconsContainer>
-        <Link to="/home">
+        <Link to="/">
           <div className="container-option-footer">
             <img src={home} alt="Home" />
           </div>

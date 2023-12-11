@@ -22,7 +22,7 @@ export default function NewFooterMenu() {
 
   function handleCloseModalNavBar() {
     setIsModalNavBarVisible(false);
-    navigate('/home');
+    navigate('/');
   }
 
   return (

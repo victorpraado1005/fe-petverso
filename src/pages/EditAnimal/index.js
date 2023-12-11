@@ -35,7 +35,7 @@ export default function EditAnimal() {
         setAnimalName(animalData.name);
       } catch (error) {
         console.log(error);
-        navigate('/home');
+        navigate('/');
       }
     }
 

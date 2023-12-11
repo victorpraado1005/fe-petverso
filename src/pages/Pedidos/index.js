@@ -122,7 +122,7 @@ export default function Pedidos() {
       alert('Não foi possível criar o pedido.');
     } finally {
       setIsLoading(false);
-      navigate('/home');
+      navigate('/');
     }
   }
 

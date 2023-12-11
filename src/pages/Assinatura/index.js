@@ -103,7 +103,7 @@ export default function Assinatura() {
       };
 
       await UserService.updateSubscription(data.user.id, User);
-      navigate('/home');
+      navigate('/');
     } catch {
       toast({
         type: 'danger',
@@ -161,7 +161,7 @@ export default function Assinatura() {
       };
       const { accessToken } = await UserService.createUser(User);
       localStorage.setItem('accessToken', accessToken);
-      navigate('/home');
+      navigate('/');
       refetch();
     } catch {
       toast({

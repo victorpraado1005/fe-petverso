@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
     localStorage.setItem('accessToken', accessToken);
     refetch();
     setAuthenticated(true);
-    navigate('/home');
+    navigate('/');
 
     throw new Error(`${response.status} = ${response.statusText}`);
   }
@@ -53,7 +53,7 @@ function AuthProvider({ children }) {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem('accessToken');
-    navigate('/');
+    navigate('/auth');
   }
 
   return (

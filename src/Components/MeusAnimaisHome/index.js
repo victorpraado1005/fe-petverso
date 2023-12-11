@@ -6,8 +6,6 @@ import { Context } from '../../Context/AuthContext';
 import AnimalsService from '../../services/AnimalsService';
 import Loader from '../Loader';
 
-// import { CardHome } from '../../pages/Home/style';
-
 import {
   Container, HeaderContainer, ListAnimalsContainer, CardAnimalName,
 } from './style';
