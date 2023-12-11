@@ -1,12 +1,11 @@
 import { useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
 import { Container } from './style';
 
 import AnimalsService from '../../services/AnimalsService';
-
-import history from '../../history';
 
 import ToastContainer from '../../Components/Toast/ToastContainer';
 
@@ -18,6 +17,7 @@ import toast from '../../utils/toast';
 export default function AddAnimal() {
   const animalFormsRef = useRef(null);
   const { data } = useContext(Context);
+  const navigate = useNavigate();
 
   async function handleSubmit(formData) {
     try {
@@ -35,7 +35,7 @@ export default function AddAnimal() {
 
       animalFormsRef.current.resetFields();
 
-      history.push('/animals');
+      navigate('/animals');
     } catch {
       toast({
         type: 'danger',

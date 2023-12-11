@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import {
   Container, TitleContainer, Card, ButtonArea, GridArea,
 } from './style';
 
 import VaccineService from '../../services/VaccineService';
-
-import history from '../../history';
 
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
@@ -22,6 +20,7 @@ import formatDateToBrazil from '../../utils/formatDateToBrazil';
 
 export default function Vaccine() {
   const [vaccines, setVaccines] = useState([]);
+  const navigate = useNavigate();
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [vaccineBeingDeleted, setVaccineBeingDeleted] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +41,7 @@ export default function Vaccine() {
   }, []);
 
   function handleCreateVaccine() {
-    history.push(`/addVacinas/${id}`);
+    navigate(`/addVacinas/${id}`);
   }
 
   function handleDeleteVaccine(vaccine) {

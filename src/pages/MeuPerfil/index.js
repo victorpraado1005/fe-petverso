@@ -1,8 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
-
-import history from '../../history';
 
 import {
   Container, UserData, CardAtividades, CardBeneficiosAssinatura, ContainerCard, TitleUserData,
@@ -29,6 +28,7 @@ import formatDataToBrazilFormat from '../../utils/formatDataToBrazilFormat';
 
 export default function Assinatura() {
   const { data } = useContext(Context);
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState('');
   const [pedidos, setPedidos] = useState([]);
   const [animalsList, setAnimalList] = useState([]);
@@ -62,7 +62,7 @@ export default function Assinatura() {
   }, []);
 
   function handleEditUser(id) {
-    history.push(`/editUser/${id}`);
+    navigate(`/editUser/${id}`);
   }
 
   return (
@@ -131,7 +131,7 @@ export default function Assinatura() {
           <CardAtividades>
             <div className="title-card-pedidos">
               <h1>Meus Pedidos: </h1>
-              <Button onClick={() => history.push(`/todospedidos/${data.user.id}`)}>Ver Todos</Button>
+              <Button onClick={() => navigate(`/todospedidos/${data.user.id}`)}>Ver Todos</Button>
             </div>
             <ContainerCardPedidos>
               {pedidos.map((pedido) => (
@@ -182,7 +182,7 @@ export default function Assinatura() {
                   Para aproveitar os benefícios de um assinante basta adquirir um
                   de nossos planos! :)
                 </h1>
-                <Button onClick={() => history.push('/assinatura')}>Ver Planos</Button>
+                <Button onClick={() => navigate('/assinatura')}>Ver Planos</Button>
               </ContainerNotSubscriber>
             )}
 

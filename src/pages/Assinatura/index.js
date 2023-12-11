@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -14,13 +15,12 @@ import useErrors from '../../hooks/useErros';
 import Button from '../../button';
 import Loader from '../../Components/Loader';
 import FormGroup from '../../Components/FormGroup';
-
-import history from '../../history';
 import ToastContainer from '../../Components/Toast/ToastContainer';
 import toast from '../../utils/toast';
 
 export default function Assinatura() {
   const { data, refetch } = useContext(Context);
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState('');
   const [plano, setPlano] = useState('');
   const [name, setName] = useState('');
@@ -103,7 +103,7 @@ export default function Assinatura() {
       };
 
       await UserService.updateSubscription(data.user.id, User);
-      history.push('/home');
+      navigate('/home');
     } catch {
       toast({
         type: 'danger',
@@ -161,7 +161,7 @@ export default function Assinatura() {
       };
       const { accessToken } = await UserService.createUser(User);
       localStorage.setItem('accessToken', accessToken);
-      history.push('/home');
+      navigate('/home');
       refetch();
     } catch {
       toast({

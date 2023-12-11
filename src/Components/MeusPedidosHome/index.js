@@ -1,12 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
 import PedidoService from '../../services/PedidoService';
 
 import Loader from '../Loader';
-
-import history from '../../history';
 
 import {
   Container, HeaderCardPedidos, CardsContainerPedidos, CardPedidos,
@@ -20,6 +19,7 @@ export default function MeusPedidosHome() {
   const { data } = useContext(Context);
   const [pedidos, setPedidos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -41,7 +41,7 @@ export default function MeusPedidosHome() {
       <Loader isLoading={isLoading} />
       <HeaderCardPedidos>
         <h1>Meus Pedidos:</h1>
-        <Button onClick={() => history.push(`/todospedidos/${data.user.id}`)}>Ver todos</Button>
+        <Button onClick={() => navigate(`/todospedidos/${data.user.id}`)}>Ver todos</Button>
       </HeaderCardPedidos>
       {pedidos.length > 0 ? (
         <CardsContainerPedidos>

@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Card } from './style';
 
 import Button from '../../button';
-
-import history from '../../history';
 
 const petshops = [
   {
@@ -90,6 +89,8 @@ const petshops = [
 ];
 
 export default function PetshopsList({ zoneSelected, establishmentSelected }) {
+  const navigate = useNavigate();
+
   if (establishmentSelected === 'desmarcado') {
     return null;
   }
@@ -105,7 +106,7 @@ export default function PetshopsList({ zoneSelected, establishmentSelected }) {
   const pets = petshops.filter((pet) => pet.zona === zoneSelected);
 
   function handleBanho(petshopName) {
-    history.push(`/banho/${petshopName}`);
+    navigate(`/banho/${petshopName}`);
   }
 
   return (

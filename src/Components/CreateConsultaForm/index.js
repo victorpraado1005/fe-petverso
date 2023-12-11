@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -11,8 +11,6 @@ import ConsultaService from '../../services/ConsultaService';
 import AnimalsService from '../../services/AnimalsService';
 
 import useErrors from '../../hooks/useErros';
-
-import history from '../../history';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -35,6 +33,7 @@ export default function VaccineForm() {
   const { clinica } = useParams();
   const { data } = useContext(Context);
   const [animalId, setAnimalId] = useState('');
+  const navigate = useNavigate();
 
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
@@ -91,7 +90,7 @@ export default function VaccineForm() {
         users_id: data.user.id,
       };
       await ConsultaService.createConsulta(consultaData);
-      history.push('/porperto');
+      navigate('/porperto');
     } catch {
       toast({
         type: 'danger',

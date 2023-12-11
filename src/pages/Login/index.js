@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Content, ButtonArea } from './style';
 import useErrors from '../../hooks/useErros';
@@ -15,10 +16,9 @@ import Loader from '../../Components/Loader';
 import ToastContainer from '../../Components/Toast/ToastContainer';
 import toast from '../../utils/toast';
 
-import history from '../../history';
-
 export default function Login() {
   const { login } = useContext(Context);
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -102,7 +102,7 @@ export default function Login() {
             />
           </FormGroup>
           <ButtonArea>
-            <Button type="submit" onClick={() => history.push('/assinatura')}>Criar Conta</Button>
+            <Button type="submit" onClick={() => navigate('/assinatura')}>Criar Conta</Button>
             <Button type="submit" className="button-login" onClick={handleLogin}>Acessar</Button>
           </ButtonArea>
         </Content>

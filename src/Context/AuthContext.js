@@ -1,17 +1,17 @@
 import { createContext, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 import UserService from '../services/UserService';
 
 import Loader from '../Components/Loader';
-
-import history from '../history';
 
 const Context = createContext();
 
 function AuthProvider({ children }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [isLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
     localStorage.setItem('accessToken', accessToken);
     refetch();
     setAuthenticated(true);
-    history.push('/home');
+    navigate('/home');
 
     throw new Error(`${response.status} = ${response.statusText}`);
   }
@@ -53,7 +53,7 @@ function AuthProvider({ children }) {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem('accessToken');
-    history.push('/');
+    navigate('/');
   }
 
   return (

@@ -1,5 +1,7 @@
 import { Container } from './style';
 
+import { ContainerContent, ContainerInfoContent } from '../Home/style';
+
 import Header from '../../Components/Header';
 import AnimalList from '../../Components/AnimalsList';
 import Footer from '../../Components/Footer';
@@ -7,11 +9,15 @@ import Footer from '../../Components/Footer';
 export default function Animal() {
   return (
     <>
-      <Header />
       <Container>
-        <AnimalList />
+        <Header />
+        <ContainerContent>
+          <Footer />
+          <ContainerInfoContent>
+            <AnimalList />
+          </ContainerInfoContent>
+        </ContainerContent>
       </Container>
-      <Footer />
     </>
   );
 }

@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { Container, FormArea, ButtonArea } from './style';
 
 import VaccineService from '../../services/VaccineService';
 
 import useErrors from '../../hooks/useErros';
-
-import history from '../../history';
 
 import FormGroup from '../FormGroup';
 import Input from '../../input';
@@ -23,6 +21,7 @@ export default function VaccineForm() {
   const [applicationDate, setApplicationDate] = useState('');
   const [nextApplicationDate, setNextApplicationDate] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
@@ -63,7 +62,7 @@ export default function VaccineForm() {
         animal_id: id,
       };
       await VaccineService.createVaccine(vaccineData);
-      history.push(`/vacinas/${id}`);
+      navigate(`/vacinas/${id}`);
     } catch {
       toast({
         type: 'danger',

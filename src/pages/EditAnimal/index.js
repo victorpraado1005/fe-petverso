@@ -1,12 +1,11 @@
 import {
   useEffect, useState, useRef, useContext,
 } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
 import AnimalsService from '../../services/AnimalsService';
-import history from '../../history';
 
 import { Container } from './style';
 
@@ -23,6 +22,7 @@ export default function EditAnimal() {
   const [animalName, setAnimalName] = useState('');
   const animalFormRef = useRef(null);
   const { data } = useContext(Context);
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function EditAnimal() {
         setAnimalName(animalData.name);
       } catch (error) {
         console.log(error);
-        history.push('/home');
+        navigate('/home');
       }
     }
 
@@ -59,7 +59,7 @@ export default function EditAnimal() {
 
       setAnimalName(animalData.name);
 
-      history.push('/animals');
+      navigate('/animals');
     } catch {
       toast({
         type: 'danger',

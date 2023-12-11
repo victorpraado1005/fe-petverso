@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -9,11 +10,11 @@ import Button from '../../button';
 import logo from '../../assets/images/logoOficial.svg';
 import menuBurguer from '../../assets/images/menu_burguer.svg';
 import ModalNavBar from '../ModalNavBar';
-import history from '../../history';
 
 export default function NewFooterMenu() {
   const { handleLogout } = useContext(Context);
   const [isModalNavBarVisible, setIsModalNavBarVisible] = useState(false);
+  const navigate = useNavigate();
 
   function handleOpenModalNavBar() {
     setIsModalNavBarVisible(true);
@@ -21,7 +22,7 @@ export default function NewFooterMenu() {
 
   function handleCloseModalNavBar() {
     setIsModalNavBarVisible(false);
-    history.push('/home');
+    navigate('/home');
   }
 
   return (

@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import MedicationService from '../../services/MedicationService';
-
-import history from '../../history';
 
 import { Container, FormArea, ButtonArea } from './style';
 
@@ -24,6 +22,7 @@ export default function VaccineForm() {
   const [endDate, setEndDate] = useState('');
   const [repetition, setRepetition] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const {
     setError, removeAllErrors, getErrorMessageByFieldName,
@@ -68,7 +67,7 @@ export default function VaccineForm() {
       };
 
       await MedicationService.createMedication(medicationData);
-      history.push(`/medicamentos/${id}`);
+      navigate(`/medicamentos/${id}`);
     } catch {
       toast({
         type: 'danger',
