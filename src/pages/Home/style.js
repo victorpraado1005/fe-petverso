@@ -28,6 +28,7 @@ export const ContainerInfoContent = styled.div`
   justify-content: center;
   align-items: start;
   gap: 32px;
+  padding-bottom: 64px;
 
   @media screen and (min-width: 1024px){
     justify-content: start;
