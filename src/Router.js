@@ -23,6 +23,7 @@ import Pedidos from './pages/Pedidos';
 import Assinatura from './pages/Assinatura';
 import TodosPedidos from './pages/TodosPedidos';
 import Agendamentos from './pages/Agendamentos';
+import PageNotFound from './pages/PageNotFound';
 import Teste from './pages/Teste';
 
 export default function Router() {
@@ -56,6 +57,8 @@ export default function Router() {
           <Route path="/teste" element={<Teste />} />
         </Route>
       </Route>
+
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
