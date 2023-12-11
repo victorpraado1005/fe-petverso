@@ -22,7 +22,31 @@ export default function NewFooterMenu() {
 
   function handleCloseModalNavBar() {
     setIsModalNavBarVisible(false);
+  }
+
+  function handleClickHome() {
+    setIsModalNavBarVisible(false);
     navigate('/');
+  }
+
+  function handleClickAnimals() {
+    setIsModalNavBarVisible(false);
+    navigate('/animals');
+  }
+
+  function handleClickLocation() {
+    setIsModalNavBarVisible(false);
+    navigate('/porperto');
+  }
+
+  function handleClickPetShops() {
+    setIsModalNavBarVisible(false);
+    navigate('/lojas');
+  }
+
+  function handleClickAccount() {
+    setIsModalNavBarVisible(false);
+    navigate('/meuperfil');
   }
 
   return (
@@ -30,6 +54,11 @@ export default function NewFooterMenu() {
       <ModalNavBar
         visible={isModalNavBarVisible}
         onClose={handleCloseModalNavBar}
+        onClickHome={handleClickHome}
+        onClickAnimals={handleClickAnimals}
+        onClickLocation={handleClickLocation}
+        onClickPetShops={handleClickPetShops}
+        onClickAccount={handleClickAccount}
       />
       <Container>
         <img src={logo} alt="Logo PetVerso" height={55} width={120} />

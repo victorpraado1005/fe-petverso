@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -14,9 +13,11 @@ import logout from '../../assets/images/logoutRight.svg';
 
 import Button from '../../button';
 
-export default function ModalNavBar({ visible, onClose }) {
+export default function ModalNavBar({
+  visible, onClose, onClickHome, onClickAnimals,
+  onClickLocation, onClickPetShops, onClickAccount,
+}) {
   const { handleLogout } = useContext(Context);
-  const navigate = useNavigate();
 
   if (!visible) {
     return null;
@@ -31,11 +32,11 @@ export default function ModalNavBar({ visible, onClose }) {
           </button>
         </CloseModalArea>
         <ButtonArea>
-          <Button type="button" onClick={onClose}>Home</Button>
-          <Button type="button" onClick={() => navigate('/animals')}>Animais</Button>
-          <Button type="button" onClick={() => navigate('/porperto')}>Por perto</Button>
-          <Button type="button" onClick={() => navigate('/lojas')}>PetShop`s</Button>
-          <Button type="button" onClick={() => navigate('/meuperfil')}>Conta</Button>
+          <Button type="button" onClick={onClickHome}>Home</Button>
+          <Button type="button" onClick={onClickAnimals}>Animais</Button>
+          <Button type="button" onClick={onClickLocation}>Por perto</Button>
+          <Button type="button" onClick={onClickPetShops}>PetShop`s</Button>
+          <Button type="button" onClick={onClickAccount}>Conta</Button>
         </ButtonArea>
         <ButtonsFooter>
           <Button type="button"><a href="https://site-petverso.vercel.app/#contato" target="_blank" rel="noreferrer">Contato</a></Button>
