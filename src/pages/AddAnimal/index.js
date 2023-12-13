@@ -9,9 +9,7 @@ import AnimalsService from '../../services/AnimalsService';
 
 import ToastContainer from '../../Components/Toast/ToastContainer';
 
-import Header from '../../Components/Header';
 import AnimalForm from '../../Components/AnimalForm';
-import Footer from '../../Components/Footer';
 import toast from '../../utils/toast';
 
 export default function AddAnimal() {
@@ -47,14 +45,12 @@ export default function AddAnimal() {
   return (
     <Container>
       <ToastContainer />
-      <Header />
       <AnimalForm
         ref={animalFormsRef}
         titleLabel="Criar Animal"
         buttonLabel="Criar Animal"
         onSubmit={handleSubmit}
       />
-      <Footer />
     </Container>
   );
 }

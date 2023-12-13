@@ -33,11 +33,9 @@ export const TitleContainer = styled.div`
       font-size: 10px;
     }
 
-    :hover{
-      button {
+    button:hover{
         width: 140px;
         height: 40px;
-      }
     }
 
     @media screen and (min-width: 744px) {
@@ -47,6 +45,17 @@ export const TitleContainer = styled.div`
 
       button{
         width: 110px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      h1{
+        font-size: 24px;
+      }
+
+      button{
+        width: 120px;
+        font-size: 12px;
       }
     }
 `;
