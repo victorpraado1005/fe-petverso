@@ -21,6 +21,10 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1024px){
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1060px){
     width: 320px;
   }
 `;
@@ -55,6 +59,10 @@ export const HeaderCard = styled.div`
   @media screen and (min-width: 744px){
     button {
       width: 100px;
+    }
+
+    h1 {
+      font-size: 20px;
     }
   }
 `;

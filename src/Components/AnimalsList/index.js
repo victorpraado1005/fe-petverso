@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -8,11 +8,9 @@ import {
 } from './style';
 
 import trash from '../../assets/images/trash.png';
-import edit from '../../assets/images/edit.png';
+import edit from '../../assets/images/edit.svg';
 
 import Loader from '../Loader';
-
-import history from '../../history';
 
 import Button from '../../button';
 import Modal from '../Modal';
@@ -28,6 +26,8 @@ export default function Animal() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [animalBeingDeleted, setAnimalBeingDeleted] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -75,19 +75,19 @@ export default function Animal() {
   }
 
   function handleVacinas(id) {
-    history.push(`/vacinas/${id}`);
+    navigate(`/vacinas/${id}`);
   }
 
   function handleAgendamentos() {
-    history.push('/agendamentos');
+    navigate('/agendamentos');
   }
 
   function handleMedicamentos(id) {
-    history.push(`/medicamentos/${id}`);
+    navigate(`/medicamentos/${id}`);
   }
 
   function handleEditAnimal(id) {
-    history.push(`/editAnimal/${id}`);
+    navigate(`/editAnimal/${id}`);
   }
 
   return (
@@ -107,12 +107,13 @@ export default function Animal() {
       </Modal>
 
       <TitleContainer>
-        <h1>Meus Animais:</h1>
-        <Button>
-          <Link to="/addAnimal">
-            + Adicionar
-          </Link>
-        </Button>
+        <h1>
+          Meus Animais
+          (
+          {animals.length}
+          )
+        </h1>
+        <Button onClick={() => navigate('/addAnimal')}>+ Adicionar</Button>
       </TitleContainer>
       <GridArea>
         {animals.map((animal) => (

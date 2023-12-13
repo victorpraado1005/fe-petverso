@@ -36,6 +36,7 @@
       "react/jsx-no-useless-fragment": "off",
       "no-console": "off",
       "no-alert": "off",
-      "max-len": "off"
+      "max-len": "off",
+      "jsx-a11y/control-has-associated-label": "off"
     }
 }

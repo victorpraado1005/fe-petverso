@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Card } from './style';
 
 import Button from '../../button';
-
-import history from '../../history';
 
 const clinicas = [
   {
@@ -90,6 +89,8 @@ const clinicas = [
 ];
 
 export default function VeterinariosList({ zoneSelected, establishmentSelected }) {
+  const navigate = useNavigate();
+
   if (establishmentSelected === 'desmarcado') {
     return null;
   }
@@ -105,7 +106,7 @@ export default function VeterinariosList({ zoneSelected, establishmentSelected }
   const clinica = clinicas.filter((pet) => pet.zona === zoneSelected);
 
   function handleConsulta(nameClinica) {
-    history.push(`/addconsulta/${nameClinica}`);
+    navigate(`/addconsulta/${nameClinica}`);
   }
 
   return (

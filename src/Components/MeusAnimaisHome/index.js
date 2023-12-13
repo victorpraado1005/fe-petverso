@@ -1,11 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
 import AnimalsService from '../../services/AnimalsService';
 import Loader from '../Loader';
-
-// import { CardHome } from '../../pages/Home/style';
 
 import {
   Container, HeaderContainer, ListAnimalsContainer, CardAnimalName,
@@ -13,12 +12,11 @@ import {
 
 import Button from '../../button';
 
-import history from '../../history';
-
 export default function MeusAnimaisHome() {
   const { data } = useContext(Context);
   const [animals, setAnimals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -39,7 +37,7 @@ export default function MeusAnimaisHome() {
       <Loader isLoading={isLoading} />
       <HeaderContainer>
         <h1>Meus Animais:</h1>
-        <Button onClick={() => history.push('/animals')}>Ver todos</Button>
+        <Button onClick={() => navigate('/animals')}>Ver todos</Button>
       </HeaderContainer>
       <ListAnimalsContainer>
         {animals.map((animal) => (
@@ -48,7 +46,7 @@ export default function MeusAnimaisHome() {
               {animal.name}
             </h1>
             <div className="btn-edit-animal">
-              <Button onClick={() => history.push(`/editAnimal/${animal.id}`)}>Editar</Button>
+              <Button onClick={() => navigate(`/editAnimal/${animal.id}`)}>Editar</Button>
             </div>
           </CardAnimalName>
         ))}

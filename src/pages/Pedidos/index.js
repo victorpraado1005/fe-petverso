@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -27,11 +27,10 @@ import Footer from '../../Components/Footer';
 import Button from '../../button';
 import Loader from '../../Components/Loader';
 
-import history from '../../history';
-
 export default function Pedidos() {
   const { loja } = useParams();
   const { data } = useContext(Context);
+  const navigate = useNavigate();
   const [userData, setUserData] = useState('');
   const [lojaSelecionada, setLojaSelecionada] = useState(lojas);
   const [produtosLoja, setProdutoLoja] = useState(produtos);
@@ -123,7 +122,7 @@ export default function Pedidos() {
       alert('Não foi possível criar o pedido.');
     } finally {
       setIsLoading(false);
-      history.push('/home');
+      navigate('/');
     }
   }
 
@@ -190,7 +189,7 @@ export default function Pedidos() {
                     {userData.estado}
                   </span>
                 </div>
-                <Button onClick={() => history.push(`/editUser/${userData.id}`)}>Editar</Button>
+                <Button onClick={() => navigate(`/editUser/${userData.id}`)}>Editar</Button>
               </RowInfoAddress>
             ) : (
               <>
@@ -269,7 +268,7 @@ export default function Pedidos() {
             {!userData.assinante ? (
               <RowCupomNaoAssinante>
                 <span>Cupons especiais estão disponíveis apenas para assinantes PetVerso</span>
-                <Button onClick={() => history.push('/assinatura')}>Ver Planos</Button>
+                <Button onClick={() => navigate('/assinatura')}>Ver Planos</Button>
               </RowCupomNaoAssinante>
             ) : (
               null

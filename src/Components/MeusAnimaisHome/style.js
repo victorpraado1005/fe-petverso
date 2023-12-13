@@ -16,8 +16,12 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: 1024px){
-      width: 320px;
+      width: 300px;
       height: 350px;
+    }
+
+    @media screen and (min-width: 1060px){
+      width: 320px;
     }
 `;
 
@@ -78,6 +82,10 @@ export const ListAnimalsContainer = styled.div`
   }
 
   @media screen and (min-width: 1024px){
+    grid-template-columns: 130px 130px;
+  }
+
+  @media screen and (min-width: 1060px){
     grid-template-columns: 145px 145px;
   }
 `;

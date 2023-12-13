@@ -3,13 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: ${({ theme }) => theme.colors.backgroundDark};
   width: 100%;
-  height: 121px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.colors.primary.dark};
-  padding-top: 32px;
   gap: 16px;
 
   .pataIntroEsquerda{

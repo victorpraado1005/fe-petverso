@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Context } from '../../Context/AuthContext';
 
 import UserService from '../../services/UserService';
-import history from '../../history';
 
 import {
   Container, Card, FormArea, ButtonArea,
@@ -26,7 +25,7 @@ import useErrors from '../../hooks/useErros';
 
 export default function EditAnimal() {
   const { refetch } = useContext(Context);
-
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setIsUserData] = useState('');
   const [name, setName] = useState('');
@@ -95,7 +94,7 @@ export default function EditAnimal() {
 
       await UserService.updateUser(id, User);
       refetch();
-      history.push('/meuperfil');
+      navigate('/meuperfil');
     } catch {
       toast({
         type: 'danger',

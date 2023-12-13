@@ -1,25 +1,54 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 64px;
+  padding-top: 48px;
+  /* gap: 64px; */
+`;
+
+export const ContainerContent = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 48px;
+
+  @media screen and (min-width: 1024px){
+    padding-top: 0px;
+  }
+`;
+
+export const ContainerInfoContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 32px;
+  padding-bottom: 64px;
+
+  @media screen and (min-width: 1024px){
+    justify-content: start;
+    padding-top: 64px;
+  }
 `;
 
 export const ContainerCardsHome = styled.div`
-  width: 90%;
-  /* border: 1px solid red; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 64px;
+  gap: 48px;
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
     gap: 16px;
-    align-items: start;
+    width: 100%;
+    align-items: center;
   }
 `;

@@ -50,7 +50,7 @@ export default function Agendamentos() {
       <Header />
       <Container>
         <TitleContainer>
-          <Link to="/home">
+          <Link to="/">
             <img
               src={arrowLeft}
               alt="Seta para esquerda"

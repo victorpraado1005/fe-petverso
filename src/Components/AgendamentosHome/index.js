@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -13,12 +14,12 @@ import {
   ContainerSemAgendamentos,
 } from './style';
 import Button from '../../button';
-import history from '../../history';
 
 export default function AgendamentosHome() {
   const { data } = useContext(Context);
   const [banhos, setBanhos] = useState([]);
   const [consultas, setConsultas] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -48,7 +49,7 @@ export default function AgendamentosHome() {
     <Container>
       <HeaderCard>
         <h1>Agendamentos:</h1>
-        <Button onClick={() => history.push('/agendamentos')}>Ver Todos</Button>
+        <Button onClick={() => navigate('/agendamentos')}>Ver Todos</Button>
       </HeaderCard>
       {banhos.length > 0 || consultas.length > 0 ? (
         <ContainerCardsAgendamento>

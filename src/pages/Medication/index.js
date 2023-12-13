@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import {
   TitleContainer, Card, ButtonArea, GridArea,
 } from './style';
 
 import MedicationService from '../../services/MedicationService';
-
-import history from '../../history';
 
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
@@ -25,6 +23,7 @@ export default function Medication() {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [medicationBeingDeleted, setMedicaitonBeingDeleted] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -42,7 +41,7 @@ export default function Medication() {
   }, []);
 
   function handleCreateMedication() {
-    history.push(`/addMedicamento/${id}`);
+    navigate(`/addMedicamento/${id}`);
   }
 
   function handleDeleteMedication(medication) {

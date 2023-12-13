@@ -2,88 +2,119 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    max-width: 1200px;
-    height: 55vh;
     margin: 0 auto;
-
-    h1{
-      text-align: center;
-      color: ${({ theme }) => theme.colors.primary.dark};
-      margin-top: 16px;
-      margin-bottom: 32px;
-      font-size: 24px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
 `;
 
 export const TitleContainer = styled.div`
     width: 100%;
-    max-width: 1200px;
+    height: 70px;
+    background: ${({ theme }) => theme.colors.primary.light};
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0px 60px;
+    align-items: center;
+    justify-content: space-around;
+    color: ${({ theme }) => theme.colors.background};
 
-    a {
-      text-decoration: none;
-      color: ${({ theme }) => theme.colors.background};
-      font-size: 14px;
+    h1{
+      font-size: 16px;
     }
 
     button{
-      background: ${({ theme }) => theme.colors.primary.dark};
+      width: 90px;
       height: 35px;
-      width: 130px;
+      background: ${({ theme }) => theme.colors.primary.dark};
+      color: ${({ theme }) => theme.colors.background};
+      font-size: 10px;
     }
 
-    :hover{
-      button {
+    button:hover{
         width: 140px;
         height: 40px;
+    }
+
+    @media screen and (min-width: 744px) {
+      h1{
+        font-size: 20px;
+      }
+
+      button{
+        width: 110px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      h1{
+        font-size: 24px;
+      }
+
+      button{
+        width: 120px;
+        font-size: 12px;
       }
     }
 `;
 
 export const GridArea = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  place-items: center;
-  /* gap: 20px; */
-  row-gap: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 
   button {
     color: ${({ theme }) => theme.colors.background};
   }
+
+  @media screen and (min-width: 744px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+  }
+
+  @media screen and (min-width: 1200px){
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 `;
 
 export const Card = styled.div`
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  width: 260px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.primary.light};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
     .title-container{
+      width: 100%;
       padding: 12px;
-      border-radius: 12px;
+      border-radius: 12px 12px 0px 0px;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
       text-align: center;
       color: ${({ theme }) => theme.colors.background};
-      font-size: 28px;
+      font-size: 16px;
+      height: 50px;
       font-weight: bold;
-      margin-bottom: 16px;
       background: ${({ theme }) => theme.colors.primary.dark};
     }
 
     .title-button{
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      margin-right: 30px;
-      /* border: 1px solid black; */
 
       button{
         font-size: 12px;
@@ -97,50 +128,45 @@ export const Card = styled.div`
     }
 
     .section-info{
+      width: 100%;
       display: flex;
       flex-direction: column;
+      gap: 16px;
       padding: 12px;
+      margin-bottom: 8px;
     }
 
     .animal-info{
       display: flex;
       flex-direction: row;
+      align-items: center;
       justify-content: space-between;
-      color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.backgroundDark};
+      font-size: 10px;
 
-
-      span{
-       font-size: 16px;
-       margin-bottom: 5px;
+      strong{
+        color: ${({ theme }) => theme.colors.background};
       }
     }
 
     .button-details{
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
+      gap: 8px;
       text-align: center;
-      margin-top: 10px;
-      padding: 12px;
 
       button {
         background-color: ${({ theme }) => theme.colors.primary.dark};
-        width: 120px;
-        height: 30px;
-        font-size: 12px;
+        width: 85px;
+        height: 35px;
+        font-size: 9px;
         transition: 0.3s;
+        padding: 6px;
       }
 
       button:hover{
-        width: 130px;
-        height: 35px;
+        width: 100px;
       }
-    }
-
-    a{
-      text-decoration: none;
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.background};
-      font-size: 10px;
     }
 
     .delete-button{
@@ -152,4 +178,35 @@ export const Card = styled.div`
     }
   }
 
+  @media screen and (min-width: 425px){
+    width: 320px;
+
+    .animal-info{
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 1024px){
+    width: 350px;
+
+    .title-container{
+      font-size: 18px;
+    }
+
+    .animal-info{
+      font-size: 14px;
+    }
+
+    .button-details{
+      button{
+        width: 100px;
+        font-size: 11px;
+        padding: 8px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1230px){
+    width: 375px;
+  }
 `;

@@ -13,9 +13,10 @@ import logout from '../../assets/images/logoutRight.svg';
 
 import Button from '../../button';
 
-import history from '../../history';
-
-export default function ModalNavBar({ visible, onClose }) {
+export default function ModalNavBar({
+  visible, onClose, onClickHome, onClickAnimals,
+  onClickLocation, onClickPetShops, onClickAccount,
+}) {
   const { handleLogout } = useContext(Context);
 
   if (!visible) {
@@ -31,11 +32,11 @@ export default function ModalNavBar({ visible, onClose }) {
           </button>
         </CloseModalArea>
         <ButtonArea>
-          <Button type="button" onClick={onClose}>Home</Button>
-          <Button type="button" onClick={() => history.push('/animals')}>Animais</Button>
-          <Button type="button" onClick={() => history.push('/porperto')}>Por perto</Button>
-          <Button type="button" onClick={() => history.push('/lojas')}>PetShop`s</Button>
-          <Button type="button" onClick={() => history.push('/meuperfil')}>Conta</Button>
+          <Button type="button" onClick={onClickHome}>Home</Button>
+          <Button type="button" onClick={onClickAnimals}>Animais</Button>
+          <Button type="button" onClick={onClickLocation}>Por perto</Button>
+          <Button type="button" onClick={onClickPetShops}>PetShop`s</Button>
+          <Button type="button" onClick={onClickAccount}>Conta</Button>
         </ButtonArea>
         <ButtonsFooter>
           <Button type="button"><a href="https://site-petverso.vercel.app/#contato" target="_blank" rel="noreferrer">Contato</a></Button>
