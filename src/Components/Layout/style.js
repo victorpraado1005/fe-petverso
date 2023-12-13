@@ -15,7 +15,6 @@ export const ContainerContent = styled.div`
 
   justify-content: start;
   align-items: start;
-  padding-top: 48px;
 
   @media screen and (min-width: 1024px){
     padding-top: 0px;

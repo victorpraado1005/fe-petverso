@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Context } from '../../Context/AuthContext';
 
@@ -8,7 +8,7 @@ import {
 } from './style';
 
 import trash from '../../assets/images/trash.png';
-import edit from '../../assets/images/edit.png';
+import edit from '../../assets/images/edit.svg';
 
 import Loader from '../Loader';
 
@@ -107,12 +107,13 @@ export default function Animal() {
       </Modal>
 
       <TitleContainer>
-        <h1>Meus Animais:</h1>
-        <Button>
-          <Link to="/addAnimal">
-            + Adicionar
-          </Link>
-        </Button>
+        <h1>
+          Meus Animais
+          (
+          {animals.length}
+          )
+        </h1>
+        <Button onClick={() => navigate('/addAnimal')}>+ Adicionar</Button>
       </TitleContainer>
       <GridArea>
         {animals.map((animal) => (
