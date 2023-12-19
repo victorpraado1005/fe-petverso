@@ -151,17 +151,15 @@ export const Card = styled.div`
 
     .button-details{
       display: flex;
-      justify-content: space-evenly;
-      gap: 8px;
+      justify-content: space-around;
       text-align: center;
 
       button {
         background-color: ${({ theme }) => theme.colors.primary.dark};
-        width: 85px;
-        height: 35px;
-        font-size: 9px;
+        /* width: 85px; */
+        height: 30px;
+        font-size: 10px;
         transition: 0.3s;
-        padding: 6px;
       }
 
       button:hover{
