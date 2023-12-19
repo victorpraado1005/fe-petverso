@@ -37,7 +37,7 @@ export default function Router() {
 
       <Route element={<AuthGuard isPrivate />}>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/animals" element={<Animal />} />
           <Route path="/editAnimal/:id" element={<EditAnimal />} />
           <Route path="/addAnimal" element={<AddAnimal />} />

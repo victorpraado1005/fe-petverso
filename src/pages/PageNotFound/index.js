@@ -12,7 +12,7 @@ export default function PageNotFound() {
     <Container>
       <h1>Page Not Found</h1>
       <img src={NotFound} alt="" width={400} height={400} />
-      <Button onClick={() => navigate('/')}>Home</Button>
+      <Button onClick={() => navigate('/home')}>Home</Button>
     </Container>
   );
 }

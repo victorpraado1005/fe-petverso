@@ -9,9 +9,7 @@ import AnimalsService from '../../services/AnimalsService';
 
 import { Container } from './style';
 
-import Header from '../../Components/Header/index';
 import AnimalForm from '../../Components/AnimalForm';
-import Footer from '../../Components/Footer/index';
 import Loader from '../../Components/Loader';
 
 import ToastContainer from '../../Components/Toast/ToastContainer';
@@ -35,7 +33,7 @@ export default function EditAnimal() {
         setAnimalName(animalData.name);
       } catch (error) {
         console.log(error);
-        navigate('/');
+        navigate('/home');
       }
     }
 
@@ -72,7 +70,6 @@ export default function EditAnimal() {
     <>
       <Loader isLoading={isLoading} />
       <ToastContainer />
-      <Header />
       <Container>
         <AnimalForm
           ref={animalFormRef}
@@ -81,7 +78,6 @@ export default function EditAnimal() {
           onSubmit={handleSubmit}
         />
       </Container>
-      <Footer />
     </>
   );
 }

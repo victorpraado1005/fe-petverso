@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
     localStorage.setItem('accessToken', accessToken);
     refetch();
     setAuthenticated(true);
-    navigate('/');
+    navigate('/home');
 
     throw new Error(`${response.status} = ${response.statusText}`);
   }

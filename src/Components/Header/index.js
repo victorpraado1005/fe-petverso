@@ -26,7 +26,7 @@ export default function NewFooterMenu() {
 
   function handleClickHome() {
     setIsModalNavBarVisible(false);
-    navigate('/');
+    navigate('/home');
   }
 
   function handleClickAnimals() {
