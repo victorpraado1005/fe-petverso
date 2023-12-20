@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 import UserService from '../services/UserService';
@@ -20,12 +20,25 @@ function AuthProvider({ children }) {
     }
   }, []);
 
-  const { data, isFetching, refetch } = useQuery({
+  const {
+    data, isFetching, refetch, failureReason, isError,
+  } = useQuery({
     queryKey: 'users/me',
     queryFn: () => UserService.me(),
     retry: false,
     refetchOnWindowFocus: false,
   });
+
+  if (isError) {
+    const { message } = failureReason;
+
+    if (message === 'Failed to fetch') {
+      setTimeout(() => refetch(), 3000);
+      return (
+        <Loader isLoading={isLoading} />
+      );
+    }
+  }
 
   if (isFetching) {
     return (
