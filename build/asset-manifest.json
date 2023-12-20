@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/static/js/main.fa2bb315.js",
+    "static/media/petz_logo.jpg": "/static/media/petz_logo.8c10b1b4d3ff3d699808.jpg",
+    "static/media/location.svg": "/static/media/location.73491f7ce29aa1e5c8e4ff0faefafb76.svg",
+    "static/media/conta.svg": "/static/media/conta.a00b2480bb0ad961916aecdfb601aeb2.svg",
+    "static/media/404.svg": "/static/media/404.a4cf1419a4ec63e8bbaf00f7db0a828c.svg",
+    "static/media/bag.svg": "/static/media/bag.ea6bac28b285bdc7058fe57173a2c4e8.svg",
+    "static/media/home.svg": "/static/media/home.b4fcbcb0e60deaf05aa9deb15178c5bd.svg",
+    "static/media/logoOficial.svg": "/static/media/logoOficial.d7418b8313d3da260842f506d047caa6.svg",
+    "static/media/cobasi_logo.png": "/static/media/cobasi_logo.b00a023afbbb6da7eaea.png",
+    "static/media/edit.svg": "/static/media/edit.855cd32d8d98c66bd9002a55a4e58bae.svg",
+    "static/media/icon_pata.svg": "/static/media/icon_pata.b58fd0bed3c066d9dec29bc13132d32a.svg",
+    "static/media/pataIntroEsquerda.svg": "/static/media/pataIntroEsquerda.4f25aaf0140c069cbf8232b0b33184a2.svg",
+    "static/media/pataIntro.svg": "/static/media/pataIntro.f2c0469122403fe5f8e6d9c7329c0ddc.svg",
+    "index.html": "/index.html",
+    "static/media/check-circle.svg": "/static/media/check-circle.72f4513bcc8d7fa298b9ad8a6bf3c7f5.svg",
+    "static/media/x-circle.svg": "/static/media/x-circle.682182be590da10d4fa64be92f253acf.svg",
+    "static/media/logoutRight.svg": "/static/media/logoutRight.07d489472e800a2466206f5f26ffaf44.svg",
+    "static/media/menu_burguer.svg": "/static/media/menu_burguer.ecf4f933275fe405d83402dd554793a2.svg",
+    "static/media/btnSair.svg": "/static/media/btnSair.1f76e335a17eefa4437d0d2e2934d709.svg",
+    "static/media/close.svg": "/static/media/close.7cb5dcfb9c0529d9a9790714ccdf8a35.svg",
+    "main.fa2bb315.js.map": "/static/js/main.fa2bb315.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.fa2bb315.js"
+  ]
+}
