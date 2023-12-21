@@ -66,7 +66,7 @@ function AuthProvider({ children }) {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem('accessToken');
-    navigate('/auth');
+    navigate('/');
   }
 
   return (
