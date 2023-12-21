@@ -31,7 +31,7 @@ export default function Router() {
     <Routes>
 
       <Route element={<AuthGuard isPrivate={false} />}>
-        <Route path="/auth" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/assinatura" element={<Assinatura />} />
       </Route>
 

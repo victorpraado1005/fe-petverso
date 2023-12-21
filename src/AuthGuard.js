@@ -7,7 +7,7 @@ export function AuthGuard({ isPrivate }) {
   const { authenticated } = useContext(Context);
 
   if (!authenticated && isPrivate) {
-    return <Navigate to="/auth" replace />;
+    return <Navigate to="/" replace />;
   }
 
   if (authenticated && !isPrivate) {
